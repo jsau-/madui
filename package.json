@@ -12,7 +12,6 @@
     "build": "npm run prebuild && npm run build:types && npm run build:js",
     "lint": "eslint --ext .ts --ext .tsx src --color",
     "lint:fix": "eslint --ext .ts --ext .tsx src --color --fix",
-    "precommit-message": "echo Executing pre-commit checks... && exit 0",
     "postinstall": "rm -rf node_modules/@types/react-native",
     "test": "jest"
   },
@@ -59,7 +58,6 @@
     "eslint-plugin-react": "7.19.0",
     "jest": "24.9.0",
     "jest-html-reporter": "2.8.0",
-    "pre-commit": "1.2.2",
     "prettier": "1.19.1",
     "prop-types": "15.7.2",
     "react": "16.9.0",
@@ -74,10 +72,5 @@
     "prop-types": "^15.7.2",
     "react": "^16.9.0"
   },
-  "pre-commit": [
-    "precommit-message",
-    "lint",
-    "build"
-  ],
   "dependencies": {}
 }
