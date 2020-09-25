@@ -21,6 +21,7 @@
     "noUnusedParameters": true,
     "outDir": "./build",
     "strict": true,
+    "strictBindCallApply": true,
     "strictNullChecks": true,
     "target": "es5"
   },
