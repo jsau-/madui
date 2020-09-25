@@ -1,0 +1,93 @@
+{
+  "name": "madui",
+  "version": "0.0.1",
+  "description": "madUI library",
+  "main": "index.js",
+  "scripts": {
+    "build-storybook": "build-storybook",
+    "check:types": "tsc --noEmit",
+    "doc": "del-cli \"./docs/**/*\" && typedoc",
+    "prebuild": "npm run doc && del-cli \"./build/**/*\"",
+    "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",
+    "build:js": "babel src --out-dir build --extensions \".ts,.tsx\" --ignore \"src/**/*.unit.test.ts\",\"src/**/*.unit.test.tsx\",\"src/**/*.stories.tsx\"",
+    "build": "npm run prebuild && npm run build:types && npm run build:js",
+    "lint": "./node_modules/.bin/eslint \"./src/**/*.ts\" \"./src/**/*.tsx\" --color",
+    "lint:fix": "./node_modules/.bin/eslint \"./src/**/*.ts\" \"./src/**/*.tsx\" --color --fix",
+    "precommit-message": "echo Executing pre-commit checks... && exit 0",
+    "postinstall": "rm -rf node_modules/@types/react-native",
+    "storybook": "start-storybook",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsau-/madui.git"
+  },
+  "keywords": [
+    "react",
+    "libary"
+  ],
+  "author": "Jon Saunders",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/jsau-/madui/issues"
+  },
+  "homepage": "https://github.com/jsau-/madui#readme",
+  "devDependencies": {
+    "@babel/cli": "7.4.4",
+    "@babel/core": "7.4.5",
+    "@babel/plugin-proposal-class-properties": "7.4.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "7.7.4",
+    "@babel/plugin-proposal-numeric-separator": "7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.7.7",
+    "@babel/preset-env": "7.4.5",
+    "@babel/preset-typescript": "7.7.7",
+    "@storybook/addon-actions": "5.3.14",
+    "@storybook/addon-console": "1.2.1",
+    "@storybook/addon-info": "5.3.14",
+    "@storybook/addon-knobs": "5.3.14",
+    "@storybook/addon-links": "5.3.14",
+    "@storybook/addon-viewport": "5.3.14",
+    "@storybook/addons": "5.3.14",
+    "@storybook/react": "5.3.14",
+    "@testing-library/jest-dom": "5.0.2",
+    "@testing-library/react": "9.5.0",
+    "@types/jest": "24.0.25",
+    "@types/node": "13.9.0",
+    "@types/react": "16.9.23",
+    "@types/react-dom": "16.9.5",
+    "@typescript-eslint/eslint-plugin": "2.14.0",
+    "@typescript-eslint/parser": "2.14.0",
+    "awesome-typescript-loader": "5.2.1",
+    "babel-eslint": "10.0.3",
+    "babel-jest": "24.9.0",
+    "babel-loader": "^8.0.6",
+    "cross-env": "5.2.0",
+    "del-cli": "2.0.0",
+    "eslint": "6.6.0",
+    "eslint-config-prettier": "5.0.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-react": "7.19.0",
+    "jest": "24.9.0",
+    "jest-html-reporter": "2.8.0",
+    "pre-commit": "1.2.2",
+    "prettier": "1.19.1",
+    "prop-types": "15.7.2",
+    "react": "16.9.0",
+    "react-docgen-typescript-loader": "3.7.0",
+    "react-docgen-typescript-webpack-plugin": "1.1.0",
+    "react-test-renderer": "16.9.0",
+    "ts-jest": "24.2.0",
+    "typedoc": "0.15.6",
+    "typescript": "3.7.4"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0"
+  },
+  "pre-commit": [
+    "precommit-message",
+    "lint",
+    "build"
+  ],
+  "dependencies": {}
+}
