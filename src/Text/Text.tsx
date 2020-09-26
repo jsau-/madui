@@ -35,7 +35,7 @@ export const Text: React.FunctionComponent<TextProps> = (props: TextProps) => {
         classes[variant],
         props?.classes?.root,
         props?.classes?.variant,
-        props?.className
+        props?.className,
       )}
     >
       {props.children}
