@@ -1,9 +1,9 @@
 import { makeStyles } from '../makeStyles';
 import { Theme } from '../Theme';
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    color: ({ theme }: { theme: Theme }): string => theme.text.color,
-    fontFamily: ({ theme }: { theme: Theme }): string => theme.text.fontFamily,
+    color: theme.text.color,
+    fontFamily: theme.text.fontFamily,
   },
-});
+}));

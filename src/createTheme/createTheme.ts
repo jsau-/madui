@@ -1,10 +1,7 @@
 import defaultsDeep from 'lodash/defaultsDeep';
 import { defaultTheme } from '../defaultTheme';
+import { RecursivePartial } from '../RecursivePartial';
 import { Theme } from '../Theme';
-
-type RecursivePartial<T> = {
-  [P in keyof T]?: RecursivePartial<T[P]>;
-};
 
 export const createTheme = <T extends RecursivePartial<Theme>>(
   theme?: T,

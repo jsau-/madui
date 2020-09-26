@@ -2,15 +2,18 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { ThemeProvider } from '.';
 import { createTheme } from '../createTheme';
+import { Theme } from '../Theme';
 import { useTheme } from '../useTheme';
 
-const exampleTheme = createTheme({
+type ExampleTheme = Theme & { foo: string };
+
+const exampleTheme: ExampleTheme = createTheme({
   foo: 'bar',
 });
 
 const TestComponent = () => {
-  const theme = useTheme();
-  return <p>{JSON.stringify(theme)}</p>;
+  const theme: ExampleTheme = useTheme();
+  return <p>{theme.foo}</p>;
 };
 
 describe('<ThemeProvider />', () => {
@@ -21,6 +24,6 @@ describe('<ThemeProvider />', () => {
       </ThemeProvider>
     );
 
-    expect(getByText(JSON.stringify(exampleTheme))).toBeTruthy();
+    expect(getByText(exampleTheme.foo)).toBeTruthy();
   });
 });
