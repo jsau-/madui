@@ -49,4 +49,17 @@ describe('<Text />', () => {
     const element = getByText(testContent);
     expect(element.tagName.toLowerCase()).toBe('p');
   });
+
+  it('Uses provided class names', () => {
+    const { getByText } = render(
+      <Text classes={{ root: 'custom_classes'}} className="custom_classname">
+        {testContent}
+      </Text>
+    );
+
+    const element = getByText(testContent);
+
+    expect(element.classList.contains('custom_classes')).toBe(true);
+    expect(element.classList.contains('custom_classname')).toBe(true);
+  });
 });

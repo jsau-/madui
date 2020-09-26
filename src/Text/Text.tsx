@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React from 'react';
 import { useStyles } from './Text.styles';
 import { useTheme } from '../useTheme';
@@ -14,6 +15,8 @@ const textVariantToWrapper: TextVariantMap<keyof JSX.IntrinsicElements> = {
 };
 
 export interface TextProps {
+  classes?: Record<string, string>;
+  className?: string;
   children?: React.ReactNode;
   variant?: TextVariant;
 }
@@ -23,5 +26,12 @@ export const Text: React.FunctionComponent<TextProps> = (props: TextProps) => {
   const classes = useStyles({ ...props, theme });
 
   const WrapperNode = props.variant ? textVariantToWrapper[props.variant] : 'p';
-  return <WrapperNode className={classes.root}>{props.children}</WrapperNode>;
+
+  return (
+    <WrapperNode
+      className={clsx(classes.root, props?.classes?.root, props?.className)}
+    >
+      {props.children}
+    </WrapperNode>
+  );
 };

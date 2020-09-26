@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { useTheme } from '.';
 import { createTheme } from '../createTheme';
-import { Theme } from '../Theme';
+import { Theme } from '../types/Theme';
 import { ThemeProvider } from '../ThemeProvider';
 
 type ExampleTheme = Theme & { foo: string };
