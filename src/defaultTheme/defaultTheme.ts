@@ -1,4 +1,4 @@
-import { Theme } from '../Theme/Theme';
+import { Theme } from '../types/Theme/Theme';
 
 export const defaultTheme: Theme = {
   palette: {

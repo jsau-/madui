@@ -1,5 +1,5 @@
 import { makeStyles } from '../makeStyles';
-import { Theme } from '../Theme';
+import { Theme } from '../types/Theme';
 
 export const useStyles = makeStyles((theme: Theme) => ({
   root: {
