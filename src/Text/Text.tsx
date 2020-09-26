@@ -1,9 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 import { useStyles } from './Text.styles';
-import { useTheme } from '../useTheme';
-
-type TextVariant = 'heading' | 'subheading' | 'body' | 'caption';
+import { TextVariant } from '../types/TextVariant';
 
 type TextVariantMap<T> = { [variant in TextVariant]: T };
 
@@ -18,12 +16,12 @@ export interface TextProps {
   classes?: Record<string, string>;
   className?: string;
   children?: React.ReactNode;
+  inheritColor?: boolean;
   variant?: TextVariant;
 }
 
 export const Text: React.FunctionComponent<TextProps> = (props: TextProps) => {
-  const theme = useTheme();
-  const classes = useStyles({ ...props, theme });
+  const classes = useStyles();
 
   const variant = props.variant || 'body';
 
@@ -33,6 +31,7 @@ export const Text: React.FunctionComponent<TextProps> = (props: TextProps) => {
     <WrapperNode
       className={clsx(
         classes.root,
+        props.inheritColor ? classes.inheritColor : classes.defaultColor,
         classes[variant],
         props?.classes?.root,
         props?.classes?.variant,

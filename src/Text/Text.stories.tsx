@@ -32,3 +32,9 @@ Caption.args = {
   children: 'My sample text.',
   variant: 'caption',
 };
+
+export const InheritColor = Template.bind({});
+InheritColor.args = {
+  children: 'My sample text.',
+  inheritColor: true,
+};

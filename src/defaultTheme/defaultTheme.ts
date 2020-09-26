@@ -4,11 +4,15 @@ export const defaultTheme: Theme = {
   palette: {
     primary: {
       constrast: '#FFFFFF',
-      main: '#054A91',
+      dark: '#023E8A',
+      light: '#00B4D8',
+      main: '#0096C7',
     },
     secondary: {
       constrast: '#FFFFFF',
-      main: '#F17300',
+      dark: '#F25C54',
+      light: '#F7B267',
+      main: '#F4845F',
     },
   },
   text: {

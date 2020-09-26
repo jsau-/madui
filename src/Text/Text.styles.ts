@@ -8,11 +8,16 @@ export const useStyles = makeStyles((theme: Theme) => ({
   caption: {
     fontSize: theme.text.caption.fontSize,
   },
+  defaultColor: {
+    color: theme.text.color,
+  },
   heading: {
     fontSize: theme.text.heading.fontSize,
   },
+  inheritColor: {
+    color: 'inherit',
+  },
   root: {
-    color: theme.text.color,
     fontFamily: theme.text.fontFamily,
   },
   subheading: {
