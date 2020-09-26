@@ -17,14 +17,16 @@ export const Link: React.FunctionComponent<LinkProps> = (props: LinkProps) => {
 
   const { color, ...otherProps } = props;
 
+  const colorWithDefault: Color = color || 'primary';
+
   return (
     <a
       {...otherProps}
       className={clsx(
         classes.root,
-        classes[color || 'primary'],
+        classes[colorWithDefault],
         props?.classes?.root,
-        props?.classes?.color,
+        props?.classes?.[colorWithDefault],
         props?.className,
       )}
     >
