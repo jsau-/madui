@@ -25,11 +25,19 @@ export const Text: React.FunctionComponent<TextProps> = (props: TextProps) => {
   const theme = useTheme();
   const classes = useStyles({ ...props, theme });
 
-  const WrapperNode = props.variant ? textVariantToWrapper[props.variant] : 'p';
+  const variant = props.variant || 'body';
+
+  const WrapperNode = textVariantToWrapper[variant];
 
   return (
     <WrapperNode
-      className={clsx(classes.root, props?.classes?.root, props?.className)}
+      className={clsx(
+        classes.root,
+        classes[variant],
+        props?.classes?.root,
+        props?.classes?.variant,
+        props?.className
+      )}
     >
       {props.children}
     </WrapperNode>

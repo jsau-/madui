@@ -12,7 +12,19 @@ export const defaultTheme: Theme = {
     },
   },
   text: {
+    body: {
+      fontSize: 16,
+    },
+    caption: {
+      fontSize: 10,
+    },
     color: '#1D1E2C',
     fontFamily: 'Epilogue, Roboto, sans-serif',
+    heading: {
+      fontSize: 48,
+    },
+    subheading: {
+      fontSize: 32,
+    },
   },
 };
