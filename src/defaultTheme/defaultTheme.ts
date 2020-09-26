@@ -3,12 +3,12 @@ import { Theme } from '../types/Theme/Theme';
 export const defaultTheme: Theme = {
   palette: {
     primary: {
-      constrast: 'white',
-      main: 'black',
+      constrast: '#FFFFFF',
+      main: '#054A91',
     },
     secondary: {
-      constrast: 'black',
-      main: 'white',
+      constrast: '#FFFFFF',
+      main: '#F17300',
     },
   },
   text: {
