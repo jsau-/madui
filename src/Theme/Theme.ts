@@ -13,6 +13,7 @@ export interface Theme extends ThemeRecord {
     secondary: PaletteColor;
   };
   text: {
+    color: string;
     fontFamily: string;
   };
 }

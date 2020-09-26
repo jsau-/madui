@@ -12,6 +12,7 @@ export const defaultTheme: Theme = {
     },
   },
   text: {
+    color: '#1D1E2C',
     fontFamily: 'Epilogue, Roboto, sans-serif',
   },
 };
