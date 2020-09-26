@@ -1,5 +1,3 @@
-import { useContext } from 'react';
-import { Theme } from '../Theme';
-import { ThemeContext } from '../ThemeProvider/ThemeContext';
+import { theming } from '../util/theming';
 
-export const useTheme = (): Theme => useContext(ThemeContext);
+export const useTheme = theming.useTheme;

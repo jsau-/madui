@@ -1,4 +1,6 @@
 import React from 'react';
+import { useStyles } from './Text.styles';
+import { useTheme } from '../useTheme';
 
 /**
  * Available text variant options.
@@ -23,10 +25,9 @@ export interface TextProps {
 }
 
 export const Text: React.FunctionComponent<TextProps> = (props: TextProps) => {
+  const theme = useTheme();
+  const classes = useStyles({ ...props, theme });
+
   const WrapperNode = props.variant ? textVariantToWrapper[props.variant] : 'p';
-  return (
-    <WrapperNode style={{ fontFamily: 'Epilogue, Roboto, Sans-Serif' }}>
-      {props.children}
-    </WrapperNode>
-  );
+  return <WrapperNode className={classes.root}>{props.children}</WrapperNode>;
 };

@@ -10,7 +10,7 @@ const exampleTheme = createTheme({
 
 const TestComponent = () => {
   const theme = useTheme();
-  return <p>{theme.foo}</p>;
+  return <p>{JSON.stringify(theme)}</p>;
 };
 
 describe('<ThemeProvider />', () => {
@@ -21,6 +21,6 @@ describe('<ThemeProvider />', () => {
       </ThemeProvider>
     );
 
-    expect(getByText(exampleTheme.foo)).toBeTruthy();
+    expect(getByText(JSON.stringify(exampleTheme))).toBeTruthy();
   });
 });

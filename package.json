@@ -39,11 +39,11 @@
     "@babel/plugin-proposal-object-rest-spread": "7.7.7",
     "@babel/preset-env": "7.4.5",
     "@babel/preset-typescript": "7.7.7",
-    "@storybook/addon-actions": "^6.0.21",
-    "@storybook/addon-essentials": "^6.0.21",
-    "@storybook/addon-links": "^6.0.21",
+    "@storybook/addon-actions": "6.0.21",
+    "@storybook/addon-essentials": "6.0.21",
+    "@storybook/addon-links": "6.0.21",
     "@storybook/preset-typescript": "3.0.0",
-    "@storybook/react": "^6.0.21",
+    "@storybook/react": "6.0.21",
     "@testing-library/jest-dom": "5.0.2",
     "@testing-library/react": "9.5.0",
     "@types/jest": "24.0.25",
@@ -73,7 +73,7 @@
     "react-docgen-typescript-loader": "3.7.0",
     "react-docgen-typescript-webpack-plugin": "1.1.0",
     "react-dom": "16.9.0",
-    "react-is": "^16.13.1",
+    "react-jss": "10.4.0",
     "react-test-renderer": "16.9.0",
     "ts-jest": "24.2.0",
     "typedoc": "0.15.6",
@@ -82,7 +82,8 @@
   "peerDependencies": {
     "lodash": "^4.7.20",
     "prop-types": "^15.7.2",
-    "react": "^16.9.0"
+    "react": "^16.9.0",
+    "react-jss": "^10.4.0"
   },
   "dependencies": {}
 }

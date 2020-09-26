@@ -1,5 +1,4 @@
 import React from 'react';
-import { StoryContext, StoryGetter, StoryWrapper } from '@storybook/addons';
 import { createTheme } from '../src/createTheme';
 import { ThemeProvider } from '../src/ThemeProvider';
 
