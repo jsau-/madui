@@ -24,5 +24,9 @@ export interface TextProps {
 
 export const Text: React.FunctionComponent<TextProps> = (props: TextProps) => {
   const WrapperNode = props.variant ? textVariantToWrapper[props.variant] : 'p';
-  return <WrapperNode style={{ fontFamily: 'Epilogue, Roboto, Sans-Serif' }}>{props.children}</WrapperNode>;
+  return (
+    <WrapperNode style={{ fontFamily: 'Epilogue, Roboto, Sans-Serif' }}>
+      {props.children}
+    </WrapperNode>
+  );
 };
