@@ -1,5 +1,5 @@
 import { createTheme } from '.';
-import { defaultTheme } from './defaultTheme';
+import { defaultTheme } from '../defaultTheme';
 
 describe('createTheme', () => {
   it('Returns default theme if nothing provided', () => {

@@ -1,5 +1,5 @@
 import defaultsDeep from 'lodash/defaultsDeep';
-import { defaultTheme } from './defaultTheme';
+import { defaultTheme } from '../defaultTheme';
 import { Theme } from '../Theme';
 
 type RecursivePartial<T> = {

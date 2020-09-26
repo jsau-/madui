@@ -1,11 +1,12 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { ThemeProvider } from '.';
+import { createTheme } from '../createTheme';
 import { useTheme } from '../useTheme';
 
-const exampleTheme = {
+const exampleTheme = createTheme({
   foo: 'bar',
-};
+});
 
 const TestComponent = () => {
   const theme = useTheme();

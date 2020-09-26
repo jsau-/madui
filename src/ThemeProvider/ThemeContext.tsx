@@ -1,3 +1,5 @@
 import React from 'react';
+import { defaultTheme } from '../defaultTheme';
+import { Theme } from '../Theme';
 
-export const ThemeContext = React.createContext<Record<string, any>>({});
+export const ThemeContext = React.createContext<Theme>(defaultTheme);
