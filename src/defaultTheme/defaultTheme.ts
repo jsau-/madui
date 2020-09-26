@@ -1,6 +1,14 @@
 import { Theme } from '../types/Theme/Theme';
 
 export const defaultTheme: Theme = {
+  border: {
+    radius: 4,
+  },
+  components: {
+    code: {
+      fontFamily: 'Source Code Pro, monospace',
+    },
+  },
   palette: {
     primary: {
       constrast: '#FFFFFF',
@@ -14,6 +22,9 @@ export const defaultTheme: Theme = {
       light: '#F7B267',
       main: '#F4845F',
     },
+  },
+  spacing: {
+    unit: 8,
   },
   text: {
     body: {

@@ -8,9 +8,20 @@ interface PaletteColor extends ThemeRecord {
 }
 
 export interface Theme extends ThemeRecord {
+  border: {
+    radius: number;
+  };
+  components: {
+    code: {
+      fontFamily: string;
+    };
+  };
   palette: {
     primary: PaletteColor;
     secondary: PaletteColor;
+  };
+  spacing: {
+    unit: number;
   };
   text: {
     body: {
