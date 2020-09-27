@@ -14,7 +14,7 @@ export const useStyles = makeStyles(
       color: 'inherit',
     },
     primary: {
-      backgroundColor: theme.palette.primary.dark,
+      backgroundColor: theme.palette.primary.main,
       color: theme.palette.primary.constrast,
     },
     root: {
@@ -23,7 +23,7 @@ export const useStyles = makeStyles(
       padding: theme.spacing.unit,
     },
     secondary: {
-      backgroundColor: theme.palette.secondary.dark,
+      backgroundColor: theme.palette.secondary.main,
       color: theme.palette.secondary.constrast,
     },
   }),
