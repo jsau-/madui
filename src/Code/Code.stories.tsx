@@ -18,16 +18,6 @@ BlockPrimary.args = {
 }`,
 };
 
-export const BlockPrimaryWithLineNumbers = Template.bind({});
-BlockPrimaryWithLineNumbers.args = {
-  block: true,
-  children: `function foo() {
-  console.log('bar');
-  console.log('baz');
-}`,
-  lineNumbers: true,
-};
-
 export const DefaultPrimary = Template.bind({});
 DefaultPrimary.args = {
   children: `function foo() {
@@ -44,17 +34,6 @@ BlockSecondary.args = {
   console.log('baz');
 }`,
   color: 'secondary',
-};
-
-export const BlockSecondaryWithLineNumbers = Template.bind({});
-BlockSecondaryWithLineNumbers.args = {
-  block: true,
-  children: `function foo() {
-  console.log('bar');
-  console.log('baz');
-}`,
-  color: 'secondary',
-  lineNumbers: true,
 };
 
 export const DefaultSecondary = Template.bind({});
