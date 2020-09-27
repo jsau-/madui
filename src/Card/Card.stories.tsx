@@ -1,7 +1,9 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { Card, CardProps } from '.';
+import { Blockquote } from '../Blockquote';
 import { CardHeader} from '../CardHeader';
+import { Code } from '../Code';
 import { Text } from '../Text';
 
 export default {
@@ -43,3 +45,25 @@ HighElevation.args = {
   ),
   elevation: 'high',
 };
+
+export const BlockquoteCard = Template.bind({});
+BlockquoteCard.args = {
+  children: (
+    <Blockquote>
+      <Text>Hello, world!</Text>
+      <Text>This is some sample text!</Text>;
+    </Blockquote>
+  )
+}
+
+export const CodeCard = Template.bind({});
+CodeCard.args = {
+  children: (
+    <Code block>
+      {`function foo() {
+  console.log('bar');
+  console.log('baz');
+}`}
+    </Code>
+  )
+}
