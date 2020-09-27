@@ -18,7 +18,6 @@ export const useStyles = makeStyles(
       color: theme.palette.primary.contrast,
     },
     root: {
-      borderRadius: theme.border.radius,
       fontFamily: theme.text.monoFontFamily,
       padding: theme.spacing.unit,
     },

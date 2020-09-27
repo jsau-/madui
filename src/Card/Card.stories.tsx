@@ -51,22 +51,28 @@ HighElevation.args = {
 export const BlockquoteCard = Template.bind({});
 BlockquoteCard.args = {
   children: (
-    <Blockquote>
-      <Text>Hello, world!</Text>
-      <Text>This is some sample text!</Text>;
-    </Blockquote>
+    <React.Fragment>
+      <CardHeader title="Blockquote" />
+      <Blockquote>
+        <Text>Hello, world!</Text>
+        <Text>This is some sample text!</Text>;
+      </Blockquote>
+    </React.Fragment>
   )
 }
 
 export const CodeCard = Template.bind({});
 CodeCard.args = {
   children: (
-    <Code block>
-      {`function foo() {
+    <React.Fragment>
+      <CardHeader title="Code" />
+      <Code block>
+        {`function foo() {
   console.log('bar');
   console.log('baz');
 }`}
-    </Code>
+      </Code>
+    </React.Fragment>
   )
 }
 
