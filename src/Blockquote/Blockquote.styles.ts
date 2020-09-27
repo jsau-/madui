@@ -13,8 +13,11 @@ export const useStyles = makeStyles(
       borderLeftColor: theme.palette.primary.main,
     },
     root: {
+      background: theme.palette.background,
+      borderRadius: theme.border.radius,
       borderLeftStyle: 'solid',
       borderLeftWidth: theme.border.radius,
+      boxShadow: theme.shadows.low,
       padding: theme.spacing.unit,
     },
     secondary: {
