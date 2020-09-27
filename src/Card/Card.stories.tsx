@@ -5,6 +5,7 @@ import { Blockquote } from '../Blockquote';
 import { CardContent} from '../CardContent';
 import { CardHeader} from '../CardHeader';
 import { Code } from '../Code';
+import { Divider } from '../Divider';
 import { Text } from '../Text';
 
 export default {
@@ -67,4 +68,15 @@ CodeCard.args = {
 }`}
     </Code>
   )
+}
+
+export const DividedCard = Template.bind({});
+DividedCard.args = {
+  children: (
+    <React.Fragment>
+      <CardHeader title="Divided" />
+      <Divider />
+      <CardContent><Text>Hello, world!</Text></CardContent>
+    </React.Fragment>
+  ),
 }
