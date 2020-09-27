@@ -5,6 +5,7 @@ export const defaultTheme: Theme = {
     radius: 4,
   },
   palette: {
+    divider: 'rgba(0, 0, 0, 0.1)',
     primary: {
       constrast: '#FFFFFF',
       dark: '#023E8A',

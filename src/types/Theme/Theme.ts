@@ -13,6 +13,7 @@ export interface Theme {
   };
   overrides?: Record<string, ThemeRecord>;
   palette: {
+    divider: string;
     primary: PaletteColor;
     secondary: PaletteColor;
   };
