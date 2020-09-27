@@ -27,6 +27,20 @@ Body.args = {
   variant: 'body',
 };
 
+export const BoldBody = Template.bind({});
+BoldBody.args = {
+  bold: true,
+  children: 'My sample text.',
+  variant: 'body',
+};
+
+export const ItalicBody = Template.bind({});
+ItalicBody.args = {
+  children: 'My sample text.',
+  italic: true,
+  variant: 'body',
+};
+
 export const Caption = Template.bind({});
 Caption.args = {
   children: 'My sample text.',

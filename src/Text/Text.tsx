@@ -13,10 +13,12 @@ const textVariantToWrapper: TextVariantMap<keyof JSX.IntrinsicElements> = {
 };
 
 export interface TextProps {
+  bold?: boolean;
   classes?: Record<string, string>;
   className?: string;
   children?: React.ReactNode;
   inheritColor?: boolean;
+  italic?: boolean;
   variant?: TextVariant;
 }
 
@@ -27,7 +29,7 @@ export const Text: React.FunctionComponent<TextProps> = (props: TextProps) => {
 
   const WrapperNode = textVariantToWrapper[variant];
 
-  return (
+  let component = (
     <WrapperNode
       className={clsx(
         classes.root,
@@ -41,4 +43,14 @@ export const Text: React.FunctionComponent<TextProps> = (props: TextProps) => {
       {props.children}
     </WrapperNode>
   );
+
+  if (props.bold) {
+    component = <b>{component}</b>;
+  }
+
+  if (props.italic) {
+    component = <i>{component}</i>;
+  }
+
+  return component;
 };
