@@ -14,15 +14,15 @@ export interface CodeProps {
 export const Code: React.FunctionComponent<CodeProps> = (props: CodeProps) => {
   const classes = useStyles();
 
-  const colorWithDefault: Color = props.color || 'primary';
+  const color: Color = props.color || 'primary';
 
   return (
     <div
       className={clsx(
         classes.root,
-        classes[colorWithDefault],
+        classes[color],
         props?.classes?.root,
-        props?.classes?.[colorWithDefault],
+        props?.classes?.[color],
         props?.className,
       )}
     >
