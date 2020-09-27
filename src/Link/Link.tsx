@@ -12,18 +12,18 @@ export interface LinkProps
 export const Link: React.FunctionComponent<LinkProps> = (props: LinkProps) => {
   const classes = useStyles();
 
-  const { color, ...otherProps } = props;
+  const { color: optionalColor, ...otherProps } = props;
 
-  const colorWithDefault: Color = color || 'primary';
+  const color: Color = optionalColor || 'primary';
 
   return (
     <a
       {...otherProps}
       className={clsx(
         classes.root,
-        classes[colorWithDefault],
+        classes[color],
         props?.classes?.root,
-        props?.classes?.[colorWithDefault],
+        props?.classes?.[color],
         props?.className,
       )}
     >
