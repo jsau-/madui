@@ -1,3 +1,10 @@
+/**
+ * @fileoverview Export a custom version of `@testing-library/react`, where the
+ * render function has been replaced with a custom version which wraps all
+ * components in required providers. This allows us to render presentational
+ * components which are dependent on <ThemeProvider />, for example.
+ */
+
 import React from 'react';
 import { render, RenderOptions, RenderResult } from '@testing-library/react';
 import { createTheme } from '../../createTheme';
