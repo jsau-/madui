@@ -21,7 +21,7 @@ export const useStyles = makeStyles(
     },
     root: {
       borderRadius: 4,
-      height: 2,
+      height: 4,
       overflow: 'hidden',
       position: 'relative',
     },
