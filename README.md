@@ -1,5 +1,39 @@
 # madui
 
+A collection of React components to build simple or prototype sites.
+
+### Theming
+
+To use the library, you must use `src/ThemeProvider` at the root of
+your application. eg.
+
+```javascript
+const App = () => (
+  <ThemeProvider theme={createTheme()}>
+    <MyContent />
+  </ThemeProvider>
+);
+```
+
+To create a theme, use function `src/createTheme`. The expected schema
+of a theme can be found in `src/types/Theme` (note that if a field is
+omitted from a custom theme, a value will be take from
+`src/defaultTheme`.). eg.
+
+```
+// Using the default theme directly
+const theme = createTheme();
+
+// Customizing some theme fields
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#FF00FF',
+    },
+  },
+});
+```
+
 ### Styling
 
 Function `src/makeStyles` creates a hook function, which can be used inside
