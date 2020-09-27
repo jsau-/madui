@@ -1,3 +1,5 @@
+import { Elevation } from '../Elevation';
+
 interface ThemeRecord {
   [key: string]: string | number | ThemeRecord;
 }
@@ -19,6 +21,7 @@ export interface Theme {
     secondary: PaletteColor;
     text: string;
   };
+  shadows: { [elevation in Elevation]: string } & ThemeRecord;
   spacing: {
     unit: number;
   };
