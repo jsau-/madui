@@ -13,10 +13,6 @@ export const Overlay: React.FunctionComponent<OverlayProps> = (
 ) => {
   const classes = useStyles();
 
-  if (!props.open) {
-    return null;
-  }
-
   return (
     <Fade show={props.open}>
       <div

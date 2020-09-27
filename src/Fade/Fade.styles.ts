@@ -17,7 +17,7 @@ export const useStyles = makeStyles(
     },
     fadeOut: {
       animationDuration: `${theme.transitions.duration}s`,
-      animationName: '$fadeIn',
+      animationName: '$fadeOut',
     },
     root: {},
   }),
