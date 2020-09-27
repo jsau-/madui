@@ -7,15 +7,11 @@ interface PaletteColor extends ThemeRecord {
   main: string;
 }
 
-export interface Theme extends ThemeRecord {
+export interface Theme {
   border: {
     radius: number;
   };
-  components: {
-    code: {
-      fontFamily: string;
-    };
-  };
+  overrides?: Record<string, ThemeRecord>;
   palette: {
     primary: PaletteColor;
     secondary: PaletteColor;

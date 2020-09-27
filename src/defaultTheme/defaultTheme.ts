@@ -4,9 +4,11 @@ export const defaultTheme: Theme = {
   border: {
     radius: 4,
   },
-  components: {
+  overrides: {
     code: {
-      fontFamily: 'Source Code Pro, monospace',
+      root: {
+        fontFamily: 'Source Code Pro, monospace',
+      },
     },
   },
   palette: {
