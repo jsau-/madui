@@ -15,7 +15,7 @@ export const useStyles = makeStyles(
     },
     primary: {
       backgroundColor: theme.palette.primary.main,
-      color: theme.palette.primary.constrast,
+      color: theme.palette.primary.contrast,
     },
     root: {
       borderRadius: theme.border.radius,
@@ -25,7 +25,7 @@ export const useStyles = makeStyles(
     },
     secondary: {
       backgroundColor: theme.palette.secondary.main,
-      color: theme.palette.secondary.constrast,
+      color: theme.palette.secondary.contrast,
     },
   }),
   'Code',

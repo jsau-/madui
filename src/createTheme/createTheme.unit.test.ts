@@ -38,7 +38,7 @@ describe('createTheme', () => {
     const customTheme = {
       palette: {
         primary: {
-          constrast: 'myCustomContrastValue',
+          contrast: 'myCustomContrastValue',
           main: 'myCustomMainValue',
         },
       },
@@ -46,7 +46,7 @@ describe('createTheme', () => {
 
     const theme = createTheme(customTheme);
 
-    expect(theme.palette.primary.constrast).toBe(customTheme.palette.primary.constrast);
+    expect(theme.palette.primary.contrast).toBe(customTheme.palette.primary.contrast);
     expect(theme.palette.primary.main).toBe(customTheme.palette.primary.main);
   });
 });

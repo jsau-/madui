@@ -5,7 +5,7 @@ interface ThemeRecord {
 }
 
 interface PaletteColor extends ThemeRecord {
-  constrast: string;
+  contrast: string;
   main: string;
 }
 
