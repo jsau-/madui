@@ -3,14 +3,14 @@ import { createTheme } from '../src/createTheme';
 import { ThemeProvider } from '../src/ThemeProvider';
 
 const themes = {
-  default: createTheme(),
+  Default_Theme: createTheme(),
 };
 
 export const globalTypes = {
   theme: {
     name: 'Theme',
     description: 'Global theme for components',
-    defaultValue: 'default',
+    defaultValue: 'Default_Theme',
     toolbar: {
       // See: https://www.chromatic.com/component?appId=5a375b97f4b14f0020b0cda3&name=Basics%7CIcon&buildNumber=13899
       icon: 'paintbrush',
