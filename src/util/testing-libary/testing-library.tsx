@@ -49,9 +49,7 @@ const AllTheProviders: React.FunctionComponent = ({
   children?: React.ReactNode;
 }) => (
   <JssProvider generateId={jssGenerateId}>
-    <ThemeProvider theme={defaultTheme}>
-      {children}
-    </ThemeProvider>
+    <ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>
   </JssProvider>
 );
 
