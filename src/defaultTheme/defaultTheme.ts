@@ -19,7 +19,7 @@ export const defaultTheme: Theme = {
       light: '#F7B267',
       main: '#F4845F',
     },
-    text: '#1D1E2C',
+    text: '#2A2A2A',
   },
   shadows: {
     high: '0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)',
