@@ -16,7 +16,6 @@ export const useStyles = makeStyles(
       background: theme.palette.background,
       borderRadius: theme.border.radius,
       overflow: 'hidden',
-      padding: 2 * theme.spacing.unit,
     },
   }),
   'Card',

@@ -14,6 +14,7 @@ export const useStyles = makeStyles(
     root: {
       alignItems: 'center',
       display: 'flex',
+      padding: 2 * theme.spacing.unit,
     },
     title: {
       flex: '1 1 auto',
