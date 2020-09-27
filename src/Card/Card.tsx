@@ -25,5 +25,5 @@ export const Card: React.FunctionComponent<CardProps> = (props: CardProps) => {
     >
       {props.children}
     </div>
-  )
-}
+  );
+};

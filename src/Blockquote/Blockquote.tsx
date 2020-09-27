@@ -3,12 +3,15 @@ import React from 'react';
 import { useStyles } from './Blockquote.styles';
 import { Color } from '../types/Color';
 
-export interface BlockquoteProps extends React.BlockquoteHTMLAttributes<HTMLElement> {
+export interface BlockquoteProps
+  extends React.BlockquoteHTMLAttributes<HTMLElement> {
   classes?: Record<string, string>;
   borderColor?: Color | 'none';
 }
 
-export const Blockquote: React.FunctionComponent<BlockquoteProps> = (props: BlockquoteProps) => {
+export const Blockquote: React.FunctionComponent<BlockquoteProps> = (
+  props: BlockquoteProps,
+) => {
   const classes = useStyles();
 
   const {
@@ -17,7 +20,7 @@ export const Blockquote: React.FunctionComponent<BlockquoteProps> = (props: Bloc
     ...otherProps
   } = props;
 
-  const borderColor = props.borderColor || 'primary';
+  const borderColor = optionalBorderColor || 'primary';
 
   return (
     <blockquote
