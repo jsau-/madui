@@ -4,13 +4,6 @@ export const defaultTheme: Theme = {
   border: {
     radius: 4,
   },
-  overrides: {
-    Code: {
-      root: {
-        fontFamily: 'Source Code Pro, monospace',
-      },
-    },
-  },
   palette: {
     primary: {
       constrast: '#FFFFFF',
@@ -40,6 +33,7 @@ export const defaultTheme: Theme = {
     heading: {
       fontSize: 48,
     },
+    monoFontFamily: 'Source Code Pro, monospace',
     subheading: {
       fontSize: 32,
     },

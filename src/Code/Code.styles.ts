@@ -6,6 +6,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     whiteSpace: 'pre-wrap',
   },
   code: {
+    fontFamily: 'inherit',
     fontSize: theme.text.body.fontSize,
   },
   inherit: {
@@ -17,7 +18,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
   },
   root: {
     borderRadius: theme.border.radius,
-    fontFamily: theme?.overrides?.code?.fontFamily || theme.text.fontFamily,
+    fontFamily: theme.text.monoFontFamily,
     padding: theme.spacing.unit,
   },
   secondary: {

@@ -31,6 +31,7 @@ export interface Theme {
       fontSize: number;
     };
     fontFamily: string;
+    monoFontFamily: string;
     subheading: {
       fontSize: number;
     };
