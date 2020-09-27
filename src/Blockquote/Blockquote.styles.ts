@@ -17,7 +17,6 @@ export const useStyles = makeStyles(
       borderLeftStyle: 'solid',
       borderLeftWidth: theme.border.radius,
       borderRadius: theme.border.radius,
-      boxShadow: theme.shadows.low,
       padding: theme.spacing.unit,
     },
     secondary: {

@@ -19,7 +19,6 @@ export const useStyles = makeStyles(
     },
     root: {
       borderRadius: theme.border.radius,
-      boxShadow: theme.shadows.low,
       fontFamily: theme.text.monoFontFamily,
       padding: theme.spacing.unit,
     },
