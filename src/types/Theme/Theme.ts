@@ -1,12 +1,7 @@
 import { Elevation } from '../Elevation';
 
 interface ThemeRecord {
-  [key: string]:
-    | string
-    | number
-    | ThemeRecord
-    | Record<string, ThemeRecord>
-    | undefined;
+  [key: string]: string | number | ThemeRecord | Record<string, ThemeRecord>;
 }
 
 interface PaletteColor extends ThemeRecord {
@@ -14,7 +9,7 @@ interface PaletteColor extends ThemeRecord {
   main: string;
 }
 
-export interface Theme extends ThemeRecord {
+export interface Theme {
   border: {
     radius: number;
   };
