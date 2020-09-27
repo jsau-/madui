@@ -22,24 +22,3 @@ Secondary.args = {
   color: 'secondary',
   href: '#',
 };
-
-export const Heading = Template.bind({});
-Heading.args = {
-  children: 'Link text',
-  href: '#',
-  variant: 'heading',
-};
-
-export const Subheading = Template.bind({});
-Subheading.args = {
-  children: 'Link text',
-  href: '#',
-  variant: 'subheading',
-};
-
-export const Caption = Template.bind({});
-Caption.args = {
-  children: 'Link text',
-  href: '#',
-  variant: 'caption',
-};
