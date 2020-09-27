@@ -1,6 +1,6 @@
-import { Theme } from '../types/Theme/Theme';
+import { Theme } from '../types/Theme';
 
-export const defaultTheme: Theme = {
+export const lightTheme: Theme = {
   border: {
     radius: 4,
   },
