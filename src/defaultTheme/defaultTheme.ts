@@ -5,6 +5,7 @@ export const defaultTheme: Theme = {
     radius: 4,
   },
   palette: {
+    background: '#FDFDFD',
     divider: 'rgba(0, 0, 0, 0.1)',
     primary: {
       constrast: '#FFFFFF',
@@ -18,6 +19,7 @@ export const defaultTheme: Theme = {
       light: '#F7B267',
       main: '#F4845F',
     },
+    text: '#1D1E2C',
   },
   spacing: {
     unit: 8,
@@ -29,7 +31,6 @@ export const defaultTheme: Theme = {
     caption: {
       fontSize: 10,
     },
-    color: '#1D1E2C',
     fontFamily: 'Epilogue, Roboto, sans-serif',
     heading: {
       fontSize: 48,

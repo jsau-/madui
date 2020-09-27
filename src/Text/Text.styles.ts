@@ -10,7 +10,7 @@ export const useStyles = makeStyles(
       fontSize: theme.text.caption.fontSize,
     },
     defaultColor: {
-      color: theme.text.color,
+      color: theme.palette.text,
     },
     heading: {
       fontSize: theme.text.heading.fontSize,

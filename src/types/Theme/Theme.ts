@@ -13,9 +13,11 @@ export interface Theme {
   };
   overrides?: Record<string, ThemeRecord>;
   palette: {
+    background: string;
     divider: string;
     primary: PaletteColor;
     secondary: PaletteColor;
+    text: string;
   };
   spacing: {
     unit: number;
@@ -27,7 +29,6 @@ export interface Theme {
     caption: {
       fontSize: number;
     };
-    color: string;
     heading: {
       fontSize: number;
     };
