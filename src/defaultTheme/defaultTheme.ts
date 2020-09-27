@@ -5,7 +5,7 @@ export const defaultTheme: Theme = {
     radius: 4,
   },
   overrides: {
-    code: {
+    Code: {
       root: {
         fontFamily: 'Source Code Pro, monospace',
       },
