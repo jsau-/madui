@@ -5,10 +5,41 @@
  * components which are dependent on <ThemeProvider />, for example.
  */
 
+import { Rule } from 'jss';
+import { JssProvider } from 'react-jss';
 import React from 'react';
 import { render, RenderOptions, RenderResult } from '@testing-library/react';
 import { createTheme } from '../../createTheme';
 import { ThemeProvider } from '../../ThemeProvider';
+
+/**
+ * When generating JSS classnames, don't post-process them at all;
+ * just return exactly the rule name passed in. This allows us to easily
+ * target classnames in tests.
+ *
+ * @example
+ * ```javascript
+ * // Component styles
+ * const useStyles = makeStyles({
+ *   root: { color: 'red' },
+ *   primary: { color: 'blue' },
+ * });
+ *
+ * // Component
+ * const Component = () => {
+ *   const classes = useStyles();
+ *   return <div className={`${classes.root} ${classes.primary}`} />;
+ * }
+ *
+ * // In test
+ * const { container } = render(<Component />);
+ * console.log(container.firstChild.classList);
+ *
+ * // Expected output
+ * DOMTokenList { '0': 'root', '1': 'primary' }
+ * ```
+ */
+const jssGenerateId = (rule: Rule): string => rule.key;
 
 const defaultTheme = createTheme();
 
@@ -16,7 +47,13 @@ const AllTheProviders: React.FunctionComponent = ({
   children,
 }: {
   children?: React.ReactNode;
-}) => <ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>;
+}) => (
+  <JssProvider generateId={jssGenerateId}>
+    <ThemeProvider theme={defaultTheme}>
+      {children}
+    </ThemeProvider>
+  </JssProvider>
+);
 
 const customRender = (
   ui: React.ReactElement,
