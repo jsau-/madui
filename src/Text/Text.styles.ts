@@ -23,4 +23,4 @@ export const useStyles = makeStyles((theme: Theme) => ({
   subheading: {
     fontSize: theme.text.subheading.fontSize,
   },
-}));
+}), 'Text');
