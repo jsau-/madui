@@ -20,6 +20,12 @@ const ToggleOverlay = () => {
 export default {
   title: 'Layout/Overlay',
   component: Overlay,
+	parameters: {
+		docs: {
+			inlineStories: false,
+      iFrameHeight: 500,
+		},
+	},
 } as Meta;
 
 const Template: Story<OverlayProps> = args => <Overlay {...args} />;
