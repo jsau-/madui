@@ -1,6 +1,6 @@
 import React from 'react';
 import { Divider } from '.';
-import { render } from '../util/testing-libary';
+import { render } from '../util/testingLibary';
 
 describe('<Divider />', () => {
   it('Has role separator', () => {

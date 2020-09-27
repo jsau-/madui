@@ -1,6 +1,6 @@
 import React from 'react';
 import { LinearProgress } from '.';
-import { render } from '../util/testing-libary';
+import { render } from '../util/testingLibary';
 
 describe('<LinearProgress />', () => {
   it('Offsets progress bar according to completion', () => {

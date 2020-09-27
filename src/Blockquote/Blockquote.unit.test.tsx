@@ -1,6 +1,6 @@
 import React from 'react';
 import { Blockquote } from '.';
-import { render } from '../util/testing-libary';
+import { render } from '../util/testingLibary';
 
 const testContent = 'Content!';
 
