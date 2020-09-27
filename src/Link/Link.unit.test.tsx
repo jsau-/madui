@@ -1,59 +1,10 @@
-import { mocked } from 'ts-jest/utils';
 import React from 'react';
 import { Link } from '.';
-import { Text } from '../Text';
 import { render } from '../util/testing-libary';
-
-jest.mock(
-  '../Text',
-  () => ({
-    Text: jest.fn(({ children }) => children)
-  }),
-);
-
-const mockedText = mocked(Text, true);
 
 const testContent = 'Content!';
 
 describe('<Link />', () => {
-  it('Renders a <Text /> component', () => {
-    render(
-      <Link>
-        {testContent}
-      </Link>
-    );
-
-    expect(mockedText).toHaveBeenCalledTimes(1);
-
-    expect(mockedText.mock.calls[0]).toEqual([
-      {
-        children: testContent,
-        inheritColor: true,
-        variant: undefined,
-      },
-      expect.any(Object),
-    ]);
-  });
-
-  it('Passes provided variant to <Text />', () => {
-    render(
-      <Link variant="heading">
-        {testContent}
-      </Link>
-    );
-
-    expect(mockedText).toHaveBeenCalledTimes(1);
-
-    expect(mockedText.mock.calls[0]).toEqual([
-      {
-        children: testContent,
-        inheritColor: true,
-        variant: 'heading',
-      },
-      expect.any(Object),
-    ]);
-  });
-
   it('Spreads relevant anchor properties', () => {
     const { container } = render(<Link download href="#">{testContent}</Link>);
     const anchor = container.firstChild;

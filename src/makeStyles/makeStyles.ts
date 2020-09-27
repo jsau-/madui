@@ -15,7 +15,7 @@ import { defaultsDeep } from 'lodash';
  * @returns Hook function for getting styles object.
  */
 export const makeStyles = <C extends string = string>(
-  styles: ((theme: RecursivePartial<Theme> & Theme) => Styles<C>),
+  styles: (theme: RecursivePartial<Theme> & Theme) => Styles<C>,
   component?: string,
 ): ((params?: unknown) => Classes<C>) => {
   const mergedStyles = (theme: RecursivePartial<Theme> & Theme): Styles<C> => {
@@ -30,5 +30,5 @@ export const makeStyles = <C extends string = string>(
     return defaultsDeep({}, overrideStyles, defaultStyles);
   };
 
-  return createUseStyles(mergedStyles, { theming })
+  return createUseStyles(mergedStyles, { theming });
 };
