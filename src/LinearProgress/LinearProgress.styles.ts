@@ -16,7 +16,7 @@ export const useStyles = makeStyles(
     progress: {
       height: '100%',
       position: 'absolute',
-      transition: 'transform 0.2s ease',
+      transition: `transform ${theme.transitions.duration}s ease`,
       width: '100%',
     },
     root: {
