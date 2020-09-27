@@ -11,17 +11,13 @@ export interface CardHeaderProps {
   title?: string;
 }
 
-export const CardHeader: React.FunctionComponent<CardHeaderProps> = (props: CardHeaderProps) => {
+export const CardHeader: React.FunctionComponent<CardHeaderProps> = (
+  props: CardHeaderProps,
+) => {
   const classes = useStyles();
 
   return (
-    <div
-      className={clsx(
-        classes.root,
-        props?.classes?.root,
-        props?.className,
-      )}
-    >
+    <div className={clsx(classes.root, props?.classes?.root, props?.className)}>
       {props.left && (
         <div className={clsx(classes.left, props?.classes?.left)}>
           {props.left}

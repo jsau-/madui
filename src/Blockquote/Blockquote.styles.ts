@@ -14,9 +14,9 @@ export const useStyles = makeStyles(
     },
     root: {
       background: theme.palette.background,
-      borderRadius: theme.border.radius,
       borderLeftStyle: 'solid',
       borderLeftWidth: theme.border.radius,
+      borderRadius: theme.border.radius,
       boxShadow: theme.shadows.low,
       padding: theme.spacing.unit,
     },

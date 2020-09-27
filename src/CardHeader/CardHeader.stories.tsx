@@ -6,7 +6,7 @@ import { Link } from '../Link';
 export default {
   title: 'Layout/CardHeader',
   component: CardHeader,
-};
+} as Meta;
 
 const Template: Story<CardHeaderProps> = args => <CardHeader {...args} />;
 

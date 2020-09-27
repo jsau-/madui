@@ -45,4 +45,7 @@ export const defaultTheme: Theme = {
       fontSize: 32,
     },
   },
+  transitions: {
+    duration: 0.3,
+  },
 };
