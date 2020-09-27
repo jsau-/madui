@@ -9,11 +9,11 @@ interface PaletteColor extends ThemeRecord {
   main: string;
 }
 
-export interface Theme {
+export interface Theme extends ThemeRecord {
   border: {
     radius: number;
   };
-  overrides?: Record<string, ThemeRecord>;
+  overrides: Record<string, ThemeRecord>;
   palette: {
     background: string;
     divider: string;

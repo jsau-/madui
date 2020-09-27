@@ -4,6 +4,7 @@ export const lightTheme: Theme = {
   border: {
     radius: 4,
   },
+  overrides: {},
   palette: {
     background: '#FDFDFD',
     divider: 'rgba(0,0,0,0.12)',

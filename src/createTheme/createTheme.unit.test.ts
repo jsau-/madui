@@ -1,10 +1,10 @@
 import { createTheme } from '.';
-import { defaultTheme } from '../defaultTheme';
+import { lightTheme } from '../lightTheme';
 
 describe('createTheme', () => {
   it('Returns default theme if nothing provided', () => {
     const theme = createTheme();
-    expect(theme).toEqual(defaultTheme);
+    expect(theme).toEqual(lightTheme);
   });
 
   it('Extends the default theme with new top-level properties', () => {
@@ -29,7 +29,7 @@ describe('createTheme', () => {
     const theme = createTheme(customTheme);
 
     expect(theme.palette.primary).toEqual({
-      ...defaultTheme.palette.primary,
+      ...lightTheme.palette.primary,
       ...customTheme.palette.primary,
     });
   });

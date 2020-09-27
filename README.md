@@ -18,7 +18,7 @@ const App = () => (
 To create a theme, use function `src/createTheme`. The expected schema
 of a theme can be found in `src/types/Theme` (note that if a field is
 omitted from a custom theme, a value will be take from
-`src/defaultTheme`.). eg.
+`src/lightTheme`.). eg.
 
 ```
 // Using the default theme directly
