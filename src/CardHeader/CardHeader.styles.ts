@@ -9,7 +9,7 @@ export const useStyles = makeStyles(
     },
     right: {
       flex: '0 0 auto',
-      marginRight: 2 * theme.spacing.unit,
+      marginLeft: 2 * theme.spacing.unit,
     },
     root: {
       alignItems: 'center',
