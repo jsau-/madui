@@ -8,12 +8,16 @@ import { DisplayUnit } from '../../../types/DisplayUnit';
  * @param allowNegative Should the query allow negative widths? Note that this
  * will effectively become a "not" query in that case.
  */
-export const belowWidth = (width: number, unit: DisplayUnit = 'px', allowNegative: boolean = false) => {
+export const belowWidth = (
+  width: number,
+  unit: DisplayUnit = 'px',
+  allowNegative = false,
+): string => {
   let queryWidth = width - 1;
 
-  if (!allowNegative && queryWidth < 0) {
+  if (!allowNegative && 0 > queryWidth) {
     queryWidth = 0;
   }
 
   return `@media (max-width: ${queryWidth}${unit})`;
-}
+};

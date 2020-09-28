@@ -7,6 +7,10 @@ import { DisplayUnit } from '../../../types/DisplayUnit';
  * @param max The maximum width for which the media query should trigger.
  * @param unit The display unit to use (eg. "px", "vw")
  */
-export const betweenWidth = (min: number, max: number, unit: DisplayUnit = 'px') => {
-  return `@media (min-width: ${min}${unit} and max-width: ${max}${unit})`;
-}
+export const betweenWidth = (
+  min: number,
+  max: number,
+  unit: DisplayUnit = 'px',
+): string => {
+  return `@media (min-width: ${min}${unit}) and (max-width: ${max}${unit})`;
+};

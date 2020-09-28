@@ -13,4 +13,5 @@ export * from './Overlay';
 export * from './styles';
 export * from './Text';
 export * from './ThemeProvider';
+export * from './useMediaQuery';
 export * from './useTheme';

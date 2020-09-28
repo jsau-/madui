@@ -5,12 +5,12 @@ export const lightTheme: Theme = {
     radius: 4,
   },
   breakpoints: {
-    xs: 0,
-    sm: 600,
-    md: 800,
     lg: 1024,
+    md: 800,
+    sm: 600,
     xl: 1920,
-    xxl: 3048,
+    xs: 0,
+    xxl: 2560,
   },
   overrides: {},
   palette: {
