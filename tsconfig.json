@@ -23,25 +23,9 @@
     "strict": true,
     "strictBindCallApply": true,
     "strictNullChecks": true,
-    "target": "es5"
+    "target": "es5",
+    "types": ["jest", "node"]
   },
-  "exclude": [
-    "node_modules",
-    "build",
-    "dist",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "src/setupTests.ts",
-    "**/*/*.stories.ts",
-    "**/*/*.stories.tsx",
-    "**/*/*.test.ts",
-    "**/*/*.test.tsx",
-    "**/*/*.unit.test.ts",
-    "**/*/*.unit.test.tsx",
-    "examples"
-  ],
   "include": [
     "src/**/*"
   ]
