@@ -1,7 +1,7 @@
 import React from 'react';
-import { createTheme } from '../src/createTheme';
-import { darkTheme } from '../src/darkTheme';
-import { lightTheme } from '../src/lightTheme';
+import { createTheme } from '../src/styles/createTheme';
+import { darkTheme } from '../src/styles/darkTheme';
+import { lightTheme } from '../src/styles/lightTheme';
 import { ThemeProvider } from '../src/ThemeProvider';
 
 const libraryThemes = {

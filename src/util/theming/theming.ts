@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { createTheming } from 'react-jss';
-import { createTheme } from '../../createTheme';
+import { createTheme } from '../../styles/createTheme';
 
 const defaultTheme = createTheme();
 

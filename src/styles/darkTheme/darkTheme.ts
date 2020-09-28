@@ -1,5 +1,5 @@
 import { RecursivePartial } from 'src/types/RecursivePartial';
-import { Theme } from '../types/Theme';
+import { Theme } from '../../types/Theme';
 
 export const darkTheme: RecursivePartial<Theme> = {
   palette: {

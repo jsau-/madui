@@ -9,7 +9,7 @@ import { Rule } from 'jss';
 import { JssProvider } from 'react-jss';
 import React from 'react';
 import { render, RenderOptions, RenderResult } from '@testing-library/react';
-import { createTheme } from '../../createTheme';
+import { createTheme } from '../../styles/createTheme';
 import { ThemeProvider } from '../../ThemeProvider';
 
 /**

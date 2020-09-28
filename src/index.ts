@@ -3,7 +3,7 @@ export * from './Card';
 export * from './CardContent';
 export * from './CardHeader';
 export * from './Code';
-export * from './createTheme';
+export * from './styles/createTheme';
 export * from './Divider';
 export * from './Fade';
 export * from './LinearProgress';

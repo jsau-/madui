@@ -1,4 +1,4 @@
-import { Theme } from '../types/Theme';
+import { Theme } from '../../types/Theme';
 
 export const lightTheme: Theme = {
   border: {

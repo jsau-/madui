@@ -1,7 +1,7 @@
 import defaultsDeep from 'lodash/defaultsDeep';
 import { lightTheme } from '../lightTheme';
-import { RecursivePartial } from '../types/RecursivePartial';
-import { Theme } from '../types/Theme';
+import { RecursivePartial } from '../../types/RecursivePartial';
+import { Theme } from '../../types/Theme';
 
 /**
  * Create a theme object for use in <ThemeProvider />. Note that any required

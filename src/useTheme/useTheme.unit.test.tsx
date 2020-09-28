@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { useTheme } from '.';
-import { createTheme } from '../createTheme';
+import { createTheme } from '../styles/createTheme';
 import { Theme } from '../types/Theme';
 import { ThemeProvider } from '../ThemeProvider';
 
