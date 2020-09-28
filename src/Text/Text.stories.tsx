@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import { Text, TextProps } from '.';
 
 export default {
-  title: 'Text/Text',
+  title: 'Components/Text/Text',
   component: Text,
 } as Meta;
 

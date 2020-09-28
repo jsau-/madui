@@ -6,7 +6,7 @@ import { belowWidth } from '../styles/breakpoint/belowWidth';
 import { betweenWidth } from '../styles/breakpoint/betweenWidth';
 
 export default {
-  title: 'Layout/useMediaQuery',
+  title: 'Hooks/Layout/useMediaQuery',
 } as Meta;
 
 const SmallComponent: React.FunctionComponent = () => {

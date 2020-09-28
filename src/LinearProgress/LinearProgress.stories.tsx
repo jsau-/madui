@@ -17,7 +17,7 @@ const Scroller = () => {
 }
 
 export default {
-  title: 'Progress/LinearProgress',
+  title: 'Components/Progress/LinearProgress',
   component: LinearProgress,
 } as Meta;
 

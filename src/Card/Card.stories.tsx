@@ -9,7 +9,7 @@ import { Divider } from '../Divider';
 import { Text } from '../Text';
 
 export default {
-  title: 'Layout/Card',
+  title: 'Components/Layout/Card',
   component: Card,
 } as Meta;
 

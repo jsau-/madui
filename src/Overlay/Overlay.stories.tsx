@@ -18,7 +18,7 @@ const ToggleOverlay = () => {
 }
 
 export default {
-  title: 'Layout/Overlay',
+  title: 'Components/Layout/Overlay',
   component: Overlay,
 	parameters: {
 		docs: {

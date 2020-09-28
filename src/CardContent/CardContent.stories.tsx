@@ -4,7 +4,7 @@ import { CardContent, CardContentProps } from '.';
 import { Text } from '../Text';
 
 export default {
-  title: 'Layout/CardContent',
+  title: 'Components/Layout/CardContent',
   component: CardContent,
 } as Meta;
 

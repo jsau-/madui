@@ -4,7 +4,7 @@ import { CardHeader, CardHeaderProps } from '.';
 import { Link } from '../Link';
 
 export default {
-  title: 'Layout/CardHeader',
+  title: 'Components/Layout/CardHeader',
   component: CardHeader,
 } as Meta;
 

@@ -4,7 +4,7 @@ import { Hide, HideProps } from '.';
 import { Text } from '../Text';
 
 export default {
-  title: 'Layout/Hide',
+  title: 'Components/Layout/Hide',
   component: Hide,
 } as Meta;
 

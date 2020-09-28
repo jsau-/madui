@@ -11,7 +11,7 @@ const children = (
 );
 
 export default {
-  title: 'Text/Blockquote',
+  title: 'Components/Text/Blockquote',
   component: Blockquote,
 };
 
