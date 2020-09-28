@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMediaQuery } from '.';
-import { render } from '../util/testingLibary';
+import { render } from '../utils/testingLibary';
 
 const windowMatchMedia = window.matchMedia;
 

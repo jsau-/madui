@@ -1,6 +1,6 @@
 import { Classes } from 'jss';
 import { createUseStyles, Styles } from 'react-jss';
-import { theming } from '../../util/theming';
+import { theming } from '../../utils/theming';
 import { RecursivePartial } from '../../types/RecursivePartial';
 import { Theme } from '../../types/Theme';
 import { defaultsDeep } from 'lodash';

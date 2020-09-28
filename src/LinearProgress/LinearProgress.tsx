@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 import { useStyles } from './LinearProgress.styles';
 import { Color } from '../types/Color';
-import { clamp } from '../util/clamp';
+import { clamp } from '../utils/clamp';
 
 export interface LinearProgressProps {
   classes?: Record<string, string>;

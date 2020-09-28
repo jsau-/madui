@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from './Card';
-import { render } from '../util/testingLibary';
+import { render } from '../utils/testingLibary';
 
 const testContent = 'Content!';
 

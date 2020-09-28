@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardHeader } from '.';
-import { render } from '../util/testingLibary';
+import { render } from '../utils/testingLibary';
 
 describe('<CardHeader />', () => {
   it('Renders title', () => {
