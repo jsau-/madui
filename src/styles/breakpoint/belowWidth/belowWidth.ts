@@ -1,4 +1,4 @@
-import { DisplayUnit } from "../../../types/DisplayUnit/DisplayUnit";
+import { DisplayUnit } from '../../../types/DisplayUnit';
 
 /**
  * Generate a media query for below a given width.
