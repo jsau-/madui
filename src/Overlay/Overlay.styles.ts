@@ -1,4 +1,4 @@
-import { makeStyles } from '../makeStyles';
+import { makeStyles } from '../styles/makeStyles';
 
 export const useStyles = makeStyles(
   () => ({

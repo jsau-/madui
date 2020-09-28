@@ -1,4 +1,4 @@
-import { makeStyles } from '../makeStyles';
+import { makeStyles } from '../styles/makeStyles';
 import { Theme } from '../types/Theme';
 
 export const useStyles = makeStyles(

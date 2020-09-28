@@ -8,7 +8,7 @@ export * from './Divider';
 export * from './Fade';
 export * from './LinearProgress';
 export * from './Link';
-export * from './makeStyles';
+export * from './styles/makeStyles';
 export * from './Overlay';
 export * from './styles';
 export * from './Text';
