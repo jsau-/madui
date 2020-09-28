@@ -13,6 +13,14 @@ export interface Theme extends ThemeRecord {
   border: {
     radius: number;
   };
+  breakpoints: {
+    xs: number;
+    sm: number;
+    md: number;
+    lg: number;
+    xl: number;
+    xxl: number;
+  };
   overrides: Record<string, ThemeRecord>;
   palette: {
     background: string;
