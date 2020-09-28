@@ -23,11 +23,15 @@ export const Hide: React.FunctionComponent<HideProps> = (props: HideProps) => {
   let shouldHideForBelow = false;
 
   if (props.above) {
-    shouldHideForAbove = useMediaQuery(aboveWidth(props.above, props.aboveUnit));
+    shouldHideForAbove = useMediaQuery(
+      aboveWidth(props.above, props.aboveUnit),
+    );
   }
 
   if (props.below) {
-    shouldHideForBelow = useMediaQuery(belowWidth(props.below, props.belowUnit));
+    shouldHideForBelow = useMediaQuery(
+      belowWidth(props.below, props.belowUnit),
+    );
   }
 
   const shouldHide = shouldHideForAbove || shouldHideForBelow;
