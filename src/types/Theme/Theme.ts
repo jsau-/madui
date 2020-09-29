@@ -11,8 +11,6 @@ interface ThemeRecord {
     | Record<string, ThemeRecord>;
 }
 
-type Breakpoints = { [breakpoint in Breakpoint]: number } & ThemeRecord;
-
 interface PaletteColor extends ThemeRecord {
   contrast: string;
   main: string;
@@ -34,7 +32,7 @@ export interface Theme extends ThemeRecord {
   border: {
     radius: number;
   };
-  breakpoints: Breakpoints;
+  breakpoints: { [breakpoint in Breakpoint]: number } & ThemeRecord;
   overrides: Record<string, ThemeRecord>;
   palette: {
     background: string;
