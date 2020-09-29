@@ -5,6 +5,7 @@ export * from './CardHeader';
 export * from './Code';
 export * from './Divider';
 export * from './Fade';
+export * from './Hide';
 export * from './LinearProgress';
 export * from './Link';
 export * from './Overlay';
