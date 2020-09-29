@@ -20,7 +20,7 @@ of a theme can be found in `src/types/Theme` (note that if a field is
 omitted from a custom theme, a value will be take from
 `src/styles/lightTheme`.). eg.
 
-```
+```javascript
 // Using the default theme directly
 const theme = createTheme();
 
