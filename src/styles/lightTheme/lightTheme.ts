@@ -45,7 +45,7 @@ export const lightTheme: Theme = {
     caption: {
       fontSize: 10,
     },
-    fontFamily: 'Epilogue, Roboto, sans-serif',
+    fontFamily: 'Open Sans, Roboto, Helvetica, Arial, sans-serif',
     heading: {
       fontSize: 48,
     },
