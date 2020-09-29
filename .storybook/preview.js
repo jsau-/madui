@@ -1,3 +1,4 @@
+import '@storybook/addon-console';
 import React from 'react';
 import { createTheme } from '../src/styles/createTheme';
 import { darkTheme } from '../src/styles/darkTheme';
