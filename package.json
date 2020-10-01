@@ -34,6 +34,7 @@
     "@babel/cli": "7.11.6",
     "@babel/core": "7.11.6",
     "@babel/plugin-proposal-class-properties": "7.4.4",
+    "@babel/plugin-proposal-export-default-from": "^7.10.4",
     "@babel/plugin-proposal-nullish-coalescing-operator": "7.7.4",
     "@babel/plugin-proposal-numeric-separator": "7.2.0",
     "@babel/plugin-proposal-object-rest-spread": "7.7.7",
@@ -42,6 +43,7 @@
     "@storybook/addon-a11y": "6.0.22",
     "@storybook/addon-actions": "6.0.22",
     "@storybook/addon-console": "1.2.2",
+    "@storybook/addon-controls": "^6.0.22",
     "@storybook/addon-essentials": "6.0.22",
     "@storybook/addon-links": "6.0.22",
     "@storybook/react": "6.0.22",
@@ -89,5 +91,8 @@
     "react": "^16.9.0",
     "react-jss": "^10.4.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "styled-components": "^5.2.0"
+  }
 }

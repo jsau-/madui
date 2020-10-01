@@ -6,6 +6,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
+    '@storybook/addon-controls',
   ],
   presets: [path.resolve(__dirname, './preset.js')],
   typescript: {
