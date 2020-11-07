@@ -1,23 +1,12 @@
 import React, { useRef } from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { useHoverWithAim } from '.';
-import { AnchorPoint } from 'src/types/AnchorPoint';
 
 const TestComponent = () => {
   const refSource = useRef<HTMLDivElement>(null);
   const refTarget = useRef<HTMLDivElement>(null);
 
-  const sourceAnchor: AnchorPoint = { x: 'right', y: 'top' };
-  const targetAnchorOne: AnchorPoint = { x: 'left', y: 'top' };
-  const targetAnchorTwo: AnchorPoint = { x: 'right', y: 'top' };
-
-  const bHoveringWithAim = useHoverWithAim(
-    refSource,
-    refTarget,
-    sourceAnchor,
-    targetAnchorOne,
-    targetAnchorTwo,
-  );
+  const bHoveringWithAim = useHoverWithAim(refSource, refTarget);
 
   return (
     <div style={{ background: bHoveringWithAim ? 'green': 'transparent', transition: 'all 0.5s ease', position: 'relative', width: '100vw', height: '100vh' }}>

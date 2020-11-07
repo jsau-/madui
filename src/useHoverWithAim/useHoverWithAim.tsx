@@ -1,9 +1,57 @@
 import { RefObject, useEffect, useState } from 'react';
+import { Point2 } from 'src/types/Point2';
 import { AnchorPoint } from '../types/AnchorPoint';
 import { useMousePosition } from '../useMousePosition';
 import { useWindowSize } from '../useWindowSize';
 import { getAnchorPointFromHTMLElement } from '../utils/getAnchorPointFromHTMLElement';
 import { isPointWithinTriangle } from '../utils/isPointWithinTriangle';
+
+const allAnchorPoints: AnchorPoint[] = [
+  { x: 'left', y: 'top' },
+  { x: 'left', y: 'bottom' },
+  { x: 'right', y: 'top' },
+  { x: 'right', y: 'bottom' },
+];
+
+/**
+ * Is the mouse in a position between two DOM elements?
+ *
+ * @param mousePosition Current mouse position.
+ * @param source Ref to source element.
+ * @param target Ref to target element.
+ */
+const isMouseBetweenElements = (mousePosition: Point2, source: RefObject<HTMLElement>, target: RefObject<HTMLElement>): boolean => {
+  if (!source.current || !target.current) {
+    return false;
+  }
+
+  /*
+   * By checking all permutations of the triangles between the source and
+   * target element, we can effectively check all space between the two DOM
+   * elements.
+   *
+   * This is kinda expensive, and if it seems like a performance bottleneck we
+   * could do a naive bounding box check against both elements. (I don't think
+   * that would be a huge saving though, since we should only be calling this
+   * after we've started hovering in either element...)
+   */
+  for (const sourceAnchor of allAnchorPoints) {
+    for (const targetAnchorOne of allAnchorPoints) {
+      for (const targetAnchorTwo of allAnchorPoints) {
+        if (isPointWithinTriangle(
+          mousePosition,
+          getAnchorPointFromHTMLElement(source.current, sourceAnchor),
+          getAnchorPointFromHTMLElement(target.current, targetAnchorOne),
+          getAnchorPointFromHTMLElement(target.current, targetAnchorTwo),
+        )) {
+          return true;
+        }
+      }
+    }
+  }
+
+  return false;
+}
 
 /**
  * Gets whether the mouse is currently hovering either on one of two DOM
@@ -16,12 +64,8 @@ import { isPointWithinTriangle } from '../utils/isPointWithinTriangle';
 export const useHoverWithAim = (
   source: RefObject<HTMLElement>,
   target: RefObject<HTMLElement>,
-  sourceAnchor: AnchorPoint,
-  targetAnchorOne: AnchorPoint,
-  targetAnchorTwo: AnchorPoint,
 ): boolean => {
   const [hoveringAnywhereRelevant, setHoveringAnywhereRelevant] = useState(false);
-
   const mousePosition = useMousePosition();
   const windowSize = useWindowSize();
 
@@ -29,22 +73,17 @@ export const useHoverWithAim = (
     const hoveringSource = source?.current?.matches(':hover') || false;
     const hoveringTarget = target?.current?.matches(':hover') || false;
 
-    let isWithinTriangleBetweenElements = false;
+    let isBetweenElements = false;
 
     /*
-     * We can only determine if we're within the aim area if we have a pair
-     * of DOM elements.
+     * We only care about checking between the elements if we were previously
+     * in a state of caring (eg. we've moused into the source element).
      */
-    if (hoveringAnywhereRelevant && source.current && target.current) {
-      isWithinTriangleBetweenElements = isPointWithinTriangle(
-        mousePosition,
-        getAnchorPointFromHTMLElement(source.current, sourceAnchor),
-        getAnchorPointFromHTMLElement(target.current, targetAnchorOne),
-        getAnchorPointFromHTMLElement(target.current, targetAnchorTwo),
-      );
+    if (hoveringAnywhereRelevant) {
+      isBetweenElements = isMouseBetweenElements(mousePosition, source, target);
     }
 
-    setHoveringAnywhereRelevant(hoveringSource || hoveringTarget || isWithinTriangleBetweenElements);
+    setHoveringAnywhereRelevant(hoveringSource || hoveringTarget || isBetweenElements);
   }, [
     source,
     source?.current?.getBoundingClientRect(),
