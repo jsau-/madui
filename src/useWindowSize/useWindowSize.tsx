@@ -10,20 +10,26 @@ export const useWindowSize = (): Point2 => {
     y: 0,
   });
 
+  const hasWindow = typeof window !== 'undefined';
+
   const handleWindowResize = (): void => {
     setWindowSize({
-      x: window.innerWidth,
-      y: window.innerHeight,
+      x: hasWindow ? window.innerWidth : 0,
+      y: hasWindow ? window.innerHeight : 0,
     });
   };
 
   useEffect(() => {
-    window.addEventListener('resize', handleWindowResize);
+    if (hasWindow) {
+      window.addEventListener('resize', handleWindowResize);
+    }
 
     return (): void => {
-      window.removeEventListener('resize', handleWindowResize);
+      if (hasWindow) {
+        window.removeEventListener('resize', handleWindowResize);
+      }
     };
-  }, []);
+  }, [hasWindow]);
 
   return windowSize;
 };
