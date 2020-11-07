@@ -84,7 +84,27 @@ const isMouseBetweenElements = (
 /**
  * Gets whether the mouse is currently hovering either on one of two DOM
  * elements, or in the area bound between them. Useful in implementing
- * behaviour like `jquery-menu-aim`.
+ * behaviour like `jquery-menu-aim`, allowing users to move between two DOM
+ * elements without losing their state of hovering.
+ *
+ * @example javascript```
+ * const MyComponent = () => {
+ *   const refOne = useRef(null);
+ *   const refTwo = useRef(null);
+ *
+ *   const isHovering = useHoverWithAim(refOne, refTwo);
+ *
+ *   return (
+ *     <div>
+ *       <MenuButton ref={refOne} />
+ *       <Menu open={isHovering} ref={refTwo}>
+ *         <MenuItem>One</MenuItem>
+ *         <MenuItem>Two</MenuItem>
+ *       </Menu>
+ *     </div>
+ *   );
+ * }
+ * ```
  *
  * @param source - The source element.
  * @param target - The target element.
