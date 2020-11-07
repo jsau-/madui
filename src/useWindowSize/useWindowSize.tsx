@@ -10,7 +10,7 @@ export const useWindowSize = (): Point2 => {
     y: 0,
   });
 
-  const hasWindow = typeof window !== 'undefined';
+  const hasWindow = 'undefined' !== typeof window;
 
   const handleWindowResize = (): void => {
     setWindowSize({

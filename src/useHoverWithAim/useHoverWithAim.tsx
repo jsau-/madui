@@ -48,16 +48,28 @@ const isMouseBetweenElements = (
          * No point checking against identical target points - would just be a
          * line and the check would fail every time!
          */
-        if (targetAnchorOne.x === targetAnchorTwo.x && targetAnchorOne.y === targetAnchorTwo.y) {
+        if (
+          targetAnchorOne.x === targetAnchorTwo.x &&
+          targetAnchorOne.y === targetAnchorTwo.y
+        ) {
           continue;
         }
 
         if (
           isPointWithinTriangle(
             mousePosition,
-            { x: sourceBoundingRect[sourceAnchor.x], y: sourceBoundingRect[sourceAnchor.y] },
-            { x: targetBoundingRect[targetAnchorOne.x], y: targetBoundingRect[targetAnchorOne.y] },
-            { x: targetBoundingRect[targetAnchorTwo.x], y: targetBoundingRect[targetAnchorTwo.y] },
+            {
+              x: sourceBoundingRect[sourceAnchor.x],
+              y: sourceBoundingRect[sourceAnchor.y],
+            },
+            {
+              x: targetBoundingRect[targetAnchorOne.x],
+              y: targetBoundingRect[targetAnchorOne.y],
+            },
+            {
+              x: targetBoundingRect[targetAnchorTwo.x],
+              y: targetBoundingRect[targetAnchorTwo.y],
+            },
           )
         ) {
           return true;
