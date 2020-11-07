@@ -73,17 +73,25 @@ export const useHoverWithAim = (
     const hoveringSource = source?.current?.matches(':hover') || false;
     const hoveringTarget = target?.current?.matches(':hover') || false;
 
-    let isBetweenElements = false;
+    /*
+     * If we're hovering on either element directly, we can save ourselves an
+     * expensive set of checks on if we're between them.
+     */
+    if (hoveringSource || hoveringTarget) {
+      setHoveringAnywhereRelevant(true);
+      return;
+    }
 
     /*
      * We only care about checking between the elements if we were previously
      * in a state of caring (eg. we've moused into the source element).
      */
     if (hoveringAnywhereRelevant) {
-      isBetweenElements = isMouseBetweenElements(mousePosition, source, target);
+      setHoveringAnywhereRelevant(isMouseBetweenElements(mousePosition, source, target));
+      return;
     }
 
-    setHoveringAnywhereRelevant(hoveringSource || hoveringTarget || isBetweenElements);
+    setHoveringAnywhereRelevant(false);
   }, [
     source,
     source?.current?.getBoundingClientRect(),
