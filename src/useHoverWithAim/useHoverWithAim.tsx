@@ -87,7 +87,8 @@ const isMouseBetweenElements = (
  * behaviour like `jquery-menu-aim`, allowing users to move between two DOM
  * elements without losing their state of hovering.
  *
- * @example javascript```
+ * @example
+ * ```javascript
  * const MyComponent = () => {
  *   const refOne = useRef(null);
  *   const refTwo = useRef(null);
