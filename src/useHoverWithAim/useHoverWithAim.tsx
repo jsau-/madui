@@ -20,7 +20,11 @@ const allAnchorPoints: AnchorPoint[] = [
  * @param source Ref to source element.
  * @param target Ref to target element.
  */
-const isMouseBetweenElements = (mousePosition: Point2, source: RefObject<HTMLElement>, target: RefObject<HTMLElement>): boolean => {
+const isMouseBetweenElements = (
+  mousePosition: Point2,
+  source: RefObject<HTMLElement>,
+  target: RefObject<HTMLElement>,
+): boolean => {
   if (!source.current || !target.current) {
     return false;
   }
@@ -38,12 +42,14 @@ const isMouseBetweenElements = (mousePosition: Point2, source: RefObject<HTMLEle
   for (const sourceAnchor of allAnchorPoints) {
     for (const targetAnchorOne of allAnchorPoints) {
       for (const targetAnchorTwo of allAnchorPoints) {
-        if (isPointWithinTriangle(
-          mousePosition,
-          getAnchorPointFromHTMLElement(source.current, sourceAnchor),
-          getAnchorPointFromHTMLElement(target.current, targetAnchorOne),
-          getAnchorPointFromHTMLElement(target.current, targetAnchorTwo),
-        )) {
+        if (
+          isPointWithinTriangle(
+            mousePosition,
+            getAnchorPointFromHTMLElement(source.current, sourceAnchor),
+            getAnchorPointFromHTMLElement(target.current, targetAnchorOne),
+            getAnchorPointFromHTMLElement(target.current, targetAnchorTwo),
+          )
+        ) {
           return true;
         }
       }
@@ -51,7 +57,7 @@ const isMouseBetweenElements = (mousePosition: Point2, source: RefObject<HTMLEle
   }
 
   return false;
-}
+};
 
 /**
  * Gets whether the mouse is currently hovering either on one of two DOM
@@ -65,7 +71,9 @@ export const useHoverWithAim = (
   source: RefObject<HTMLElement>,
   target: RefObject<HTMLElement>,
 ): boolean => {
-  const [hoveringAnywhereRelevant, setHoveringAnywhereRelevant] = useState(false);
+  const [hoveringAnywhereRelevant, setHoveringAnywhereRelevant] = useState(
+    false,
+  );
   const mousePosition = useMousePosition();
   const windowSize = useWindowSize();
 
@@ -87,7 +95,9 @@ export const useHoverWithAim = (
      * in a state of caring (eg. we've moused into the source element).
      */
     if (hoveringAnywhereRelevant) {
-      setHoveringAnywhereRelevant(isMouseBetweenElements(mousePosition, source, target));
+      setHoveringAnywhereRelevant(
+        isMouseBetweenElements(mousePosition, source, target),
+      );
       return;
     }
 
@@ -103,4 +113,4 @@ export const useHoverWithAim = (
   ]);
 
   return hoveringAnywhereRelevant;
-}
+};

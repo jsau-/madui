@@ -10,17 +10,17 @@ export const useWindowSize = (): Point2 => {
     y: 0,
   });
 
-  const handleWindowResize = () => {
+  const handleWindowResize = (): void => {
     setWindowSize({
       x: window.innerWidth,
       y: window.innerHeight,
     });
-  }
+  };
 
   useEffect(() => {
     window.addEventListener('resize', handleWindowResize);
 
-    return () => {
+    return (): void => {
       window.removeEventListener('resize', handleWindowResize);
     };
   }, []);

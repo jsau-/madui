@@ -8,7 +8,10 @@ import { Point2 } from '../../types/Point2';
  * @param htmlElement Element to get point from.
  * @param anchorPoint Which point to get.
  */
-export const getAnchorPointFromHTMLElement = (htmlElement: HTMLElement, anchorPoint: AnchorPoint): Point2 => {
+export const getAnchorPointFromHTMLElement = (
+  htmlElement: HTMLElement,
+  anchorPoint: AnchorPoint,
+): Point2 => {
   const boundingRects = htmlElement.getBoundingClientRect();
 
   return {
