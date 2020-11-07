@@ -3,7 +3,6 @@ import { Point2 } from 'src/types/Point2';
 import { AnchorPoint } from '../types/AnchorPoint';
 import { useMousePosition } from '../useMousePosition';
 import { useWindowSize } from '../useWindowSize';
-import { getAnchorPointFromHTMLElement } from '../utils/getAnchorPointFromHTMLElement';
 import { isPointWithinTriangle } from '../utils/isPointWithinTriangle';
 
 const allAnchorPoints: AnchorPoint[] = [
@@ -29,6 +28,9 @@ const isMouseBetweenElements = (
     return false;
   }
 
+  const sourceBoundingRect = source.current.getBoundingClientRect();
+  const targetBoundingRect = target.current.getBoundingClientRect();
+
   /*
    * By checking all permutations of the triangles between the source and
    * target element, we can effectively check all space between the two DOM
@@ -42,12 +44,20 @@ const isMouseBetweenElements = (
   for (const sourceAnchor of allAnchorPoints) {
     for (const targetAnchorOne of allAnchorPoints) {
       for (const targetAnchorTwo of allAnchorPoints) {
+        /*
+         * No point checking against identical target points - would just be a
+         * line and the check would fail every time!
+         */
+        if (targetAnchorOne.x === targetAnchorTwo.x && targetAnchorOne.y === targetAnchorTwo.y) {
+          continue;
+        }
+
         if (
           isPointWithinTriangle(
             mousePosition,
-            getAnchorPointFromHTMLElement(source.current, sourceAnchor),
-            getAnchorPointFromHTMLElement(target.current, targetAnchorOne),
-            getAnchorPointFromHTMLElement(target.current, targetAnchorTwo),
+            { x: sourceBoundingRect[sourceAnchor.x], y: sourceBoundingRect[sourceAnchor.y] },
+            { x: targetBoundingRect[targetAnchorOne.x], y: targetBoundingRect[targetAnchorOne.y] },
+            { x: targetBoundingRect[targetAnchorTwo.x], y: targetBoundingRect[targetAnchorTwo.y] },
           )
         ) {
           return true;
