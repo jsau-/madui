@@ -32,14 +32,26 @@ const isMouseBetweenElements = (
   const targetBoundingRect = target.current.getBoundingClientRect();
 
   /*
-   * By checking all permutations of the triangles between the source and
-   * target element, we can effectively check all space between the two DOM
-   * elements.
+   * This is pretty naive, and could absolutely be improved by some combination
+   * of:
+   * - Doing a bounding box check across both bounding areas first, to rule out
+   *   definite negatives earlier. (Since we're only calling this function if
+   *   we just _were_ in a valid hover area, I don't think we'll save _too
+   *   much_ time there)
+   * - Actually generating a convex hull to bound the rectangles, and splitting
+   *   into relevant triangles.
+   * - Generating a lookup table of known triangles to check depending on the
+   *   relative positions of the bounding rects. See
+   *   https://i.stack.imgur.com/9X0zq.png; https://stackoverflow.com/a/28232890
    *
-   * This is kinda expensive, and if it seems like a performance bottleneck we
-   * could do a naive bounding box check against both elements. (I don't think
-   * that would be a huge saving though, since we should only be calling this
-   * after we've started hovering in either element...)
+   * Generally speaking the problems we're trying to solve here are:
+   * - Convex hull generation around two rectangles
+   * - Point-in-poly checks
+   *
+   * By generating a set of triangles bounding all points on the source and
+   * target element we can naively generate a convex hull bounding them. We
+   * might have to come back to this to optimise it in the future, but right now
+   * this seems performant enough.
    */
   for (const sourceAnchor of allAnchorPoints) {
     for (const targetAnchorOne of allAnchorPoints) {
