@@ -22,6 +22,9 @@ export const useWindowSize = (): Point2 => {
   useEffect(() => {
     if (hasWindow) {
       window.addEventListener('resize', handleWindowResize);
+
+      // Set initial size
+      handleWindowResize();
     }
 
     return (): void => {
