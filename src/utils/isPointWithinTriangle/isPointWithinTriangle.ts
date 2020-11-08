@@ -9,7 +9,9 @@ import { Point2 } from '../../types/Point2';
  * @date 2020-11-07
  *
  * @param point Point to check if within the given triangle.
- * @param triangle Triangle to check if point is within.
+ * @param triPointOne Co-ordinate pair of first corner of triangle to check.
+ * @param triPointTwo Co-ordinate pair of second corner of triangle to check.
+ * @param triPointThree Co-ordinate pair of third corner of triangle to check.
  */
 export const isPointWithinTriangle = (
   point: Point2,
