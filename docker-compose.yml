@@ -1,0 +1,11 @@
+version: '3.2'
+
+services:
+  create-react-app-typescript:
+    build: examples/create-react-app-typescript
+    ports:
+      - 3000:3000
+    volumes:
+      - ./examples/create-react-app-typescript:/app
+      - ./package.json:/app/node_modules/madui/package.json
+      - ./build:/app/node_modules/madui/build
