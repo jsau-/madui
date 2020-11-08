@@ -15,12 +15,12 @@ export const useCurrentBreakpoint = (): Breakpoint => {
   const theme = useTheme();
 
   const matches: Record<Breakpoint, boolean> = {
-    'xs': useMediaQuery(belowWidth(theme.breakpoints.sm)),
-    'sm': useMediaQuery(belowWidth(theme.breakpoints.md)),
-    'md': useMediaQuery(belowWidth(theme.breakpoints.lg)),
-    'lg': useMediaQuery(belowWidth(theme.breakpoints.xl)),
-    'xl': useMediaQuery(belowWidth(theme.breakpoints.xxl)),
-    'xxl': useMediaQuery(aboveWidth(theme.breakpoints.xl)),
+    lg: useMediaQuery(belowWidth(theme.breakpoints.xl)),
+    md: useMediaQuery(belowWidth(theme.breakpoints.lg)),
+    sm: useMediaQuery(belowWidth(theme.breakpoints.md)),
+    xl: useMediaQuery(belowWidth(theme.breakpoints.xxl)),
+    xs: useMediaQuery(belowWidth(theme.breakpoints.sm)),
+    xxl: useMediaQuery(aboveWidth(theme.breakpoints.xl)),
   };
 
   useEffect(() => {
