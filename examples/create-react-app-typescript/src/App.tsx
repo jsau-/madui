@@ -1,5 +1,5 @@
 import React from 'react';
-import { createTheme, PageProvider, Page, Text, ThemeProvider } from 'madui';
+import { createTheme, Code, PageProvider, Page, Text, ThemeProvider } from 'madui';
 import './App.css';
 import Footer from './Footer';
 import Navbar from './Navbar';
@@ -22,10 +22,9 @@ function App() {
         <div className="App">
           <Page footer={<Footer />} navbar={<Navbar />} sidebar={<Sidebar />}>
             <Text variant="heading">Hello, world!</Text>
-            <Text variant="heading">Hello, world!</Text>
-            <Text variant="heading">Hello, world!</Text>
-            <Text variant="heading">Hello, world!</Text>
-            <Text variant="heading">Hello, world!</Text>
+            <Code>
+              Hello, world.
+            </Code>
           </Page>
         </div>
       </PageProvider>
