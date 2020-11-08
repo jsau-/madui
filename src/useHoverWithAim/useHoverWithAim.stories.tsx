@@ -17,7 +17,7 @@ const TestComponent = () => {
 };
 
 export default {
-  title: 'Hooks/useHoverWithAim',
+  title: 'Hooks/Layout/useHoverWithAim',
   component: TestComponent,
 } as Meta;
 
