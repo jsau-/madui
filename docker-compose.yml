@@ -7,5 +7,9 @@ services:
       - 3000:3000
     volumes:
       - ./examples/create-react-app-typescript:/app
-      - ./package.json:/app/node_modules/madui/package.json
-      - ./build:/app/node_modules/madui/build
+      - type: bind
+        source: ./package.json
+        target: /app/node_modules/madui/package.json
+      - type: bind
+        source: ./build
+        target: /app/node_modules/madui/build

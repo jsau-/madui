@@ -6,6 +6,7 @@ export const useStyles = makeStyles(
       display: 'flex',
       flexGrow: 1,
       flexShrink: 1,
+      overflow: 'auto',
     },
     footer: {
       flexGrow: 0,
@@ -26,11 +27,13 @@ export const useStyles = makeStyles(
       display: 'flex',
       flexGrow: 0,
       flexShrink: 0,
+      overflow: 'auto',
     },
     view: {
       display: 'flex',
       flexGrow: 1,
       flexShrink: 1,
+      overflow: 'hidden',
     },
   }),
   'Page',
