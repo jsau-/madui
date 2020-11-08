@@ -3,6 +3,7 @@ import React from 'react';
 import { createTheme } from '../src/styles/createTheme';
 import { darkTheme } from '../src/styles/darkTheme';
 import { lightTheme } from '../src/styles/lightTheme';
+import { PageProvider } from '../src/PageProvider';
 import { ThemeProvider } from '../src/ThemeProvider';
 
 const libraryThemes = {
@@ -29,7 +30,9 @@ const withThemeProvider = (Story, context) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Story {...context} />
+      <PageProvider>
+        <Story {...context} />
+      </PageProvider>
     </ThemeProvider>
   );
 };

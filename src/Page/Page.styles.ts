@@ -1,24 +1,37 @@
 import { makeStyles } from '../styles/makeStyles';
-import { Theme } from '../types/Theme';
 
-export const useStyles = makeStyles((theme: Theme) => ({
-  lg: {
-    padding: 2 * theme.spacing.unit,
-  },
-  md: {
-    padding: theme.spacing.unit,
-  },
-  root: {},
-  sm: {
-    padding: 0.5 * theme.spacing.unit,
-  },
-  xl: {
-    padding: 3 * theme.spacing.unit,
-  },
-  xs: {
-    padding: 0.5 * theme.spacing.unit,
-  },
-  xxl: {
-    padding: 4 * theme.spacing.unit,
-  },
-}));
+export const useStyles = makeStyles(
+  () => ({
+    content: {
+      display: 'flex',
+      flexGrow: 1,
+      flexShrink: 1,
+    },
+    footer: {
+      flexGrow: 0,
+      flexShrink: 0,
+    },
+    navbar: {
+      flexGrow: 0,
+      flexShrink: 0,
+    },
+    root: {
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100%',
+      overflow: 'hidden',
+      width: '100%',
+    },
+    sidebar: {
+      display: 'flex',
+      flexGrow: 0,
+      flexShrink: 0,
+    },
+    view: {
+      display: 'flex',
+      flexGrow: 1,
+      flexShrink: 1,
+    },
+  }),
+  'Page',
+);
