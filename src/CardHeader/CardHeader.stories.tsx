@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import { CardHeader, CardHeaderProps } from '.';
 
 export default {
-  title: 'Components/Layout/CardHeader',
+  title: 'Components/Surfaces/CardHeader',
   component: CardHeader,
 } as Meta;
 

@@ -6,7 +6,7 @@ import { CardHeader} from '../CardHeader';
 import { Text } from '../Text';
 
 export default {
-  title: 'Components/Layout/Card',
+  title: 'Components/Surfaces/Card',
   component: Card,
 } as Meta;
 
