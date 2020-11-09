@@ -52,6 +52,8 @@ export const lightTheme: Theme = {
     fontFamily: 'Open Sans, Roboto, Helvetica, Arial, sans-serif',
     monoFontFamily: 'Source Code Pro, monospace',
     sizes: {
+      body1: 16,
+      body2: 14,
       caption: 12,
       h1: 72,
       h2: 58,
@@ -59,8 +61,6 @@ export const lightTheme: Theme = {
       h4: 36,
       h5: 30,
       h6: 24,
-      body1: 16,
-      body2: 14,
     },
   },
   transitions: {

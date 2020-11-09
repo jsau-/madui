@@ -3,6 +3,20 @@ import { Theme } from '../types/Theme';
 
 export const useStyles = makeStyles(
   (theme: Theme) => ({
+    body1: {
+      color: theme.palette.grey[900],
+      fontSize: theme.text.sizes.body1,
+      fontWeight: 400,
+      marginBottom: theme.spacing.unit,
+      marginTop: theme.spacing.unit,
+    },
+    body2: {
+      color: theme.palette.grey[800],
+      fontSize: theme.text.sizes.body2,
+      fontWeight: 400,
+      marginBottom: theme.spacing.unit,
+      marginTop: theme.spacing.unit,
+    },
     caption: {
       color: theme.palette.grey[700],
       fontSize: theme.text.sizes.caption,
@@ -50,20 +64,6 @@ export const useStyles = makeStyles(
       fontWeight: 600,
       marginBottom: 2 * theme.spacing.unit,
       marginTop: 2 * theme.spacing.unit,
-    },
-    body1: {
-      color: theme.palette.grey[900],
-      fontSize: theme.text.sizes.body1,
-      fontWeight: 400,
-      marginBottom: theme.spacing.unit,
-      marginTop: theme.spacing.unit,
-    },
-    body2: {
-      color: theme.palette.grey[800],
-      fontSize: theme.text.sizes.body2,
-      fontWeight: 400,
-      marginBottom: theme.spacing.unit,
-      marginTop: theme.spacing.unit,
     },
     root: {
       fontFamily: theme.text.fontFamily,

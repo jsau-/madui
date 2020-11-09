@@ -9,6 +9,7 @@ export * from './PageProvider';
 export * from './Paper';
 export * from './Text';
 export * from './ThemeProvider';
+export * from './useBelowBreakpoint';
 export * from './useHoverWithAim';
 export * from './useMediaQuery';
 export * from './useMousePosition';

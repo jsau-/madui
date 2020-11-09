@@ -9,7 +9,9 @@ export interface PaperProps extends React.HTMLAttributes<HTMLDivElement> {
   square?: boolean;
 }
 
-export const Paper: React.FunctionComponent<PaperProps> = (props: PaperProps) => {
+export const Paper: React.FunctionComponent<PaperProps> = (
+  props: PaperProps,
+) => {
   const classes = useStyles();
   const elevation = props.elevation || 'none';
 
@@ -24,7 +26,7 @@ export const Paper: React.FunctionComponent<PaperProps> = (props: PaperProps) =>
         {
           [classes.square]: props.square,
           [`${props?.classes?.square}`]: props.square,
-        }
+        },
       )}
     >
       {props.children}

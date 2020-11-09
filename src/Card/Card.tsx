@@ -15,11 +15,7 @@ export const Card: React.FunctionComponent<CardProps> = (props: CardProps) => {
 
   return (
     <Paper
-      className={clsx(
-        classes.root,
-        props?.classes?.root,
-        props?.className,
-      )}
+      className={clsx(classes.root, props?.classes?.root, props?.className)}
       elevation={elevation}
     >
       {props.children}
