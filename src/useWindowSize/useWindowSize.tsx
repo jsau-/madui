@@ -4,8 +4,8 @@ import { Point2 } from '../types/Point2';
 /**
  * Gets the current window size.
  */
-export const useWindowSize = (): Point2 => {
-  const [windowSize, setWindowSize] = useState({
+export const useWindowSize = () => {
+  const [windowSize, setWindowSize] = useState<Point2>({
     x: 0,
     y: 0,
   });

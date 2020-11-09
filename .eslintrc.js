@@ -20,6 +20,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'prettier'],
   root: true,
   rules: {
+    '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-explicit-any': ['error', { ignoreRestArgs: true }],
     '@typescript-eslint/no-unused-vars': [

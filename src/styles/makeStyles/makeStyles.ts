@@ -1,4 +1,3 @@
-import { Classes } from 'jss';
 import { createUseStyles, Styles } from 'react-jss';
 import { theming } from '../../utils/theming';
 import { RecursivePartial } from '../../types/RecursivePartial';
@@ -17,7 +16,7 @@ import { defaultsDeep } from 'lodash';
 export const makeStyles = <C extends string = string>(
   styles: (theme: RecursivePartial<Theme> & Theme) => Styles<C>,
   component?: string,
-): ((params?: unknown) => Classes<C>) => {
+) => {
   const mergedStyles = (theme: RecursivePartial<Theme> & Theme): Styles<C> => {
     let overrideStyles = {};
 

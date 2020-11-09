@@ -6,6 +6,6 @@ import { DisplayUnit } from '../../../types/DisplayUnit';
  * @param width The width above which the media query should trigger.
  * @param unit The display unit to use (eg. "px", "vw")
  */
-export const aboveWidth = (width: number, unit: DisplayUnit = 'px'): string => {
+export const aboveWidth = (width: number, unit: DisplayUnit = 'px') => {
   return `@media (min-width: ${width}${unit})`;
 };

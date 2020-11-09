@@ -16,7 +16,10 @@ export interface HideProps {
   className?: string;
 }
 
-export const Hide: React.FunctionComponent<HideProps> = (props: HideProps) => {
+export const Hide = React.forwardRef<HTMLDivElement, HideProps>(function Hide(
+  props: HideProps,
+  forwardedRef: React.Ref<HTMLDivElement>,
+) {
   const classes = useStyles();
 
   let shouldHideForAbove = false;
@@ -45,8 +48,9 @@ export const Hide: React.FunctionComponent<HideProps> = (props: HideProps) => {
         shouldHide && props?.classes?.hidden,
         props?.className,
       )}
+      ref={forwardedRef}
     >
       {props.children}
     </div>
   );
-};
+});

@@ -11,28 +11,34 @@ export interface CardHeaderProps {
   title?: string;
 }
 
-export const CardHeader: React.FunctionComponent<CardHeaderProps> = (
-  props: CardHeaderProps,
-) => {
-  const classes = useStyles();
+export const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
+  function CardHeader(
+    props: CardHeaderProps,
+    forwardedRef: React.Ref<HTMLDivElement>,
+  ) {
+    const classes = useStyles();
 
-  return (
-    <div className={clsx(classes.root, props?.classes?.root, props?.className)}>
-      {props.left && (
-        <div className={clsx(classes.left, props?.classes?.left)}>
-          {props.left}
-        </div>
-      )}
-      {props.title && (
-        <div className={clsx(classes.title, props?.classes?.title)}>
-          <Text variant="h6">{props.title}</Text>
-        </div>
-      )}
-      {props.right && (
-        <div className={clsx(classes.right, props?.classes?.right)}>
-          {props.right}
-        </div>
-      )}
-    </div>
-  );
-};
+    return (
+      <div
+        className={clsx(classes.root, props?.classes?.root, props?.className)}
+        ref={forwardedRef}
+      >
+        {props.left && (
+          <div className={clsx(classes.left, props?.classes?.left)}>
+            {props.left}
+          </div>
+        )}
+        {props.title && (
+          <div className={clsx(classes.title, props?.classes?.title)}>
+            <Text variant="h6">{props.title}</Text>
+          </div>
+        )}
+        {props.right && (
+          <div className={clsx(classes.right, props?.classes?.right)}>
+            {props.right}
+          </div>
+        )}
+      </div>
+    );
+  },
+);

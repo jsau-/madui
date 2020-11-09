@@ -11,6 +11,6 @@ export const betweenWidth = (
   min: number,
   max: number,
   unit: DisplayUnit = 'px',
-): string => {
+) => {
   return `@media (min-width: ${min}${unit}) and (max-width: ${max}${unit})`;
 };

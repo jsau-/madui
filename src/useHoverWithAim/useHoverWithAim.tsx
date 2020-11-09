@@ -23,7 +23,7 @@ const isMouseBetweenElements = (
   mousePosition: Point2,
   source: RefObject<HTMLElement>,
   target: RefObject<HTMLElement>,
-): boolean => {
+) => {
   if (!source.current || !target.current) {
     return false;
   }
@@ -125,7 +125,7 @@ const isMouseBetweenElements = (
 export const useHoverWithAim = (
   source: RefObject<HTMLElement>,
   target: RefObject<HTMLElement>,
-): boolean => {
+) => {
   const [hoveringAnywhereRelevant, setHoveringAnywhereRelevant] = useState(
     false,
   );

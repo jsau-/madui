@@ -9,7 +9,10 @@ export interface FadeProps {
   show?: boolean;
 }
 
-export const Fade: React.FunctionComponent<FadeProps> = (props: FadeProps) => {
+export const Fade = React.forwardRef<HTMLDivElement, FadeProps>(function Fade(
+  props: FadeProps,
+  forwardedRef: React.Ref<HTMLDivElement>,
+) {
   const classes = useStyles();
   const [visible, setVisible] = useState(props.show);
 
@@ -39,8 +42,9 @@ export const Fade: React.FunctionComponent<FadeProps> = (props: FadeProps) => {
         props?.className,
       )}
       onAnimationEnd={onAnimationEnd}
+      ref={forwardedRef}
     >
       {props.children}
     </div>
   );
-};
+});

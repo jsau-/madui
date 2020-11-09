@@ -5,7 +5,7 @@
  * @param min Minimum possible value.
  * @param max Maximum possible value.
  */
-export const clamp = (value: number, min: number, max: number): number => {
+export const clamp = (value: number, min: number, max: number) => {
   if (value > max) {
     return max;
   }

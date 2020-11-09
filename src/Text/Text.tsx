@@ -3,9 +3,11 @@ import React from 'react';
 import { useStyles } from './Text.styles';
 import { TextVariant } from '../types/TextVariant';
 
+type TextWrappers = 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
 type TextVariantMap<T> = { [variant in TextVariant]: T };
 
-const textVariantToWrapper: TextVariantMap<keyof JSX.IntrinsicElements> = {
+const textVariantToWrapper: TextVariantMap<TextWrappers> = {
   body1: 'p',
   body2: 'p',
   caption: 'span',
@@ -24,10 +26,15 @@ export interface TextProps {
   children?: React.ReactNode;
   italic?: boolean;
   variant?: TextVariant;
-  wrapper?: keyof JSX.IntrinsicElements;
+  wrapper?: TextWrappers;
 }
 
-export const Text: React.FunctionComponent<TextProps> = (props: TextProps) => {
+export const Text = React.forwardRef(function Text(
+  props: TextProps,
+  forwardedRef: React.Ref<
+    HTMLParagraphElement & HTMLSpanElement & HTMLHeadingElement
+  >,
+) {
   const classes = useStyles();
 
   const variant = props.variant || 'body1';
@@ -43,6 +50,7 @@ export const Text: React.FunctionComponent<TextProps> = (props: TextProps) => {
         props?.classes?.[variant],
         props?.className,
       )}
+      ref={forwardedRef}
     >
       {props.children}
     </WrapperNode>
@@ -57,4 +65,4 @@ export const Text: React.FunctionComponent<TextProps> = (props: TextProps) => {
   }
 
   return component;
-};
+});

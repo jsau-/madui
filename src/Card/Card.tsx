@@ -9,7 +9,10 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   elevation?: Elevation;
 }
 
-export const Card: React.FunctionComponent<CardProps> = (props: CardProps) => {
+export const Card = React.forwardRef<HTMLDivElement, CardProps>(function Card(
+  props: CardProps,
+  forwardedRef: React.Ref<HTMLDivElement>,
+) {
   const classes = useStyles();
   const elevation = props.elevation || 'low';
 
@@ -17,8 +20,9 @@ export const Card: React.FunctionComponent<CardProps> = (props: CardProps) => {
     <Paper
       className={clsx(classes.root, props?.classes?.root, props?.className)}
       elevation={elevation}
+      ref={forwardedRef}
     >
       {props.children}
     </Paper>
   );
-};
+});

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { PageContext, PageContextInterface } from '../PageContext';
+import { PageContext } from '../PageContext';
 
 /**
  * Gets page context.
  */
-export const usePage = (): PageContextInterface => useContext(PageContext);
+export const usePage = () => useContext(PageContext);

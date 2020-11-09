@@ -12,7 +12,7 @@ export const belowWidth = (
   width: number,
   unit: DisplayUnit = 'px',
   allowNegative = false,
-): string => {
+) => {
   let queryWidth = width - 1;
 
   if (!allowNegative && 0 > queryWidth) {

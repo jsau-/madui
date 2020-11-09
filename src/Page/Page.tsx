@@ -10,12 +10,18 @@ export interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
   sidebar?: React.ReactNode;
 }
 
-export const Page: React.FunctionComponent<PageProps> = (props: PageProps) => {
+export const Page = React.forwardRef(function Page(
+  props: PageProps,
+  forwardedRef: React.Ref<HTMLDivElement>,
+) {
   const pageContext = usePage();
   const classes = useStyles();
 
   return (
-    <div className={clsx(classes.root, props?.classes?.root, props?.className)}>
+    <div
+      className={clsx(classes.root, props?.classes?.root, props?.className)}
+      ref={forwardedRef}
+    >
       {pageContext.navbar.isOpen && (
         <div className={clsx(classes.navbar, props?.classes?.navbar)}>
           {props.navbar}
@@ -38,4 +44,4 @@ export const Page: React.FunctionComponent<PageProps> = (props: PageProps) => {
       )}
     </div>
   );
-};
+});

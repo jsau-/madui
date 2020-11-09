@@ -18,7 +18,7 @@ type MatchMedia = (query: string) => MediaQueryList;
 export const useMediaQuery = (
   query: string | ((theme: Theme) => string),
   customMatchMedia?: MatchMedia,
-): boolean => {
+) => {
   let matchMedia: MatchMedia | undefined;
 
   let mediaQuery: string;

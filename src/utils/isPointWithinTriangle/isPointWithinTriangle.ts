@@ -18,7 +18,7 @@ export const isPointWithinTriangle = (
   triPointOne: Point2,
   triPointTwo: Point2,
   triPointThree: Point2,
-): boolean => {
+) => {
   const alpha =
     ((triPointTwo.y - triPointThree.y) * (point.x - triPointThree.x) +
       (triPointThree.x - triPointTwo.x) * (point.y - triPointThree.y)) /

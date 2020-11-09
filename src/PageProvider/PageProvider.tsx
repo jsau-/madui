@@ -10,7 +10,7 @@ interface PageProviderProps {
   };
 }
 
-export const PageProvider = (props: PageProviderProps): JSX.Element => {
+export const PageProvider = (props: PageProviderProps) => {
   const [showFooter, setShowFooter] = useState(
     props?.initialState?.showFooter || true,
   );

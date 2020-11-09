@@ -8,7 +8,7 @@
 import { Rule } from 'jss';
 import { JssProvider } from 'react-jss';
 import React from 'react';
-import { render, RenderOptions, RenderResult } from '@testing-library/react';
+import { render, RenderOptions } from '@testing-library/react';
 import { createTheme } from '../../styles/createTheme';
 import { ThemeProvider } from '../../ThemeProvider';
 
@@ -43,11 +43,7 @@ const jssGenerateId = (rule: Rule): string => rule.key;
 
 const defaultTheme = createTheme();
 
-const AllTheProviders: React.FunctionComponent = ({
-  children,
-}: {
-  children?: React.ReactNode;
-}) => (
+const AllTheProviders = ({ children }: { children?: React.ReactNode }) => (
   <JssProvider generateId={jssGenerateId}>
     <ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>
   </JssProvider>
@@ -56,7 +52,7 @@ const AllTheProviders: React.FunctionComponent = ({
 const customRender = (
   ui: React.ReactElement,
   options?: Omit<RenderOptions, 'queries'>,
-): RenderResult => render(ui, { wrapper: AllTheProviders, ...options });
+) => render(ui, { wrapper: AllTheProviders, ...options });
 
 // Re-export everything
 export * from '@testing-library/react';

@@ -8,19 +8,22 @@ export interface OverlayProps extends React.HTMLAttributes<HTMLDivElement> {
   open?: boolean;
 }
 
-export const Overlay: React.FunctionComponent<OverlayProps> = (
-  props: OverlayProps,
-) => {
-  const classes = useStyles();
+export const Overlay = React.forwardRef<HTMLDivElement, OverlayProps>(
+  function Overlay(
+    props: OverlayProps,
+    forwardedRef: React.Ref<HTMLDivElement>,
+  ) {
+    const classes = useStyles();
 
-  return (
-    <Fade show={props.open}>
-      <div
-        aria-hidden
-        className={clsx(classes.root, props?.classes?.root, props?.className)}
-      >
-        {props.children}
-      </div>
-    </Fade>
-  );
-};
+    return (
+      <Fade ref={forwardedRef} show={props.open}>
+        <div
+          aria-hidden
+          className={clsx(classes.root, props?.classes?.root, props?.className)}
+        >
+          {props.children}
+        </div>
+      </Fade>
+    );
+  },
+);
