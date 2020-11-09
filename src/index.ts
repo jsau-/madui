@@ -15,7 +15,6 @@ export * from './styles';
 export * from './Text';
 export * from './ThemeProvider';
 export * from './types';
-export * from './useCurrentBreakpoint';
 export * from './useHoverWithAim';
 export * from './useMediaQuery';
 export * from './useMousePosition';
