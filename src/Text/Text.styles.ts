@@ -18,7 +18,7 @@ export const useStyles = makeStyles(
       marginTop: theme.spacing.unit,
     },
     caption: {
-      color: theme.palette.grey[700],
+      color: theme.palette.grey[800],
       fontSize: theme.text.sizes.caption,
       marginBottom: 2 * theme.spacing.unit,
       marginTop: 2 * theme.spacing.unit,
