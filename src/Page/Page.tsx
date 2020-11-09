@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
 import { useStyles } from './Page.styles';
-import { PageContent } from '../PageContent';
 import { usePage } from '../usePage';
 
 export interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -28,9 +27,9 @@ export const Page: React.FunctionComponent<PageProps> = (props: PageProps) => {
             {props.sidebar}
           </div>
         )}
-        <PageContent className={clsx(classes.content, props?.classes?.content)}>
+        <div className={clsx(classes.content, props?.classes?.content)}>
           {props.children}
-        </PageContent>
+        </div>
       </div>
       {pageContext.footer.isOpen && (
         <div className={clsx(classes.footer, props?.classes?.footer)}>
