@@ -3,34 +3,70 @@ import { Theme } from '../types/Theme';
 
 export const useStyles = makeStyles(
   (theme: Theme) => ({
-    body: {
-      fontSize: theme.text.body.fontSize,
-      marginBottom: theme.spacing.unit,
-      marginTop: theme.spacing.unit,
-    },
     caption: {
-      fontSize: theme.text.caption.fontSize,
+      color: theme.palette.grey[700],
+      fontSize: theme.text.sizes.caption,
+      marginBottom: 2 * theme.spacing.unit,
+      marginTop: 2 * theme.spacing.unit,
+    },
+    h1: {
+      color: theme.palette.grey[900],
+      fontSize: theme.text.sizes.h1,
+      fontWeight: 600,
+      marginBottom: 2 * theme.spacing.unit,
+      marginTop: 2 * theme.spacing.unit,
+    },
+    h2: {
+      color: theme.palette.grey[900],
+      fontSize: theme.text.sizes.h2,
+      fontWeight: 600,
+      marginBottom: 2 * theme.spacing.unit,
+      marginTop: 2 * theme.spacing.unit,
+    },
+    h3: {
+      color: theme.palette.grey[900],
+      fontSize: theme.text.sizes.h3,
+      fontWeight: 600,
+      marginBottom: 2 * theme.spacing.unit,
+      marginTop: 2 * theme.spacing.unit,
+    },
+    h4: {
+      color: theme.palette.grey[900],
+      fontSize: theme.text.sizes.h4,
+      fontWeight: 600,
+      marginBottom: 2 * theme.spacing.unit,
+      marginTop: 2 * theme.spacing.unit,
+    },
+    h5: {
+      color: theme.palette.grey[900],
+      fontSize: theme.text.sizes.h5,
+      fontWeight: 600,
+      marginBottom: 2 * theme.spacing.unit,
+      marginTop: 2 * theme.spacing.unit,
+    },
+    h6: {
+      color: theme.palette.grey[900],
+      fontSize: theme.text.sizes.h6,
+      fontWeight: 600,
+      marginBottom: 2 * theme.spacing.unit,
+      marginTop: 2 * theme.spacing.unit,
+    },
+    body1: {
+      color: theme.palette.grey[800],
+      fontSize: theme.text.sizes.body1,
+      fontWeight: 400,
       marginBottom: theme.spacing.unit,
       marginTop: theme.spacing.unit,
     },
-    defaultColor: {
-      color: theme.palette.text,
-    },
-    heading: {
-      fontSize: theme.text.heading.fontSize,
-      marginBottom: 3 * theme.spacing.unit,
-      marginTop: 3 * theme.spacing.unit,
-    },
-    inheritColor: {
-      color: 'inherit',
+    body2: {
+      color: theme.palette.grey[800],
+      fontSize: theme.text.sizes.body2,
+      fontWeight: 400,
+      marginBottom: theme.spacing.unit,
+      marginTop: theme.spacing.unit,
     },
     root: {
       fontFamily: theme.text.fontFamily,
-    },
-    subheading: {
-      fontSize: theme.text.subheading.fontSize,
-      marginBottom: 2 * theme.spacing.unit,
-      marginTop: 2 * theme.spacing.unit,
     },
   }),
   'Text',

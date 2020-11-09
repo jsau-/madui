@@ -25,7 +25,7 @@ export const CardHeader: React.FunctionComponent<CardHeaderProps> = (
       )}
       {props.title && (
         <div className={clsx(classes.title, props?.classes?.title)}>
-          <Text variant="subheading">{props.title}</Text>
+          <Text variant="h6">{props.title}</Text>
         </div>
       )}
       {props.right && (

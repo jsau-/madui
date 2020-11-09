@@ -1,54 +1,77 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { Text, TextProps } from '.';
+import { TextVariant } from 'src/types/TextVariant';
 
 export default {
   title: 'Components/Text/Text',
   component: Text,
 } as Meta;
 
-const Template: Story<TextProps> = args => <Text {...args} />;
+const allVariants: TextVariant[] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'body1', 'body2', 'caption'];
 
-export const Heading = Template.bind({});
-Heading.args = {
+const AllTemplate: Story = () => (
+  <React.Fragment>
+    {allVariants.map((variant) => (
+      <Text key={variant} variant={variant}>{variant}</Text>
+    ))}
+  </React.Fragment>
+);
+
+const TextTemplate: Story<TextProps> = args => <Text {...args} />;
+
+export const All = AllTemplate.bind({});
+
+export const H1 = TextTemplate.bind({});
+H1.args = {
   children: 'My sample text.',
-  variant: 'heading',
+  variant: 'h1',
 };
 
-export const Subheading = Template.bind({});
-Subheading.args = {
+export const H2 = TextTemplate.bind({});
+H2.args = {
   children: 'My sample text.',
-  variant: 'subheading',
+  variant: 'h2',
 };
 
-export const Body = Template.bind({});
-Body.args = {
+export const H3 = TextTemplate.bind({});
+H3.args = {
   children: 'My sample text.',
-  variant: 'body',
+  variant: 'h3',
 };
 
-export const BoldBody = Template.bind({});
-BoldBody.args = {
-  bold: true,
+export const H4 = TextTemplate.bind({});
+H4.args = {
   children: 'My sample text.',
-  variant: 'body',
+  variant: 'h4',
 };
 
-export const ItalicBody = Template.bind({});
-ItalicBody.args = {
+export const H5 = TextTemplate.bind({});
+H5.args = {
   children: 'My sample text.',
-  italic: true,
-  variant: 'body',
+  variant: 'h5',
 };
 
-export const Caption = Template.bind({});
+export const H6 = TextTemplate.bind({});
+H6.args = {
+  children: 'My sample text.',
+  variant: 'h6',
+};
+
+export const Body1 = TextTemplate.bind({});
+Body1.args = {
+  children: 'My sample text.',
+  variant: 'body1',
+};
+
+export const Body2 = TextTemplate.bind({});
+Body2.args = {
+  children: 'My sample text.',
+  variant: 'body2',
+};
+
+export const Caption = TextTemplate.bind({});
 Caption.args = {
   children: 'My sample text.',
   variant: 'caption',
-};
-
-export const InheritColor = Template.bind({});
-InheritColor.args = {
-  children: 'My sample text.',
-  inheritColor: true,
 };

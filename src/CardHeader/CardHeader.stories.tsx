@@ -1,7 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { CardHeader, CardHeaderProps } from '.';
-import { Link } from '../Link';
 
 export default {
   title: 'Components/Layout/CardHeader',
@@ -17,7 +16,7 @@ Title.args = {
 
 export const WithLeftRight = Template.bind({});
 WithLeftRight.args = {
-  left: <Link href="#">Left</Link>,
-  right: <Link color="secondary" href="#">Right</Link>,
+  left: <a href="#">Left</a>,
+  right: <a color="secondary" href="#">Right</a>,
   title: 'My title',
 };

@@ -13,7 +13,6 @@ export const useStyles = makeStyles(
       boxShadow: theme.shadows.medium,
     },
     root: {
-      background: theme.palette.background,
       borderRadius: theme.border.radius,
       overflow: 'hidden',
     },

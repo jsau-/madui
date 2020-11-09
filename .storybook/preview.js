@@ -1,13 +1,11 @@
 import '@storybook/addon-console';
 import React from 'react';
 import { createTheme } from '../src/styles/createTheme';
-import { darkTheme } from '../src/styles/darkTheme';
 import { lightTheme } from '../src/styles/lightTheme';
 import { PageProvider } from '../src/PageProvider';
 import { ThemeProvider } from '../src/ThemeProvider';
 
 const libraryThemes = {
-  Dark_Theme: createTheme(darkTheme),
   Light_Theme: createTheme(lightTheme),
 };
 
@@ -15,7 +13,7 @@ export const globalTypes = {
   theme: {
     name: 'Theme',
     description: 'Global theme for components',
-    defaultValue: 'Light_Theme',
+    defaultValue: Object.keys(libraryThemes)[0],
     toolbar: {
       // See: https://www.chromatic.com/component?appId=5a375b97f4b14f0020b0cda3&name=Basics%7CIcon&buildNumber=13899
       icon: 'paintbrush',

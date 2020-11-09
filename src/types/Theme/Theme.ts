@@ -1,5 +1,6 @@
 import { Breakpoint } from '../Breakpoint';
 import { Elevation } from '../Elevation';
+import { TextVariant } from '../TextVariant';
 
 interface ThemeRecord {
   [key: string]:
@@ -11,9 +12,17 @@ interface ThemeRecord {
     | Record<string, ThemeRecord>;
 }
 
-interface PaletteColor extends ThemeRecord {
-  contrast: string;
-  main: string;
+interface Palette extends ThemeRecord {
+  0: string;
+  100: string;
+  200: string;
+  300: string;
+  400: string;
+  500: string;
+  600: string;
+  700: string;
+  800: string;
+  900: string;
 }
 
 /**
@@ -35,31 +44,17 @@ export interface Theme extends ThemeRecord {
   breakpoints: { [breakpoint in Breakpoint]: number } & ThemeRecord;
   overrides: Record<string, ThemeRecord>;
   palette: {
-    background: string;
-    divider: string;
-    primary: PaletteColor;
-    secondary: PaletteColor;
-    text: string;
+    grey: Palette;
+    primary: Palette;
   };
   shadows: { [elevation in Elevation]: string } & ThemeRecord;
   spacing: {
     unit: number;
   };
   text: {
-    body: {
-      fontSize: number;
-    };
-    caption: {
-      fontSize: number;
-    };
-    heading: {
-      fontSize: number;
-    };
     fontFamily: string;
     monoFontFamily: string;
-    subheading: {
-      fontSize: number;
-    };
+    sizes: Record<TextVariant, number> & ThemeRecord;
   };
   transitions: {
     duration: number;
