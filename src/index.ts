@@ -6,6 +6,7 @@ export * from './Hide';
 export * from './Overlay';
 export * from './Page';
 export * from './PageProvider';
+export * from './Paper';
 export * from './Text';
 export * from './ThemeProvider';
 export * from './useHoverWithAim';
