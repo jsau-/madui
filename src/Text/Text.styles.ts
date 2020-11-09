@@ -52,7 +52,7 @@ export const useStyles = makeStyles(
       marginTop: 2 * theme.spacing.unit,
     },
     body1: {
-      color: theme.palette.grey[800],
+      color: theme.palette.grey[900],
       fontSize: theme.text.sizes.body1,
       fontWeight: 400,
       marginBottom: theme.spacing.unit,

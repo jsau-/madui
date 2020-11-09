@@ -1,1 +1,1 @@
-export type Elevation = 'low' | 'medium' | 'high';
+export type Elevation = 'none' | 'low' | 'medium' | 'high';
