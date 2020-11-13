@@ -2,12 +2,19 @@ import clsx from 'clsx';
 import React from 'react';
 import { useStyles } from './TableCell.styles';
 
-export interface TableCellProps extends React.HTMLAttributes<HTMLTableDataCellElement> {
+export interface TableCellProps
+  extends React.HTMLAttributes<HTMLTableDataCellElement> {
   align: 'center' | 'left' | 'right';
   classes?: Record<string, string>;
-};
+}
 
-export const TableCell = React.forwardRef<HTMLTableDataCellElement, TableCellProps>(function TableCell(props: TableCellProps, forwardedRef: React.Ref<HTMLTableDataCellElement>) {
+export const TableCell = React.forwardRef<
+  HTMLTableDataCellElement,
+  TableCellProps
+>(function TableCell(
+  props: TableCellProps,
+  forwardedRef: React.Ref<HTMLTableDataCellElement>,
+) {
   const classes = useStyles();
 
   const align = props?.align || 'left';
@@ -19,7 +26,7 @@ export const TableCell = React.forwardRef<HTMLTableDataCellElement, TableCellPro
         classes[align],
         props?.classes?.root,
         props?.classes?.[align],
-        props?.className
+        props?.className,
       )}
       ref={forwardedRef}
     >
