@@ -9,15 +9,34 @@ export default {
 
 const Template: Story<ButtonProps> = args => <Button {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
-  children: 'Hello!',
-  onClick: () => console.log('Click!'),
-};
-
-export const Primary = Template.bind({});
-Primary.args = {
+export const SolidPrimary = Template.bind({});
+SolidPrimary.args = {
   children: 'Hello!',
   color: 'primary',
   onClick: () => console.log('Click!'),
+  variant: 'solid',
+};
+
+export const OutlinedPrimary = Template.bind({});
+OutlinedPrimary.args = {
+  children: 'Hello!',
+  color: 'primary',
+  onClick: () => console.log('Click!'),
+  variant: 'outlined',
+};
+
+export const SolidGrey = Template.bind({});
+SolidGrey.args = {
+  children: 'Hello!',
+  color: 'grey',
+  onClick: () => console.log('Click!'),
+  variant: 'solid',
+};
+
+export const OutlinedGrey = Template.bind({});
+OutlinedGrey.args = {
+  children: 'Hello!',
+  color: 'grey',
+  onClick: () => console.log('Click!'),
+  variant: 'outlined',
 };
