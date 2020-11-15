@@ -39,6 +39,12 @@ const makeStandardStyles = (palette: Palette) => ({
   },
 });
 
+const makePaletteStyles = (palette: Palette) => ({
+  '&$outlined': makeOutlinedStyles(palette),
+  '&$solid': makeSolidStyles(palette),
+  '&$standard': makeStandardStyles(palette),
+});
+
 export const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
@@ -61,16 +67,8 @@ color ${theme.transitions.durations.short}s ease`,
     outlined: {},
     solid: {},
     standard: {},
-    grey: {
-      '&$outlined': makeOutlinedStyles(theme.palette.grey),
-      '&$solid': makeSolidStyles(theme.palette.grey),
-      '&$standard': makeStandardStyles(theme.palette.grey),
-    },
-    primary: {
-      '&$outlined': makeOutlinedStyles(theme.palette.primary),
-      '&$solid': makeSolidStyles(theme.palette.primary),
-      '&$standard': makeStandardStyles(theme.palette.primary),
-    },
+    grey: makePaletteStyles(theme.palette.grey),
+    primary: makePaletteStyles(theme.palette.primary),
   }),
   'Button',
 );
