@@ -20,3 +20,21 @@ Grey.args = {
   color: 'grey',
   name: 'Foo Bar',
 };
+
+export const Error = Template.bind({});
+Error.args = {
+  color: 'error',
+  name: 'Foo Bar',
+};
+
+export const Warning = Template.bind({});
+Warning.args = {
+  color: 'warning',
+  name: 'Foo Bar',
+};
+
+export const Success = Template.bind({});
+Success.args = {
+  color: 'success',
+  name: 'Foo Bar',
+};

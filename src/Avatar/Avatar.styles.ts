@@ -1,16 +1,14 @@
 import { makeStyles } from '../styles/makeStyles';
+import { Palette } from '../types/Palette';
 import { Theme } from '../types/Theme';
+
+const makePaletteStyles = (palette: Palette) => ({
+  backgroundColor: palette[500],
+  color: palette.contrastLight,
+});
 
 export const useStyles = makeStyles(
   (theme: Theme) => ({
-    grey: {
-      backgroundColor: theme.palette.grey[500],
-      color: theme.palette.grey.contrastLight,
-    },
-    primary: {
-      backgroundColor: theme.palette.primary[500],
-      color: theme.palette.primary.contrastLight,
-    },
     root: {
       alignItems: 'center',
       borderRadius: '100%',
@@ -22,6 +20,11 @@ export const useStyles = makeStyles(
       userSelect: 'none',
       width: 40,
     },
+    grey: makePaletteStyles(theme.palette.grey),
+    primary: makePaletteStyles(theme.palette.primary),
+    error: makePaletteStyles(theme.palette.error),
+    warning: makePaletteStyles(theme.palette.warning),
+    success: makePaletteStyles(theme.palette.success),
   }),
   'Avatar',
 );
