@@ -1,4 +1,5 @@
 import { Breakpoint } from '../Breakpoint';
+import { Color } from '../Color';
 import { Elevation } from '../Elevation';
 import { TextVariant } from '../TextVariant';
 
@@ -44,8 +45,7 @@ export interface Theme extends ThemeRecord {
   breakpoints: { [breakpoint in Breakpoint]: number } & ThemeRecord;
   overrides: Record<string, ThemeRecord>;
   palette: {
-    grey: Palette;
-    primary: Palette;
+    [color in Color]: Palette;
   };
   shadows: { [elevation in Elevation]: string } & ThemeRecord;
   spacing: {
