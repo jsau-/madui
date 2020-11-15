@@ -7,6 +7,7 @@ import { InputVariant } from '../types/InputVariant';
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   classes?: Record<string, string>;
   color?: Color;
+  disabled?: boolean;
   variant?: InputVariant;
 }
 
@@ -18,6 +19,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const {
       classes,
       color: defaultColor,
+      disabled,
       variant: defaultVariant,
       ...other
     } = props;
@@ -33,11 +35,18 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           styles.root,
           styles[color],
           styles[variant],
+          {
+            [styles.disabled]: disabled,
+          },
           classes?.root,
           classes?.[color],
           classes?.[variant],
+          {
+            [`${classes?.disabled}`]: disabled,
+          },
           props?.className,
         )}
+        disabled={disabled}
         ref={forwardedRef}
       >
         {props.children}

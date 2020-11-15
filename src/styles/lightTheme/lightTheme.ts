@@ -13,6 +13,9 @@ export const lightTheme: Theme = {
     xl: 1920,
     xxl: 2560,
   },
+  disabled: {
+    opacity: 0.3,
+  },
   overrides: {},
   palette: {
     grey: {

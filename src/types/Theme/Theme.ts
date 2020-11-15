@@ -32,6 +32,9 @@ export interface Theme extends ThemeRecord {
     radius: number;
   };
   breakpoints: { [breakpoint in Breakpoint]: number } & ThemeRecord;
+  disabled: {
+    opacity: number;
+  };
   overrides: Record<string, ThemeRecord>;
   palette: {
     [color in Color]: Palette & ThemeRecord;

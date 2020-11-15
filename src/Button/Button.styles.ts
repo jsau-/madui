@@ -5,11 +5,11 @@ import { Theme } from '../types/Theme';
 const makeOutlinedStyles = (palette: Palette) => ({
   borderColor: palette[500],
   color: palette[500],
-  '&:hover': {
+  '&:hover&:not($disabled)': {
     backgroundColor: palette[0],
     borderColor: palette[500],
   },
-  '&:active': {
+  '&:active&:not($disabled)': {
     backgroundColor: palette[100],
     borderColor: palette[600],
   },
@@ -18,10 +18,10 @@ const makeOutlinedStyles = (palette: Palette) => ({
 const makeSolidStyles = (palette: Palette) => ({
   backgroundColor: palette[500],
   color: palette.contrastLight,
-  '&:hover': {
+  '&:hover&:not($disabled)': {
     backgroundColor: palette[700],
   },
-  '&:active': {
+  '&:active&:not($disabled)': {
     backgroundColor: palette[800],
     color: palette[0],
   },
@@ -29,6 +29,9 @@ const makeSolidStyles = (palette: Palette) => ({
 
 export const useStyles = makeStyles(
   (theme: Theme) => ({
+    disabled: {
+      opacity: theme.disabled.opacity,
+    },
     grey: {
       '&$outlined': makeOutlinedStyles(theme.palette.grey),
       '&$solid': makeSolidStyles(theme.palette.grey),
