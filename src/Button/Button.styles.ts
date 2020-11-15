@@ -21,12 +21,12 @@ export const useStyles = makeStyles(
         '&:active': {
           backgroundColor: theme.palette.grey[700],
         },
-        backgroundColor: theme.palette.grey[500],
-        color: theme.palette.grey[0],
+        backgroundColor: theme.palette.grey[400],
+        color: theme.palette.grey[800],
       },
     },
     outlined: {
-      borderWidth: 1,
+      background: 'transparent',
     },
     primary: {
       '&$outlined': {
@@ -52,6 +52,7 @@ export const useStyles = makeStyles(
     },
     root: {
       borderRadius: theme.border.radius,
+      borderWidth: 1,
       borderStyle: 'solid',
       fontFamily: theme.text.fontFamily,
       fontSize: theme.text.sizes.body1,
@@ -60,7 +61,7 @@ export const useStyles = makeStyles(
       textTransform: 'capitalize',
     },
     solid: {
-      borderWidth: 0,
+      borderColor: 'transparent',
     },
   }),
   'Button',
