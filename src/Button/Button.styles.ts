@@ -1,54 +1,44 @@
 import { makeStyles } from '../styles/makeStyles';
+import { Palette } from '../types/Palette';
 import { Theme } from '../types/Theme';
+
+const makeOutlinedStyles = (palette: Palette) => ({
+  borderColor: palette[500],
+  color: palette[500],
+  '&:hover': {
+    backgroundColor: palette[0],
+    borderColor: palette[500],
+  },
+  '&:active': {
+    backgroundColor: palette[100],
+    borderColor: palette[600],
+  },
+});
+
+const makeSolidStyles = (palette: Palette) => ({
+  backgroundColor: palette[500],
+  color: palette.contrastLight,
+  '&:hover': {
+    backgroundColor: palette[700],
+  },
+  '&:active': {
+    backgroundColor: palette[800],
+    color: palette[0],
+  },
+});
 
 export const useStyles = makeStyles(
   (theme: Theme) => ({
     grey: {
-      '&$outlined': {
-        '&:hover': {
-          borderColor: theme.palette.grey[600],
-        },
-        '&:active': {
-          borderColor: theme.palette.grey[700],
-        },
-        borderColor: theme.palette.grey[400],
-        color: theme.palette.grey[800],
-      },
-      '&$solid': {
-        '&:hover': {
-          backgroundColor: theme.palette.grey[600],
-        },
-        '&:active': {
-          backgroundColor: theme.palette.grey[700],
-        },
-        backgroundColor: theme.palette.grey[400],
-        color: theme.palette.grey[800],
-      },
+      '&$outlined': makeOutlinedStyles(theme.palette.grey),
+      '&$solid': makeSolidStyles(theme.palette.grey),
     },
     outlined: {
       background: 'transparent',
     },
     primary: {
-      '&$outlined': {
-        '&:hover': {
-          borderColor: theme.palette.primary[600],
-        },
-        '&:active': {
-          borderColor: theme.palette.primary[700],
-        },
-        borderColor: theme.palette.primary[400],
-        color: theme.palette.primary[400],
-      },
-      '&$solid': {
-        '&:hover': {
-          backgroundColor: theme.palette.primary[600],
-        },
-        '&:active': {
-          backgroundColor: theme.palette.primary[700],
-        },
-        backgroundColor: theme.palette.primary[400],
-        color: theme.palette.grey[0],
-      },
+      '&$outlined': makeOutlinedStyles(theme.palette.primary),
+      '&$solid': makeSolidStyles(theme.palette.primary),
     },
     root: {
       borderRadius: theme.border.radius,

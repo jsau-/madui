@@ -14,7 +14,7 @@ export const useStyles = makeStyles(
     },
     none: {},
     root: {
-      backgroundColor: theme.palette.grey[0],
+      backgroundColor: theme.background,
       borderRadius: theme.border.radius,
     },
     square: {

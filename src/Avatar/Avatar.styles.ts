@@ -5,9 +5,9 @@ export const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
       alignItems: 'center',
-      backgroundColor: theme.palette.primary[400],
+      backgroundColor: theme.palette.primary[500],
       borderRadius: '100%',
-      color: theme.palette.grey[0],
+      color: theme.palette.primary.contrastLight,
       display: 'flex',
       fontFamily: theme.text.fontFamily,
       fontSize: theme.text.sizes.body1,
