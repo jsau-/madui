@@ -49,6 +49,10 @@ export interface Theme extends ThemeRecord {
     sizes: Record<TextVariant, number> & ThemeRecord;
   };
   transitions: {
-    duration: number;
+    durations: {
+      short: number;
+      medium: number;
+      long: number;
+    };
   };
 }

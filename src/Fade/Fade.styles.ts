@@ -12,11 +12,11 @@ export const useStyles = makeStyles(
       to: { opacity: 0 },
     },
     fadeIn: {
-      animationDuration: `${theme.transitions.duration}s`,
+      animationDuration: `${theme.transitions.durations.medium}s`,
       animationName: '$fadeIn',
     },
     fadeOut: {
-      animationDuration: `${theme.transitions.duration}s`,
+      animationDuration: `${theme.transitions.durations.medium}s`,
       animationName: '$fadeOut',
     },
     root: {},

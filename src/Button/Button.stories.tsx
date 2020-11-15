@@ -43,6 +43,23 @@ OutlinedPrimaryDisabled.args = {
   variant: 'outlined',
 };
 
+export const StandardPrimary = Template.bind({});
+StandardPrimary.args = {
+  children: 'Hello!',
+  color: 'primary',
+  onClick: () => console.log('Click!'),
+  variant: 'standard',
+};
+
+export const StandardPrimaryDisabled = Template.bind({});
+StandardPrimaryDisabled.args = {
+  children: 'Hello!',
+  color: 'primary',
+  disabled: true,
+  onClick: () => console.log('Click!'),
+  variant: 'standard',
+};
+
 export const SolidGrey = Template.bind({});
 SolidGrey.args = {
   children: 'Hello!',
@@ -75,4 +92,21 @@ OutlinedGreyDisabled.args = {
   disabled: true,
   onClick: () => console.log('Click!'),
   variant: 'outlined',
+};
+
+export const StandardGrey = Template.bind({});
+StandardGrey.args = {
+  children: 'Hello!',
+  color: 'grey',
+  onClick: () => console.log('Click!'),
+  variant: 'standard',
+};
+
+export const StandardGreyDisabled = Template.bind({});
+StandardGreyDisabled.args = {
+  children: 'Hello!',
+  color: 'grey',
+  disabled: true,
+  onClick: () => console.log('Click!'),
+  variant: 'standard',
 };

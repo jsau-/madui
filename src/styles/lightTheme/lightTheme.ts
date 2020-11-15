@@ -96,6 +96,10 @@ export const lightTheme: Theme = {
     },
   },
   transitions: {
-    duration: 0.3,
+    durations: {
+      short: 0.1,
+      medium: 0.3,
+      long: 0.8,
+    },
   },
 };

@@ -27,23 +27,23 @@ const makeSolidStyles = (palette: Palette) => ({
   },
 });
 
+const makeStandardStyles = (palette: Palette) => ({
+  color: palette[500],
+  '&:hover&:not($disabled)': {
+    backgroundColor: palette[0],
+    color: palette[600],
+  },
+  '&:active&:not($disabled)': {
+    backgroundColor: palette[100],
+    color: palette[700],
+  },
+});
+
 export const useStyles = makeStyles(
   (theme: Theme) => ({
-    disabled: {
-      opacity: theme.disabled.opacity,
-    },
-    grey: {
-      '&$outlined': makeOutlinedStyles(theme.palette.grey),
-      '&$solid': makeSolidStyles(theme.palette.grey),
-    },
-    outlined: {
-      background: 'transparent',
-    },
-    primary: {
-      '&$outlined': makeOutlinedStyles(theme.palette.primary),
-      '&$solid': makeSolidStyles(theme.palette.primary),
-    },
     root: {
+      backgroundColor: 'transparent',
+      borderColor: 'transparent',
       borderRadius: theme.border.radius,
       borderWidth: 1,
       borderStyle: 'solid',
@@ -52,9 +52,23 @@ export const useStyles = makeStyles(
       outline: 'none',
       padding: theme.spacing.unit,
       textTransform: 'capitalize',
+      transition: `background-color ${theme.transitions.durations.short}s ease, color ${theme.transitions.durations.short}s ease`,
     },
-    solid: {
-      borderColor: 'transparent',
+    disabled: {
+      opacity: theme.disabled.opacity,
+    },
+    outlined: {},
+    solid: {},
+    standard: {},
+    grey: {
+      '&$outlined': makeOutlinedStyles(theme.palette.grey),
+      '&$solid': makeSolidStyles(theme.palette.grey),
+      '&$standard': makeStandardStyles(theme.palette.grey),
+    },
+    primary: {
+      '&$outlined': makeOutlinedStyles(theme.palette.primary),
+      '&$solid': makeSolidStyles(theme.palette.primary),
+      '&$standard': makeStandardStyles(theme.palette.primary),
     },
   }),
   'Button',

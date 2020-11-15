@@ -26,7 +26,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const styles = useStyles();
     const color = defaultColor || 'grey';
-    const variant = defaultVariant || 'solid';
+    const variant = defaultVariant || 'standard';
 
     return (
       <button

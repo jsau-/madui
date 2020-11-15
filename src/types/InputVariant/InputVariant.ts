@@ -1,1 +1,1 @@
-export type InputVariant = 'solid' | 'outlined';
+export type InputVariant = 'standard' | 'solid' | 'outlined';
