@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { useBelowBreakpoint } from '.';
 import { Text } from '../Text';
