@@ -15,17 +15,18 @@ export const TableHeadCell = React.forwardRef<
   props: TableHeadCellProps,
   forwardedRef: React.Ref<HTMLTableHeaderCellElement>,
 ) {
-  const classes = useStyles();
+  const { align, classes, ...other } = props;
 
-  const align = props?.align || 'left';
+  const styles = useStyles();
 
   return (
     <th
+      {...other}
       className={clsx(
-        classes.root,
-        classes[align],
-        props?.classes?.root,
-        props?.classes?.[align],
+        styles.root,
+        styles[align || 'left'],
+        classes?.root,
+        classes?.[align || 'left'],
         props?.className,
       )}
       ref={forwardedRef}

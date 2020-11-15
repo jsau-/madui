@@ -2,10 +2,8 @@ import clsx from 'clsx';
 import React from 'react';
 import { useStyles } from './CardContent.styles';
 
-export interface CardContentProps {
-  children?: React.ReactNode;
+export interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {
   classes?: Record<string, string>;
-  className?: string;
 }
 
 export const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
@@ -13,11 +11,14 @@ export const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
     props: CardContentProps,
     forwardedRef: React.Ref<HTMLDivElement>,
   ) {
-    const classes = useStyles();
+    const { classes, ...other } = props;
+
+    const styles = useStyles();
 
     return (
       <div
-        className={clsx(classes.root, props?.classes?.root, props?.className)}
+        {...other}
+        className={clsx(styles.root, classes?.root, props?.className)}
         ref={forwardedRef}
       >
         {props.children}

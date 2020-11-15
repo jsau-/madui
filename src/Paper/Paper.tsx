@@ -11,20 +11,22 @@ export interface PaperProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Paper = React.forwardRef<HTMLDivElement, PaperProps>(
   function Paper(props: PaperProps, forwardedRef: React.Ref<HTMLDivElement>) {
-    const classes = useStyles();
-    const elevation = props.elevation || 'none';
+    const { classes, elevation, square, ...other } = props;
+
+    const styles = useStyles();
 
     return (
       <div
+        {...other}
         className={clsx(
-          classes.root,
-          classes[elevation],
-          props?.classes?.root,
-          props?.classes?.[elevation],
+          styles.root,
+          styles[elevation || 'none'],
+          classes?.root,
+          classes?.[elevation || 'none'],
           props?.className,
           {
-            [classes.square]: props.square,
-            [`${props?.classes?.square}`]: props.square,
+            [styles.square]: square,
+            [`${classes?.square}`]: square,
           },
         )}
         ref={forwardedRef}

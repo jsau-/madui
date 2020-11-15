@@ -64,6 +64,28 @@ Body1.args = {
   variant: 'body1',
 };
 
+export const Body1Bold = TextTemplate.bind({});
+Body1Bold.args = {
+  bold: true,
+  children: 'My sample text.',
+  variant: 'body1',
+};
+
+export const Body1Italic = TextTemplate.bind({});
+Body1Italic.args = {
+  children: 'My sample text.',
+  italic: true,
+  variant: 'body1',
+};
+
+export const Body1BoldItalic = TextTemplate.bind({});
+Body1BoldItalic.args = {
+  bold: true,
+  children: 'My sample text.',
+  italic: true,
+  variant: 'body1',
+};
+
 export const Body2 = TextTemplate.bind({});
 Body2.args = {
   children: 'My sample text.',

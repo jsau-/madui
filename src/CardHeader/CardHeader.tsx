@@ -3,9 +3,8 @@ import React from 'react';
 import { useStyles } from './CardHeader.styles';
 import { Text } from '../Text';
 
-export interface CardHeaderProps {
+export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   classes?: Record<string, string>;
-  className?: string;
   left?: React.ReactNode;
   right?: React.ReactNode;
   title?: string;
@@ -16,27 +15,24 @@ export const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
     props: CardHeaderProps,
     forwardedRef: React.Ref<HTMLDivElement>,
   ) {
-    const classes = useStyles();
+    const { classes, left, right, title, ...other } = props;
+
+    const styles = useStyles();
 
     return (
       <div
-        className={clsx(classes.root, props?.classes?.root, props?.className)}
+        {...other}
+        className={clsx(styles.root, classes?.root, props?.className)}
         ref={forwardedRef}
       >
-        {props.left && (
-          <div className={clsx(classes.left, props?.classes?.left)}>
-            {props.left}
+        {left && <div className={clsx(styles.left, classes?.left)}>{left}</div>}
+        {title && (
+          <div className={clsx(styles.title, classes?.title)}>
+            <Text variant="h6">{title}</Text>
           </div>
         )}
-        {props.title && (
-          <div className={clsx(classes.title, props?.classes?.title)}>
-            <Text variant="h6">{props.title}</Text>
-          </div>
-        )}
-        {props.right && (
-          <div className={clsx(classes.right, props?.classes?.right)}>
-            {props.right}
-          </div>
+        {right && (
+          <div className={clsx(styles.right, classes?.right)}>{right}</div>
         )}
       </div>
     );

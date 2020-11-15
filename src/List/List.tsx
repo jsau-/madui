@@ -10,11 +10,14 @@ export const List = React.forwardRef<HTMLUListElement, ListProps>(function List(
   props: ListProps,
   forwardedRef: React.Ref<HTMLUListElement>,
 ) {
-  const classes = useStyles();
+  const { classes, ...other } = props;
+
+  const styles = useStyles();
 
   return (
     <ul
-      className={clsx(classes.root, props?.classes?.root, props?.className)}
+      {...other}
+      className={clsx(styles.root, classes?.root, props?.className)}
       ref={forwardedRef}
     >
       {props.children}

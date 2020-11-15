@@ -2,10 +2,8 @@ import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { useStyles } from './Fade.styles';
 
-export interface FadeProps {
-  children: React.ReactNode;
+export interface FadeProps extends React.HTMLAttributes<HTMLDivElement> {
   classes?: Record<string, string>;
-  className?: string;
   show?: boolean;
 }
 
@@ -13,17 +11,19 @@ export const Fade = React.forwardRef<HTMLDivElement, FadeProps>(function Fade(
   props: FadeProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const classes = useStyles();
-  const [visible, setVisible] = useState(props.show);
+  const { classes, show, ...other } = props;
+
+  const styles = useStyles();
+  const [visible, setVisible] = useState(show);
 
   useEffect(() => {
-    if (props.show) {
+    if (show) {
       setVisible(true);
     }
-  }, [props.show]);
+  }, [show]);
 
   const onAnimationEnd = (): void => {
-    if (!props.show) {
+    if (!show) {
       setVisible(false);
     }
   };
@@ -34,11 +34,12 @@ export const Fade = React.forwardRef<HTMLDivElement, FadeProps>(function Fade(
 
   return (
     <div
+      {...other}
       className={clsx(
-        classes.root,
-        props.show ? classes.fadeIn : classes.fadeOut,
-        props?.classes?.root,
-        props.show ? props?.classes?.fadeIn : props?.classes?.fadeOut,
+        styles.root,
+        show ? styles.fadeIn : styles.fadeOut,
+        classes?.root,
+        show ? classes?.fadeIn : classes?.fadeOut,
         props?.className,
       )}
       onAnimationEnd={onAnimationEnd}

@@ -6,46 +6,43 @@ import { belowWidth } from '../styles/breakpoint/belowWidth';
 import { DisplayUnit } from '../types/DisplayUnit';
 import { useMediaQuery } from '../useMediaQuery';
 
-export interface HideProps {
+export interface HideProps extends React.HTMLAttributes<HTMLDivElement> {
   above?: number;
   aboveUnit?: DisplayUnit;
   below?: number;
   belowUnit?: DisplayUnit;
-  children?: React.ReactNode;
   classes?: Record<string, string>;
-  className?: string;
 }
 
 export const Hide = React.forwardRef<HTMLDivElement, HideProps>(function Hide(
   props: HideProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const classes = useStyles();
+  const { above, aboveUnit, below, belowUnit, classes, ...other } = props;
+
+  const styles = useStyles();
 
   let shouldHideForAbove = false;
   let shouldHideForBelow = false;
 
-  if (props.above) {
-    shouldHideForAbove = useMediaQuery(
-      aboveWidth(props.above, props.aboveUnit),
-    );
+  if (above) {
+    shouldHideForAbove = useMediaQuery(aboveWidth(above, aboveUnit));
   }
 
-  if (props.below) {
-    shouldHideForBelow = useMediaQuery(
-      belowWidth(props.below, props.belowUnit),
-    );
+  if (below) {
+    shouldHideForBelow = useMediaQuery(belowWidth(below, belowUnit));
   }
 
   const shouldHide = shouldHideForAbove || shouldHideForBelow;
 
   return (
     <div
+      {...other}
       className={clsx(
-        classes.root,
-        props?.classes?.root,
-        shouldHide && classes.hidden,
-        shouldHide && props?.classes?.hidden,
+        styles.root,
+        classes?.root,
+        shouldHide && styles.hidden,
+        shouldHide && classes?.hidden,
         props?.className,
       )}
       ref={forwardedRef}

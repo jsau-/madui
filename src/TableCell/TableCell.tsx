@@ -15,17 +15,18 @@ export const TableCell = React.forwardRef<
   props: TableCellProps,
   forwardedRef: React.Ref<HTMLTableDataCellElement>,
 ) {
-  const classes = useStyles();
+  const { align, classes, ...other } = props;
 
-  const align = props?.align || 'left';
+  const styles = useStyles();
 
   return (
     <td
+      {...other}
       className={clsx(
-        classes.root,
-        classes[align],
-        props?.classes?.root,
-        props?.classes?.[align],
+        styles.root,
+        styles[align || 'left'],
+        classes?.root,
+        classes?.[align || 'left'],
         props?.className,
       )}
       ref={forwardedRef}

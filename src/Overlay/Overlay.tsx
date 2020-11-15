@@ -13,13 +13,15 @@ export const Overlay = React.forwardRef<HTMLDivElement, OverlayProps>(
     props: OverlayProps,
     forwardedRef: React.Ref<HTMLDivElement>,
   ) {
-    const classes = useStyles();
+    const { classes, open, ...other } = props;
+
+    const styles = useStyles();
 
     return (
-      <Fade ref={forwardedRef} show={props.open}>
+      <Fade {...other} ref={forwardedRef} show={open}>
         <div
           aria-hidden
-          className={clsx(classes.root, props?.classes?.root, props?.className)}
+          className={clsx(styles.root, classes?.root, props?.className)}
         >
           {props.children}
         </div>

@@ -14,33 +14,32 @@ export const Page = React.forwardRef(function Page(
   props: PageProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
+  const { classes, footer, navbar, sidebar, ...other } = props;
+
   const pageContext = usePage();
-  const classes = useStyles();
+  const styles = useStyles();
 
   return (
     <div
-      className={clsx(classes.root, props?.classes?.root, props?.className)}
+      {...other}
+      className={clsx(styles.root, classes?.root, props?.className)}
       ref={forwardedRef}
     >
       {pageContext.navbar.isOpen && (
-        <div className={clsx(classes.navbar, props?.classes?.navbar)}>
-          {props.navbar}
-        </div>
+        <div className={clsx(styles.navbar, classes?.navbar)}>{navbar}</div>
       )}
-      <div className={clsx(classes.view, props?.classes?.view)}>
+      <div className={clsx(styles.view, classes?.view)}>
         {pageContext.sidebar.isOpen && (
-          <div className={clsx(classes.sidebar, props?.classes?.sidebar)}>
-            {props.sidebar}
+          <div className={clsx(styles.sidebar, classes?.sidebar)}>
+            {sidebar}
           </div>
         )}
-        <div className={clsx(classes.content, props?.classes?.content)}>
+        <div className={clsx(styles.content, classes?.content)}>
           {props.children}
         </div>
       </div>
       {pageContext.footer.isOpen && (
-        <div className={clsx(classes.footer, props?.classes?.footer)}>
-          {props.footer}
-        </div>
+        <div className={clsx(styles.footer, classes?.footer)}>{footer}</div>
       )}
     </div>
   );

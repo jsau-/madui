@@ -10,11 +10,14 @@ export const Table = React.forwardRef<HTMLTableElement>(function Table(
   props: TableProps,
   forwardedRef: React.Ref<HTMLTableElement>,
 ) {
-  const classes = useStyles();
+  const { classes, ...other } = props;
+
+  const styles = useStyles();
 
   return (
     <table
-      className={clsx(classes.root, props?.classes?.root, props?.className)}
+      {...other}
+      className={clsx(styles.root, classes?.root, props?.className)}
       ref={forwardedRef}
     >
       {props.children}

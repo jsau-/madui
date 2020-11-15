@@ -12,11 +12,14 @@ export const TableHead = React.forwardRef<HTMLTableSectionElement>(
     props: TableHeadProps,
     forwardedRef: React.Ref<HTMLTableSectionElement>,
   ) {
-    const classes = useStyles();
+    const { classes, ...other } = props;
+
+    const styles = useStyles();
 
     return (
       <thead
-        className={clsx(classes.root, props?.classes?.root, props?.className)}
+        {...other}
+        className={clsx(styles.root, classes?.root, props?.className)}
         ref={forwardedRef}
       >
         {props.children}

@@ -19,11 +19,12 @@ const textVariantToWrapper: TextVariantMap<TextWrappers> = {
   h6: 'h6',
 };
 
-export interface TextProps {
+export interface TextProps
+  extends React.HTMLAttributes<
+    HTMLParagraphElement & HTMLSpanElement & HTMLHeadingElement
+  > {
   bold?: boolean;
   classes?: Record<string, string>;
-  className?: string;
-  children?: React.ReactNode;
   italic?: boolean;
   variant?: TextVariant;
   wrapper?: TextWrappers;
@@ -35,34 +36,35 @@ export const Text = React.forwardRef(function Text(
     HTMLParagraphElement & HTMLSpanElement & HTMLHeadingElement
   >,
 ) {
-  const classes = useStyles();
+  const { bold, classes, italic, variant, wrapper, ...other } = props;
 
-  const variant = props.variant || 'body1';
+  const styles = useStyles();
 
-  const WrapperNode = props.wrapper || textVariantToWrapper[variant];
+  const WrapperNode = wrapper || textVariantToWrapper[variant || 'body1'];
 
-  let component = (
+  let children = props.children;
+
+  if (bold) {
+    children = <b>{children}</b>;
+  }
+
+  if (italic) {
+    children = <i>{children}</i>;
+  }
+
+  return (
     <WrapperNode
+      {...other}
       className={clsx(
-        classes.root,
-        classes[variant],
-        props?.classes?.root,
-        props?.classes?.[variant],
+        styles.root,
+        styles[variant || 'body1'],
+        classes?.root,
+        classes?.[variant || 'body1'],
         props?.className,
       )}
       ref={forwardedRef}
     >
-      {props.children}
+      {children}
     </WrapperNode>
   );
-
-  if (props.bold) {
-    component = <b>{component}</b>;
-  }
-
-  if (props.italic) {
-    component = <i>{component}</i>;
-  }
-
-  return component;
 });

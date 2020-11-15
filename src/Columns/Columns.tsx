@@ -4,17 +4,25 @@ import { useStyles } from './Columns.styles';
 
 export interface ColumnsProps extends React.HTMLAttributes<HTMLDivElement> {
   classes?: Record<string, string>;
-};
+}
 
-export const Columns = React.forwardRef<HTMLDivElement, ColumnsProps>(function Columns(props: ColumnsProps, forwardedRef: React.Ref<HTMLDivElement>) {
-  const classes = useStyles();
+export const Columns = React.forwardRef<HTMLDivElement, ColumnsProps>(
+  function Columns(
+    props: ColumnsProps,
+    forwardedRef: React.Ref<HTMLDivElement>,
+  ) {
+    const styles = useStyles();
 
-  return (
-    <div
-      className={clsx(classes.root, props?.classes?.root, props?.className)}
-      ref={forwardedRef}
-    >
-      {props.children}
-    </div>
-  );
-});
+    const { classes, ...other } = props;
+
+    return (
+      <div
+        {...other}
+        className={clsx(styles.root, classes?.root, props?.className)}
+        ref={forwardedRef}
+      >
+        {props.children}
+      </div>
+    );
+  },
+);

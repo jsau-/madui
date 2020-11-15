@@ -13,13 +13,15 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(function Card(
   props: CardProps,
   forwardedRef: React.Ref<HTMLDivElement>,
 ) {
-  const classes = useStyles();
-  const elevation = props.elevation || 'low';
+  const { classes, elevation, ...other } = props;
+
+  const styles = useStyles();
 
   return (
     <Paper
-      className={clsx(classes.root, props?.classes?.root, props?.className)}
-      elevation={elevation}
+      {...other}
+      className={clsx(styles.root, classes?.root, props?.className)}
+      elevation={elevation || 'low'}
       ref={forwardedRef}
     >
       {props.children}
