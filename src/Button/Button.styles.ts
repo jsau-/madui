@@ -52,7 +52,8 @@ export const useStyles = makeStyles(
       outline: 'none',
       padding: theme.spacing.unit,
       textTransform: 'capitalize',
-      transition: `background-color ${theme.transitions.durations.short}s ease, color ${theme.transitions.durations.short}s ease`,
+      transition: `background-color ${theme.transitions.durations.short}s ease, \
+color ${theme.transitions.durations.short}s ease`,
     },
     disabled: {
       opacity: theme.disabled.opacity,

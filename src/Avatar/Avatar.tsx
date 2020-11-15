@@ -21,7 +21,13 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
     return (
       <div
         {...other}
-        className={clsx(styles.root, styles[color], classes?.root, classes?.[color], props?.className)}
+        className={clsx(
+          styles.root,
+          styles[color],
+          classes?.root,
+          classes?.[color],
+          props?.className,
+        )}
         ref={forwardedRef}
       >
         {nameInitials}
