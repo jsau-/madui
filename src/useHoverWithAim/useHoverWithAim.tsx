@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useState } from 'react';
-import { Point2 } from 'src/types/Point2';
 import { AnchorPoint } from '../types/AnchorPoint';
+import { Point2 } from '../types/Point2';
 import { useMousePosition } from '../useMousePosition';
 import { useWindowSize } from '../useWindowSize';
 import { isPointWithinTriangle } from '../utils/isPointWithinTriangle';

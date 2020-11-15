@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { Text, TextProps } from '.';
-import { TextVariant } from 'src/types/TextVariant';
+import { TextVariant } from '../types/TextVariant';
 
 export default {
   title: 'Components/Text/Text',
