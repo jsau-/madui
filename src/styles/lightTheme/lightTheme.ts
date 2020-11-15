@@ -5,11 +5,11 @@ export const lightTheme: Theme = {
     radius: 16,
   },
   breakpoints: {
-    lg: 1024,
-    md: 800,
-    sm: 600,
-    xl: 1920,
     xs: 0,
+    sm: 600,
+    md: 800,
+    lg: 1024,
+    xl: 1920,
     xxl: 2560,
   },
   overrides: {},
@@ -40,10 +40,10 @@ export const lightTheme: Theme = {
     },
   },
   shadows: {
-    high: '0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)',
+    none: '0',
     low: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
     medium: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
-    none: '0',
+    high: '0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)',
   },
   spacing: {
     unit: 8,

@@ -15,16 +15,16 @@ export interface ColumnProps
 
 export const Column = React.forwardRef<HTMLDivElement, ColumnProps>(
   function Column(props: ColumnProps, forwardedRef: React.Ref<HTMLDivElement>) {
-    const { classes, lg, md, sm, xl, xs, xxl, ...other } = props;
+    const { classes, xs, sm, md, lg, xl, xxl, ...other } = props;
 
     const styles = useStyles();
 
     const matchesBreakpoint: Record<Breakpoint, boolean> = {
-      lg: useAboveBreakpoint('md'),
-      md: useAboveBreakpoint('sm'),
-      sm: useAboveBreakpoint('xs'),
-      xl: useAboveBreakpoint('lg'),
       xs: true,
+      sm: useAboveBreakpoint('xs'),
+      md: useAboveBreakpoint('sm'),
+      lg: useAboveBreakpoint('md'),
+      xl: useAboveBreakpoint('lg'),
       xxl: useAboveBreakpoint('xl'),
     };
 
