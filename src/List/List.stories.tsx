@@ -5,7 +5,7 @@ import { ListItem } from '../ListItem';
 import { Text } from '../Text';
 
 export default {
-  title: 'Components/Layout/List',
+  title: 'Components/Data/List',
   component: List,
 } as Meta;
 
