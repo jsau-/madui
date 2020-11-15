@@ -14,3 +14,10 @@ Default.args = {
   children: 'Hello!',
   onClick: () => console.log('Click!'),
 };
+
+export const Primary = Template.bind({});
+Primary.args = {
+  children: 'Hello!',
+  color: 'primary',
+  onClick: () => console.log('Click!'),
+};
