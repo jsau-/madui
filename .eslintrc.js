@@ -68,7 +68,6 @@ module.exports = {
       'single',
       { avoidEscape: true, allowTemplateLiterals: true },
     ],
-    'sort-keys': ['error', 'asc', { natural: true }],
     yoda: ['error', 'always'],
   },
   settings: {
