@@ -9,7 +9,14 @@ export default {
 
 const Template: Story<AvatarProps> = args => <Avatar {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Primary = Template.bind({});
+Primary.args = {
+  color: 'primary',
+  name: 'Foo Bar',
+};
+
+export const Grey = Template.bind({});
+Grey.args = {
+  color: 'grey',
   name: 'Foo Bar',
 };

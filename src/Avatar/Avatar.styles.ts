@@ -3,11 +3,17 @@ import { Theme } from '../types/Theme';
 
 export const useStyles = makeStyles(
   (theme: Theme) => ({
+    grey: {
+      backgroundColor: theme.palette.grey[500],
+      color: theme.palette.grey.contrastLight,
+    },
+    primary: {
+      backgroundColor: theme.palette.primary[500],
+      color: theme.palette.primary.contrastLight,
+    },
     root: {
       alignItems: 'center',
-      backgroundColor: theme.palette.primary[500],
       borderRadius: '100%',
-      color: theme.palette.primary.contrastLight,
       display: 'flex',
       fontFamily: theme.text.fontFamily,
       fontSize: theme.text.sizes.body1,
