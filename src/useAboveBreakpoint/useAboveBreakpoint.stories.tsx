@@ -21,7 +21,7 @@ const TestComponent = () => {
     <React.Fragment>
       {Object.keys(aboveBreakpoints).map(breakpoint => (
         <Text>
-          {`Is below ${breakpoint} | ${theme.breakpoints[breakpoint]}px? ${aboveBreakpoints[breakpoint as Breakpoint] ? 'Yes!' : 'No!'}`}
+          {`Is above ${breakpoint} | ${theme.breakpoints[breakpoint]}px? ${aboveBreakpoints[breakpoint as Breakpoint] ? 'Yes!' : 'No!'}`}
         </Text>
       ))}
     </React.Fragment>
