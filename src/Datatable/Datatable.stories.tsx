@@ -1,10 +1,10 @@
 import React from 'react';
 import { Check } from 'react-feather';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { Datatable, DatatableProps } from '.';
-import { Card } from '../../Card';
-import { Icon } from '../../Icon';
-import { DatatableCellData } from '../../types/DatatableCellData';
+import { Datatable, DatatableProps } from './Datatable';
+import { Card } from '../Card';
+import { Icon } from '../Icon';
+import { DatatableCellData } from '../types/DatatableCellData';
 
 export default {
   title: 'Components/Data/Datatable/Datatable',

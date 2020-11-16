@@ -1,12 +1,12 @@
 import React from 'react';
-import { DatatableRow } from '../DatatableRow';
-import { Table, TableProps } from '../../Table';
-import { TableBody } from '../../TableBody';
-import { TableHead } from '../../TableHead';
-import { TableHeadCell } from '../../TableHeadCell';
-import { TableRow } from '../../TableRow';
-import { DatatableColumns } from '../../types/DatatableColumns';
-import { DatatableColumnOptions } from '../../types/DatatableColumnOptions';
+import { DatatableRow } from './DatatableRow';
+import { Table, TableProps } from '../Table';
+import { TableBody } from '../TableBody';
+import { TableHead } from '../TableHead';
+import { TableHeadCell } from '../TableHeadCell';
+import { TableRow } from '../TableRow';
+import { DatatableColumns } from '../types/DatatableColumns';
+import { DatatableColumnOptions } from '../types/DatatableColumnOptions';
 
 export interface DatatableProps<T extends DatatableColumns> extends TableProps {
   columnOptions: DatatableColumnOptions<T>;
