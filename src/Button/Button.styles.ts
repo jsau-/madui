@@ -49,14 +49,17 @@ const makePaletteStyles = (palette: Palette) => ({
 export const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
+      alignItems: 'center',
       backgroundColor: 'transparent',
       borderColor: 'transparent',
       borderRadius: theme.border.radius,
       borderWidth: 1,
       borderStyle: 'solid',
+      display: 'flex',
       fontFamily: theme.text.fontFamily,
       fontSize: theme.text.sizes.body1,
       fontWeight: 600,
+      justifyContent: 'center',
       outline: 'none',
       padding: theme.spacing.unit,
       textTransform: 'uppercase',
