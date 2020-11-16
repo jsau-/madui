@@ -5,7 +5,11 @@ export const useStyles = makeStyles(
     button: {
       minWidth: 40,
     },
-    root: {},
+    root: {
+      alignItems: 'center',
+      display: 'flex',
+      justifyContent: 'center',
+    },
   }),
   'Pagination',
 );

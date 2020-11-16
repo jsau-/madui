@@ -9,6 +9,7 @@ const makePaletteStyles = (palette: Palette) => ({
 export const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
+      display: 'inline-block',
       height: 24,
       width: 24,
     },

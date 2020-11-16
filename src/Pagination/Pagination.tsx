@@ -1,7 +1,9 @@
 import clsx from 'clsx';
 import React from 'react';
+import { ChevronLeft, ChevronRight } from 'react-feather';
 import { useStyles } from './Pagination.styles';
 import { Button } from '../Button';
+import { Icon } from '../Icon';
 import { Color } from '../types/Color';
 import { clamp } from '../utils/clamp';
 
@@ -39,9 +41,17 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
 
     const adjacents = defaultAdjacents || 0;
     const color = defaultColor || 'primary';
-    const next = defaultNext || 'Next';
+    const next = defaultNext || (
+      <Icon>
+        <ChevronRight />
+      </Icon>
+    );
     const page = clamp(defaultPage || 0, 0, totalPages - 1);
-    const previous = defaultPrevious || 'Previous';
+    const previous = defaultPrevious || (
+      <Icon>
+        <ChevronLeft />
+      </Icon>
+    );
 
     let adjacentPageIndexes: number[] = [];
 
