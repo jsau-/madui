@@ -7,12 +7,14 @@ export interface SwitchProps extends React.HTMLAttributes<HTMLDivElement> {
   checked?: boolean;
   classes?: Record<string, string>;
   color?: Color;
+  inputProps?: React.HTMLAttributes<HTMLInputElement>;
+  inputRef?: React.Ref<HTMLInputElement>;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Switch = React.forwardRef<HTMLDivElement, SwitchProps>(
   function Switch(props: SwitchProps, forwardedRef: React.Ref<HTMLDivElement>) {
-    const { checked, classes, color: defaultColor, onChange, ...other } = props;
+    const { checked, classes, color: defaultColor, inputProps, inputRef, onChange, ...other } = props;
 
     const styles = useStyles();
 
@@ -27,6 +29,7 @@ export const Switch = React.forwardRef<HTMLDivElement, SwitchProps>(
         role="checkbox"
       >
         <input
+          {...inputProps}
           checked={checked || false}
           className={clsx({
             [styles.input]: true,
@@ -35,6 +38,7 @@ export const Switch = React.forwardRef<HTMLDivElement, SwitchProps>(
             [`${classes?.checked}`]: checked,
           })}
           onChange={onChange}
+          ref={inputRef}
           type="checkbox"
         />
         <div

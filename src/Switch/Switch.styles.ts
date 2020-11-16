@@ -9,7 +9,7 @@ const makePaletteStyles = (palette: Palette) => ({
       transform: 'translateX(10px)',
     },
     '&$track': {
-      backgroundColor: palette[200],
+      backgroundColor: palette[300],
     },
   },
 });
@@ -28,7 +28,7 @@ export const useStyles = makeStyles(
     root: {
       alignItems: 'center',
       boxSizing: 'border-box',
-      display: 'flex',
+      display: 'inline-flex',
       height: 40,
       justifyContent: 'center',
       overflow: 'hidden',
@@ -50,7 +50,7 @@ transform ${theme.transitions.durations.short}s ease`,
       zIndex: 1,
     },
     track: {
-      backgroundColor: theme.palette.grey[400],
+      backgroundColor: theme.palette.grey[300],
       borderRadius: theme.border.radius,
       height: 16,
       transition: `background-color ${theme.transitions.durations.short}s ease, \
