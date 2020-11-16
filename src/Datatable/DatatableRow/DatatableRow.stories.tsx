@@ -20,9 +20,11 @@ Default.args = {
   columnOptions: {
     foo: {},
     bar: {
+      align: 'right',
       hide: true,
     },
     baz: {
+      align: 'right',
       customRenderer: (data) => (
         <Icon color={data ? 'primary' : 'grey'}>
           <Check />

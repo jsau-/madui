@@ -3,6 +3,7 @@ import { DatatableColumns } from '../DatatableColumns';
 
 export type DatatableColumnOptions<T extends DatatableColumns> = {
   [P in keyof T]: {
+    align?: 'left' | 'center' | 'right';
     /*
      * NB: I'm pretty sure we _could_ be more explicit here and say
      * `(data: T[P]) => React.ReactNode` but I went down a rabbit-hole

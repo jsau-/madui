@@ -25,6 +25,7 @@ export const DatatableRow = React.forwardRef<
     if (!columnOptions[columnName]?.hide) {
       columnCells.push(
         <DatatableCell
+          align={columnOptions[columnName]?.align}
           customRenderer={columnOptions[columnName]?.customRenderer}
           data={data[columnName]}
           key={columnName}

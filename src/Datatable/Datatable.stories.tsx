@@ -26,9 +26,11 @@ const Template: Story<DatatableProps<{
 const columnOptions = {
   foo: {},
   bar: {
+    align: 'right',
     hide: true,
   },
   baz: {
+    align: 'right',
     customRenderer: (data: DatatableCellData) => (
       <Icon color={data ? 'primary' : 'grey'}>
         <Check />

@@ -29,7 +29,7 @@ export const Datatable = React.forwardRef<
           {Object.keys(columnOptions)
             .filter(columnName => !columnOptions[columnName]?.hide)
             .map(columnName => (
-              <TableHeadCell key={columnName}>{columnName}</TableHeadCell>
+              <TableHeadCell align={columnOptions[columnName]?.align} key={columnName}>{columnName}</TableHeadCell>
             ))}
         </TableRow>
       </TableHead>

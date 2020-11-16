@@ -10,7 +10,7 @@ export const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
       alignItems: 'center',
-      display: 'flex',
+      display: 'inline-flex',
       height: 24,
       justifyContent: 'center',
       width: 24,
