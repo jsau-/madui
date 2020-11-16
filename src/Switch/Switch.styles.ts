@@ -17,7 +17,11 @@ const makePaletteStyles = (palette: Palette) => ({
 export const useStyles = makeStyles(
   (theme: Theme) => ({
     checked: {},
+    disabled: {},
     input: {
+      '&$disabled': {
+        cursor: 'default',
+      },
       cursor: 'pointer',
       height: '100%',
       opacity: 0,
@@ -26,8 +30,12 @@ export const useStyles = makeStyles(
       zIndex: 2,
     },
     root: {
+      '&$disabled': {
+        opacity: 0.5,
+      },
       alignItems: 'center',
       boxSizing: 'border-box',
+      cursor: 'pointer',
       display: 'inline-flex',
       height: 40,
       justifyContent: 'center',
