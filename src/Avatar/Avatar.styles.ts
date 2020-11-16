@@ -1,10 +1,11 @@
+import { getContrastForPaletteShade } from '../styles/getContrastForPaletteShade';
 import { makeStyles } from '../styles/makeStyles';
 import { Palette } from '../types/Palette';
 import { Theme } from '../types/Theme';
 
 const makePaletteStyles = (palette: Palette) => ({
   backgroundColor: palette[500],
-  color: palette.contrastLight,
+  color: getContrastForPaletteShade(500, palette),
 });
 
 export const useStyles = makeStyles(

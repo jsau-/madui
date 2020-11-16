@@ -1,3 +1,4 @@
+import { getContrastForPaletteShade } from '../styles/getContrastForPaletteShade';
 import { makeStyles } from '../styles/makeStyles';
 import { Palette } from '../types/Palette';
 import { Theme } from '../types/Theme';
@@ -17,13 +18,13 @@ const makeOutlinedStyles = (palette: Palette) => ({
 
 const makeSolidStyles = (palette: Palette) => ({
   backgroundColor: palette[500],
-  color: palette.contrastLight,
+  color: getContrastForPaletteShade(500, palette),
   '&:hover&:not($disabled)': {
     backgroundColor: palette[700],
   },
   '&:active&:not($disabled)': {
     backgroundColor: palette[800],
-    color: palette[0],
+    color: getContrastForPaletteShade(0, palette),
   },
 });
 
@@ -55,6 +56,7 @@ export const useStyles = makeStyles(
       borderStyle: 'solid',
       fontFamily: theme.text.fontFamily,
       fontSize: theme.text.sizes.body1,
+      fontWeight: 600,
       outline: 'none',
       padding: theme.spacing.unit,
       textTransform: 'uppercase',

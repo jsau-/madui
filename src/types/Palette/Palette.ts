@@ -1,10 +1,8 @@
-type Contrast = 'light' | 'dark';
+import { Contrast } from '../Contrast';
+import { PaletteShade } from '../PaletteShade';
 
-type PaletteShade = 0 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
-type PaletteShadeMap<T> = { [shade in PaletteShade]: T };
-
-export interface Palette extends PaletteShadeMap<string> {
+export type Palette = { [shade in PaletteShade]: string } & {
   contrastLight: string;
   contrastDark: string;
   contrasts: Record<PaletteShade, Contrast>;
-}
+};
