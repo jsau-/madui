@@ -1,3 +1,4 @@
+import { Contrast } from '../../types/Contrast';
 import { PaletteShade } from '../../types/PaletteShade';
 import { Palette } from '../../types/Palette';
 
@@ -7,5 +8,10 @@ export const getContrastForPaletteShade = (
 ) => {
   const contrast = palette.contrasts[shade];
 
-  return 'dark' === contrast ? palette.contrastDark : palette.contrastLight;
+  const contrastMap: Record<Contrast, string> = {
+    light: palette.contrastLight,
+    dark: palette.contrastDark,
+  };
+
+  return contrastMap[contrast];
 };
