@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { Switch, SwitchProps } from '.';
 
-const TestComponent = (props) => {
-  const 
+const TestComponent = (props: SwitchProps) => {
+  const [checked, setChecked] = useState(false);
+  return <Switch {...props} checked={checked} onChange={event => setChecked(event.target.checked)} />;
 };
 
 export default {
@@ -11,16 +12,10 @@ export default {
   component: Switch,
 } as Meta;
 
-const Template: Story<SwitchProps> = args => <Switch {...args} />;
+const Template: Story<SwitchProps> = args => <TestComponent {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  color: 'primary',
-};
-
-export const PrimaryChecked = Template.bind({});
-PrimaryChecked.args = {
-  checked: true,
   color: 'primary',
 };
 
@@ -29,20 +24,8 @@ Grey.args = {
   color: 'grey',
 };
 
-export const GreyChecked = Template.bind({});
-GreyChecked.args = {
-  checked: true,
-  color: 'grey',
-};
-
 export const Error = Template.bind({});
 Error.args = {
-  color: 'error',
-};
-
-export const ErrorChecked = Template.bind({});
-ErrorChecked.args = {
-  checked: true,
   color: 'error',
 };
 
@@ -51,19 +34,7 @@ Warning.args = {
   color: 'warning',
 };
 
-export const WarningChecked = Template.bind({});
-WarningChecked.args = {
-  checked: true,
-  color: 'warning',
-};
-
 export const Success = Template.bind({});
 Success.args = {
-  color: 'success',
-};
-
-export const SuccessChecked = Template.bind({});
-SuccessChecked.args = {
-  checked: true,
   color: 'success',
 };

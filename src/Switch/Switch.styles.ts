@@ -17,6 +17,14 @@ const makePaletteStyles = (palette: Palette) => ({
 export const useStyles = makeStyles(
   (theme: Theme) => ({
     checked: {},
+    input: {
+      cursor: 'pointer',
+      height: '100%',
+      opacity: 0,
+      position: 'absolute',
+      width: '100%',
+      zIndex: 2,
+    },
     root: {
       alignItems: 'center',
       boxSizing: 'border-box',
