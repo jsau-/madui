@@ -6,7 +6,7 @@ import { DatatableColumns } from '../../types/DatatableColumns';
 import { DatatableCellData } from '../../types/DatatableCellData';
 import { DatatableColumnOptions } from '../../types/DatatableColumnOptions';
 
-export interface DatatableRowProps<T = DatatableColumns>
+export interface DatatableRowProps<T extends DatatableColumns>
   extends React.HTMLAttributes<HTMLTableRowElement> {
   classes?: Record<string, string>;
   columns: DatatableColumnOptions<T>;
@@ -16,7 +16,7 @@ export interface DatatableRowProps<T = DatatableColumns>
 export const DatatableRow = React.forwardRef<
   HTMLTableRowElement,
   DatatableRowProps<Record<string, DatatableCellData>>
->(function DatatableRow<T = DatatableColumns>(
+>(function DatatableRow<T extends DatatableColumns>(
   props: DatatableRowProps<T>,
   forwardedRef: React.Ref<HTMLTableRowElement>,
 ) {
@@ -31,17 +31,15 @@ export const DatatableRow = React.forwardRef<
    * Need to do some more work there.
    */
   for (const columnName in data) {
-    const cellData = (data[columnName] as unknown) as DatatableCellData;
-
-    const customRenderer = (columns[columnName]?.customRenderer as unknown) as (
-      data: DatatableCellData,
-    ) => React.ReactNode;
-
     if (!columns[columnName]?.hide) {
       columnCells.push(
         <DatatableCell
-          customRenderer={customRenderer}
-          data={cellData}
+          customRenderer={
+            (columns[columnName]?.customRenderer as unknown) as (
+              data: DatatableCellData,
+            ) => React.ReactNode
+          }
+          data={data[columnName]}
           key={columnName}
         />,
       );

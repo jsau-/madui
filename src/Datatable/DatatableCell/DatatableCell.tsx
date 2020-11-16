@@ -6,7 +6,7 @@ import { DatatableCellData } from '../../types/DatatableCellData';
 export interface DatatableCellProps<T extends DatatableCellData>
   extends React.HTMLAttributes<HTMLTableDataCellElement> {
   classes?: Record<string, string>;
-  customRenderer?: (data: DatatableCellData) => React.ReactNode;
+  customRenderer?: (data: T) => React.ReactNode;
   data: T;
   false?: React.ReactNode;
   true?: React.ReactNode;
