@@ -57,7 +57,7 @@ export const useStyles = makeStyles(
       fontSize: theme.text.sizes.body1,
       outline: 'none',
       padding: theme.spacing.unit,
-      textTransform: 'capitalize',
+      textTransform: 'uppercase',
       transition: `background-color ${theme.transitions.durations.short}s ease, \
 color ${theme.transitions.durations.short}s ease`,
     },
