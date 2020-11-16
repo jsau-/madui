@@ -7,23 +7,24 @@ export interface TableBodyProps
   classes?: Record<string, string>;
 }
 
-export const TableBody = React.forwardRef<HTMLTableSectionElement>(
-  function TableBody(
-    props: TableBodyProps,
-    forwardedRef: React.Ref<HTMLTableSectionElement>,
-  ) {
-    const { classes, ...other } = props;
+export const TableBody = React.forwardRef<
+  HTMLTableSectionElement,
+  TableBodyProps
+>(function TableBody(
+  props: TableBodyProps,
+  forwardedRef: React.Ref<HTMLTableSectionElement>,
+) {
+  const { classes, ...other } = props;
 
-    const styles = useStyles();
+  const styles = useStyles();
 
-    return (
-      <tbody
-        {...other}
-        className={clsx(styles.root, classes?.root, props?.className)}
-        ref={forwardedRef}
-      >
-        {props.children}
-      </tbody>
-    );
-  },
-);
+  return (
+    <tbody
+      {...other}
+      className={clsx(styles.root, classes?.root, props?.className)}
+      ref={forwardedRef}
+    >
+      {props.children}
+    </tbody>
+  );
+});

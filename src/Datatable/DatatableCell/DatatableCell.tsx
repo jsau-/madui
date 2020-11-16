@@ -1,11 +1,9 @@
-import clsx from 'clsx';
 import React from 'react';
-import { useStyles } from './DatatableCell.styles';
 import { DatatableCellData } from '../../types/DatatableCellData';
+import { TableCell, TableCellProps } from '../../TableCell';
 
 export interface DatatableCellProps<T extends DatatableCellData>
-  extends React.HTMLAttributes<HTMLTableDataCellElement> {
-  classes?: Record<string, string>;
+  extends TableCellProps {
   customRenderer?: (data: T) => React.ReactNode;
   data: T;
   false?: React.ReactNode;
@@ -20,15 +18,12 @@ export const DatatableCell = React.forwardRef<
   forwardedRef: React.Ref<HTMLTableDataCellElement>,
 ) {
   const {
-    classes,
     customRenderer,
     data,
     false: defaultFalse,
     true: defaultTrue,
     ...other
   } = props;
-
-  const styles = useStyles();
 
   let children: React.ReactNode = data;
 
@@ -50,12 +45,8 @@ export const DatatableCell = React.forwardRef<
   }
 
   return (
-    <td
-      {...other}
-      className={clsx(styles.root, classes?.root, props?.className)}
-      ref={forwardedRef}
-    >
+    <TableCell {...other} ref={forwardedRef}>
       {children}
-    </td>
+    </TableCell>
   );
 });

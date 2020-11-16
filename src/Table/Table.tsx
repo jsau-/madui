@@ -6,21 +6,20 @@ export interface TableProps extends React.HTMLAttributes<HTMLTableElement> {
   classes?: Record<string, string>;
 }
 
-export const Table = React.forwardRef<HTMLTableElement>(function Table(
-  props: TableProps,
-  forwardedRef: React.Ref<HTMLTableElement>,
-) {
-  const { classes, ...other } = props;
+export const Table = React.forwardRef<HTMLTableElement, TableProps>(
+  function Table(props: TableProps, forwardedRef: React.Ref<HTMLTableElement>) {
+    const { classes, ...other } = props;
 
-  const styles = useStyles();
+    const styles = useStyles();
 
-  return (
-    <table
-      {...other}
-      className={clsx(styles.root, classes?.root, props?.className)}
-      ref={forwardedRef}
-    >
-      {props.children}
-    </table>
-  );
-});
+    return (
+      <table
+        {...other}
+        className={clsx(styles.root, classes?.root, props?.className)}
+        ref={forwardedRef}
+      >
+        {props.children}
+      </table>
+    );
+  },
+);

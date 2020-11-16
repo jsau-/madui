@@ -1,38 +1,47 @@
-import clsx from 'clsx';
 import React from 'react';
-import { useStyles } from './Datatable.styles';
 import { DatatableRow } from '../DatatableRow';
+import { Table, TableProps } from '../../Table';
+import { TableBody } from '../../TableBody';
+import { TableHead } from '../../TableHead';
+import { TableHeadCell } from '../../TableHeadCell';
+import { TableRow } from '../../TableRow';
 import { DatatableColumns } from '../../types/DatatableColumns';
 import { DatatableColumnOptions } from '../../types/DatatableColumnOptions';
 
-export interface DatatableProps<T extends DatatableColumns> extends React.HTMLAttributes<HTMLTableElement> {
-  classes?: Record<string, string>;
+export interface DatatableProps<T extends DatatableColumns> extends TableProps {
   columnOptions: DatatableColumnOptions<T>;
   data: T[];
-};
+}
 
-export const Datatable = React.forwardRef<HTMLTableElement, DatatableProps<DatatableColumns>>(function Datatable<T extends DatatableColumns>(
+export const Datatable = React.forwardRef<
+  HTMLTableElement,
+  DatatableProps<DatatableColumns>
+>(function Datatable<T extends DatatableColumns>(
   props: DatatableProps<T>,
   forwardedRef: React.Ref<HTMLTableElement>,
 ) {
-  const { classes, columnOptions, data, ...other } = props;
-
-  const styles = useStyles();
+  const { columnOptions, data, ...other } = props;
 
   return (
-    <table
-      {...other}
-      className={clsx(styles.root, classes?.root, props?.className)}
-      ref={forwardedRef}
-    >
-      <tbody>
-        {data.map(rowData => (
+    <Table {...other} ref={forwardedRef}>
+      <TableHead>
+        <TableRow>
+          {Object.keys(columnOptions)
+            .filter(columnName => !columnOptions[columnName]?.hide)
+            .map(columnName => (
+              <TableHeadCell key={columnName}>{columnName}</TableHeadCell>
+            ))}
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {data.map((rowData, index) => (
           <DatatableRow
             columnOptions={columnOptions}
             data={rowData}
+            key={index}
           />
         ))}
-      </tbody>
-    </table>
-  )
+      </TableBody>
+    </Table>
+  );
 });

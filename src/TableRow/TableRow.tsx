@@ -7,21 +7,23 @@ export interface TableRowProps
   classes?: Record<string, string>;
 }
 
-export const TableRow = React.forwardRef<HTMLTableRowElement>(function TableRow(
-  props: TableRowProps,
-  forwardedRef: React.Ref<HTMLTableRowElement>,
-) {
-  const { classes, ...other } = props;
+export const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(
+  function TableRow(
+    props: TableRowProps,
+    forwardedRef: React.Ref<HTMLTableRowElement>,
+  ) {
+    const { classes, ...other } = props;
 
-  const styles = useStyles();
+    const styles = useStyles();
 
-  return (
-    <tr
-      {...other}
-      className={clsx(styles.root, classes?.root, props?.className)}
-      ref={forwardedRef}
-    >
-      {props.children}
-    </tr>
-  );
-});
+    return (
+      <tr
+        {...other}
+        className={clsx(styles.root, classes?.root, props?.className)}
+        ref={forwardedRef}
+      >
+        {props.children}
+      </tr>
+    );
+  },
+);

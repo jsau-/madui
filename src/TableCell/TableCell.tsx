@@ -4,7 +4,7 @@ import { useStyles } from './TableCell.styles';
 
 export interface TableCellProps
   extends React.HTMLAttributes<HTMLTableDataCellElement> {
-  align: 'center' | 'left' | 'right';
+  align?: 'center' | 'left' | 'right';
   classes?: Record<string, string>;
 }
 

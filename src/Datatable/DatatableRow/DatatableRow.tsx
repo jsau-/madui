@@ -1,13 +1,11 @@
-import clsx from 'clsx';
 import React from 'react';
-import { useStyles } from './DatatableRow.styles';
 import { DatatableCell } from '../DatatableCell';
+import { TableRow, TableRowProps } from '../../TableRow';
 import { DatatableColumns } from '../../types/DatatableColumns';
 import { DatatableColumnOptions } from '../../types/DatatableColumnOptions';
 
 export interface DatatableRowProps<T extends DatatableColumns>
-  extends React.HTMLAttributes<HTMLTableRowElement> {
-  classes?: Record<string, string>;
+  extends TableRowProps {
   columnOptions: DatatableColumnOptions<T>;
   data: T;
 }
@@ -19,9 +17,7 @@ export const DatatableRow = React.forwardRef<
   props: DatatableRowProps<T>,
   forwardedRef: React.Ref<HTMLTableRowElement>,
 ) {
-  const { classes, columnOptions, data, ...other } = props;
-
-  const styles = useStyles();
+  const { columnOptions, data, ...other } = props;
 
   const columnCells: React.ReactNode[] = [];
 
@@ -38,12 +34,8 @@ export const DatatableRow = React.forwardRef<
   }
 
   return (
-    <tr
-      {...other}
-      className={clsx(styles.root, classes?.root, props?.className)}
-      ref={forwardedRef}
-    >
+    <TableRow {...other} ref={forwardedRef}>
       {columnCells}
-    </tr>
+    </TableRow>
   );
 });
