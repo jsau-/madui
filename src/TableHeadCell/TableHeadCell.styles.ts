@@ -15,6 +15,7 @@ export const useStyles = makeStyles(
     root: {
       fontFamily: theme.text.fontFamily,
       fontSize: theme.text.sizes.body1,
+      outline: 'none',
       padding: 2 * theme.spacing.unit,
     },
   }),
