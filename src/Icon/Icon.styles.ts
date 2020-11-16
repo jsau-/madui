@@ -1,5 +1,5 @@
-import { Palette } from 'src/types/Palette';
 import { makeStyles } from '../styles/makeStyles';
+import { Palette } from '../types/Palette';
 import { Theme } from '../types/Theme';
 
 const makePaletteStyles = (palette: Palette) => ({
