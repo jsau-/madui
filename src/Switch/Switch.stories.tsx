@@ -4,7 +4,17 @@ import { Switch, SwitchProps } from '.';
 
 const TestComponent = (props: SwitchProps) => {
   const [checked, setChecked] = useState(false);
-  return <Switch {...props} checked={checked} onChange={event => setChecked(event.target.checked)} />;
+  return (
+    <Switch
+      {...props}
+      aria-label="My custom switch"
+      checked={checked}
+      inputProps={{
+        'aria-label': 'My custom switch',
+      }}
+      onChange={event => setChecked(event.target.checked)}
+    />
+  );
 };
 
 export default {
