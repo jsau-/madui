@@ -8,7 +8,7 @@ const TestComponent = (props: SwitchProps) => {
 };
 
 export default {
-  title: 'Components/Data/Switch',
+  title: 'Components/Form/Switch',
   component: Switch,
 } as Meta;
 
