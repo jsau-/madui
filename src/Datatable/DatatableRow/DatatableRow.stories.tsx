@@ -9,17 +9,15 @@ export default {
   component: DatatableRow,
 } as Meta;
 
-type TemplateColumnTypes = {
+const Template: Story<DatatableRowProps<{
   foo: string;
   bar: number;
   baz: boolean;
-};
-
-const Template: Story<DatatableRowProps<TemplateColumnTypes>> = args => <DatatableRow {...args} />;
+}>> = args => <DatatableRow {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  columns: {
+  columnOptions: {
     foo: {},
     bar: {
       hide: true,
