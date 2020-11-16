@@ -24,7 +24,7 @@ const makeSolidStyles = (palette: Palette) => ({
   },
   '&:active&:not($disabled)': {
     backgroundColor: palette[800],
-    color: getContrastForPaletteShade(0, palette),
+    color: getContrastForPaletteShade(800, palette),
   },
 });
 
