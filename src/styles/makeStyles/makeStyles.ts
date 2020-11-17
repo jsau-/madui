@@ -1,6 +1,5 @@
-import { createUseStyles, Styles } from 'react-jss';
+import { createUseStyles, Styles, Theming } from 'react-jss';
 import { theming } from '../../utils/theming';
-import { RecursivePartial } from '../../types/RecursivePartial';
 import { Theme } from '../../types/Theme';
 import { defaultsDeep } from 'lodash';
 
@@ -13,11 +12,11 @@ import { defaultsDeep } from 'lodash';
  * theme.
  * @returns Hook function for getting styles object.
  */
-export const makeStyles = <C extends string = string>(
-  styles: (theme: RecursivePartial<Theme> & Theme) => Styles<C>,
+export const makeStyles = <T extends Theme, C extends string = string>(
+  styles: (theme: T) => Styles<C>,
   component?: string,
 ) => {
-  const mergedStyles = (theme: RecursivePartial<Theme> & Theme): Styles<C> => {
+  const mergedStyles = (theme: T): Styles<C> => {
     let overrideStyles = {};
 
     if (component) {
@@ -29,5 +28,15 @@ export const makeStyles = <C extends string = string>(
     return defaultsDeep({}, overrideStyles, defaultStyles);
   };
 
-  return createUseStyles(mergedStyles, { theming });
+  /*
+   * `theming` has type Theming<RecursivePartial<Theme> & Theme>, due
+   * to us instantiating it in `utils/theming` with a default theme.
+   *
+   * Consumers of this library will obviously need to invoke this function
+   * with arbitrary themes of their own design. This is a dirty workaround to
+   * quiet TS down about how the types might not be compatible.
+   */
+  const castedTheming = (theming as unknown) as Theming<T>;
+
+  return createUseStyles(mergedStyles, { theming: castedTheming });
 };
