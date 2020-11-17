@@ -31,7 +31,7 @@ export const useStyles = makeStyles(
     },
     root: {
       '&$disabled': {
-        opacity: 0.5,
+        opacity: theme.disabled.opacity,
       },
       alignItems: 'center',
       boxSizing: 'border-box',
