@@ -15,6 +15,12 @@ const Template: Story<DatatableRowProps<{
   baz: boolean;
 }>> = args => <DatatableRow {...args} />;
 
+const CheckIcon = (data: boolean) => (
+  <Icon color={data ? 'primary' : 'grey'}>
+    <Check />
+  </Icon>
+);
+
 export const Default = Template.bind({});
 Default.args = {
   columnOptions: {
@@ -25,11 +31,7 @@ Default.args = {
     },
     baz: {
       align: 'right',
-      customRenderer: (data) => (
-        <Icon color={data ? 'primary' : 'grey'}>
-          <Check />
-        </Icon>
-      ),
+      customRenderer: CheckIcon,
     },
   },
   data: {

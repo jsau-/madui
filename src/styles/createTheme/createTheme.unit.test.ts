@@ -46,7 +46,9 @@ describe('createTheme', () => {
 
     const theme = createTheme(customTheme);
 
-    expect(theme.palette.primary.contrast).toBe(customTheme.palette.primary.contrast);
+    expect(theme.palette.primary.contrast).toBe(
+      customTheme.palette.primary.contrast,
+    );
     expect(theme.palette.primary.main).toBe(customTheme.palette.primary.main);
   });
 });

@@ -17,7 +17,7 @@ describe('<CardContent />', () => {
         className="custom_classname"
       >
         {testContent}
-      </CardContent>
+      </CardContent>,
     );
 
     const element = getByText(testContent);

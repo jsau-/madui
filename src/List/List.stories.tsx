@@ -15,9 +15,15 @@ export const Default = Template.bind({});
 Default.args = {
   children: (
     <React.Fragment>
-      <ListItem><Text>One</Text></ListItem>
-      <ListItem><Text>Two</Text></ListItem>
-      <ListItem><Text>Three</Text></ListItem>
+      <ListItem>
+        <Text>One</Text>
+      </ListItem>
+      <ListItem>
+        <Text>Two</Text>
+      </ListItem>
+      <ListItem>
+        <Text>Three</Text>
+      </ListItem>
     </React.Fragment>
   ),
 };

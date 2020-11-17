@@ -12,6 +12,14 @@ module.exports = {
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
   ],
+  overrides: [
+    {
+      "files": ['*.stories.tsx'],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',

@@ -21,7 +21,7 @@ describe('<ThemeProvider />', () => {
     const { getByText } = render(
       <ThemeProvider theme={exampleTheme}>
         <TestComponent />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(getByText(exampleTheme.foo)).toBeTruthy();

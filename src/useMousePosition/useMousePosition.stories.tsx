@@ -10,7 +10,7 @@ export default {
 const TestComponent: React.FunctionComponent = () => {
   const mousePosition = useMousePosition();
   return <Text>{JSON.stringify(mousePosition)}</Text>;
-}
+};
 
 const Template: Story = () => <TestComponent />;
 

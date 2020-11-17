@@ -7,7 +7,9 @@ export default {
   component: LinearProgress,
 } as Meta;
 
-const Template: Story<LinearProgressProps> = args => <LinearProgress {...args} />;
+const Template: Story<LinearProgressProps> = args => (
+  <LinearProgress {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

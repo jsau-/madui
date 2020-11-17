@@ -13,12 +13,7 @@ describe('<CardHeader />', () => {
     const left = 'left';
     const right = 'right';
 
-    const { getByText } = render(
-      <CardHeader
-        left={left}
-        right={right}
-      />
-    );
+    const { getByText } = render(<CardHeader left={left} right={right} />);
 
     expect(getByText(left)).toBeTruthy();
     expect(getByText(right)).toBeTruthy();
@@ -41,7 +36,7 @@ describe('<CardHeader />', () => {
         left={left}
         right={right}
         title={title}
-      />
+      />,
     );
 
     const rootElement = container.firstChild;

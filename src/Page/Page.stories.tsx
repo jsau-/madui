@@ -17,7 +17,7 @@ const ChildComponent = () => {
       <Button onClick={pageContext.footer.toggle}>Toggle footer</Button>
     </div>
   );
-}
+};
 
 export default {
   title: 'Components/Layout/Page',

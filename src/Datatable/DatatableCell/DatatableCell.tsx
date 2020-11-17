@@ -17,9 +17,9 @@ export interface DatatableCellProps<T extends DatatableCellData>
  *
  * TODO: Can we standardise this somehow?
  */
-export const DatatableCell = function DatatableCell<
-  T extends DatatableCellData
->(props: DatatableCellProps<T>) {
+export function DatatableCell<T extends DatatableCellData>(
+  props: DatatableCellProps<T>,
+) {
   const {
     customRenderer,
     data,
@@ -53,4 +53,4 @@ export const DatatableCell = function DatatableCell<
       {children}
     </TableCell>
   );
-};
+}

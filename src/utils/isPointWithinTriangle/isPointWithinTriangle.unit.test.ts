@@ -8,12 +8,9 @@ describe('isPointWithinTriangle', () => {
     const trPointTwo = { x: 100, y: 100 };
     const triPointThree = { x: 100, y: 0 };
 
-    expect(isPointWithinTriangle(
-      point,
-      triPointOne,
-      trPointTwo,
-      triPointThree,
-    )).toBe(true);
+    expect(
+      isPointWithinTriangle(point, triPointOne, trPointTwo, triPointThree),
+    ).toBe(true);
   });
 
   it('Handles negative coordinates', () => {
@@ -23,12 +20,9 @@ describe('isPointWithinTriangle', () => {
     const trPointTwo = { x: -100, y: -100 };
     const triPointThree = { x: -100, y: 0 };
 
-    expect(isPointWithinTriangle(
-      point,
-      triPointOne,
-      trPointTwo,
-      triPointThree,
-    )).toBe(true);
+    expect(
+      isPointWithinTriangle(point, triPointOne, trPointTwo, triPointThree),
+    ).toBe(true);
   });
 
   it('Handles points outside triangle', () => {
@@ -38,12 +32,9 @@ describe('isPointWithinTriangle', () => {
     const trPointTwo = { x: 1, y: 1 };
     const triPointThree = { x: 1, y: 0 };
 
-    expect(isPointWithinTriangle(
-      point,
-      triPointOne,
-      trPointTwo,
-      triPointThree,
-    )).toBe(false);
+    expect(
+      isPointWithinTriangle(point, triPointOne, trPointTwo, triPointThree),
+    ).toBe(false);
   });
 
   it('Excludes points on triangle edge', () => {
@@ -53,11 +44,8 @@ describe('isPointWithinTriangle', () => {
     const trPointTwo = { x: 1, y: 1 };
     const triPointThree = { x: 1, y: 0 };
 
-    expect(isPointWithinTriangle(
-      point,
-      triPointOne,
-      trPointTwo,
-      triPointThree,
-    )).toBe(false);
+    expect(
+      isPointWithinTriangle(point, triPointOne, trPointTwo, triPointThree),
+    ).toBe(false);
   });
 });

@@ -15,13 +15,15 @@ const TestComponent = () => {
     lg: useAboveBreakpoint('lg'),
     xl: useAboveBreakpoint('xl'),
     xxl: useAboveBreakpoint('xxl'),
-  }
+  };
 
   return (
     <React.Fragment>
       {Object.keys(aboveBreakpoints).map(breakpoint => (
-        <Text>
-          {`Is above ${breakpoint} | ${theme.breakpoints[breakpoint]}px? ${aboveBreakpoints[breakpoint as Breakpoint] ? 'Yes!' : 'No!'}`}
+        <Text key={breakpoint}>
+          {`Is above ${breakpoint} | ${theme.breakpoints[breakpoint]}px? ${
+            aboveBreakpoints[breakpoint as Breakpoint] ? 'Yes!' : 'No!'
+          }`}
         </Text>
       ))}
     </React.Fragment>

@@ -16,7 +16,9 @@ describe('<Overlay />', () => {
   });
 
   it('Renders nothing when not open', () => {
-    const { queryByText } = render(<Overlay open={false}>{testContent}</Overlay>);
+    const { queryByText } = render(
+      <Overlay open={false}>{testContent}</Overlay>,
+    );
     expect(queryByText(testContent)).toBeNull();
   });
 
@@ -28,7 +30,7 @@ describe('<Overlay />', () => {
         open
       >
         {testContent}
-      </Overlay>
+      </Overlay>,
     );
 
     const element = getByText(testContent);

@@ -15,13 +15,15 @@ const TestComponent = () => {
     lg: useBelowBreakpoint('lg'),
     xl: useBelowBreakpoint('xl'),
     xxl: useBelowBreakpoint('xxl'),
-  }
+  };
 
   return (
     <React.Fragment>
       {Object.keys(breakpointBelowMap).map(breakpoint => (
-        <Text>
-          {`Is below ${breakpoint} | ${theme.breakpoints[breakpoint]}px? ${breakpointBelowMap[breakpoint as Breakpoint] ? 'Yes!' : 'No!'}`}
+        <Text key={breakpoint}>
+          {`Is below ${breakpoint} | ${theme.breakpoints[breakpoint]}px? ${
+            breakpointBelowMap[breakpoint as Breakpoint] ? 'Yes!' : 'No!'
+          }`}
         </Text>
       ))}
     </React.Fragment>

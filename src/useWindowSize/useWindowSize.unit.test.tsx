@@ -10,8 +10,8 @@ const TestComponent = () => {
       <p data-testid="x">{windowSize.x}</p>
       <p data-testid="y">{windowSize.y}</p>
     </div>
-  )
-}
+  );
+};
 
 const cachedWindowWidth = window.innerWidth;
 const cachedWindowHeight = window.innerHeight;

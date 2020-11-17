@@ -9,11 +9,43 @@ const TestComponent = () => {
   const isHoveringWithAim = useHoverWithAim(refSource, refTarget);
 
   return (
-    <div style={{ background: isHoveringWithAim ? 'green': 'transparent', transition: 'all 0.5s ease', position: 'relative', width: '100vw', height: '100vh' }}>
-      <div id="source" ref={refSource} style={{ background: 'red', transition: 'all 0.5s ease', position: 'absolute', top: 0, height: 50, left: 300, width: 50 }} />
-      <div id="target" ref={refTarget} style={{ background: 'orange', transition: 'all 0.5s ease', position: 'absolute', top: 50, height: 250, width: 150, left: isHoveringWithAim ?  200 : 400 }} />
+    <div
+      style={{
+        background: isHoveringWithAim ? 'green' : 'transparent',
+        transition: 'all 0.5s ease',
+        position: 'relative',
+        width: '100vw',
+        height: '100vh',
+      }}
+    >
+      <div
+        id="source"
+        ref={refSource}
+        style={{
+          background: 'red',
+          transition: 'all 0.5s ease',
+          position: 'absolute',
+          top: 0,
+          height: 50,
+          left: 300,
+          width: 50,
+        }}
+      />
+      <div
+        id="target"
+        ref={refTarget}
+        style={{
+          background: 'orange',
+          transition: 'all 0.5s ease',
+          position: 'absolute',
+          top: 50,
+          height: 250,
+          width: 150,
+          left: isHoveringWithAim ? 200 : 400,
+        }}
+      />
     </div>
-  )
+  );
 };
 
 export default {

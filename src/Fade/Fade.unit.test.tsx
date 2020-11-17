@@ -16,9 +16,7 @@ describe('<Fade />', () => {
   });
 
   it('Renders nothing when not visible', () => {
-    const { queryByText } = render(
-      <Fade show={false}>{testContent}</Fade>
-    );
+    const { queryByText } = render(<Fade show={false}>{testContent}</Fade>);
 
     expect(queryByText(testContent)).toBeNull();
   });
@@ -34,7 +32,7 @@ describe('<Fade />', () => {
         show
       >
         {testContent}
-      </Fade>
+      </Fade>,
     );
 
     const element = getByText(testContent);

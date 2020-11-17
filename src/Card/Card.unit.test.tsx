@@ -18,12 +18,9 @@ describe('<Card />', () => {
 
   it('Uses provided class names', () => {
     const { getByText } = render(
-      <Card
-        classes={{ root: 'custom_root' }}
-        className="custom_classname"
-      >
+      <Card classes={{ root: 'custom_root' }} className="custom_classname">
         {testContent}
-      </Card>
+      </Card>,
     );
     const element = getByText(testContent);
     expect(element.classList.contains('custom_root')).toBe(true);

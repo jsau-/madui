@@ -18,8 +18,7 @@ const Template: Story<ColumnProps> = args => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
-};
+Default.args = {};
 
 export const Sm6 = Template.bind({});
 Sm6.args = {

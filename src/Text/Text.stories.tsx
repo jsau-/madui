@@ -8,12 +8,24 @@ export default {
   component: Text,
 } as Meta;
 
-const allVariants: TextVariant[] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'body1', 'body2', 'caption'];
+const allVariants: TextVariant[] = [
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'body1',
+  'body2',
+  'caption',
+];
 
 const AllTemplate: Story = () => (
   <React.Fragment>
-    {allVariants.map((variant) => (
-      <Text key={variant} variant={variant}>{variant}</Text>
+    {allVariants.map(variant => (
+      <Text key={variant} variant={variant}>
+        {variant}
+      </Text>
     ))}
   </React.Fragment>
 );

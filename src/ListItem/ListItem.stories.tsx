@@ -9,9 +9,13 @@ export default {
   component: ListItem,
 } as Meta;
 
-const Template: Story<ListItemProps> = args => <List><ListItem {...args} /></List>;
+const Template: Story<ListItemProps> = args => (
+  <List>
+    <ListItem {...args} />
+  </List>
+);
 
 export const Default = Template.bind({});
 Default.args = {
-  children: <Text>Hello, world!</Text>
+  children: <Text>Hello, world!</Text>,
 };

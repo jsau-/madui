@@ -12,7 +12,9 @@ describe('betweenWidth', () => {
 
     const mediaQuery = betweenWidth(min, max);
 
-    expect(mediaQuery).toBe(`@media (min-width: ${min}px) and (max-width: ${max}px)`);
+    expect(mediaQuery).toBe(
+      `@media (min-width: ${min}px) and (max-width: ${max}px)`,
+    );
   });
 
   it('Uses provided display unit', () => {
@@ -22,6 +24,8 @@ describe('betweenWidth', () => {
 
     const mediaQuery = betweenWidth(min, max, unit);
 
-    expect(mediaQuery).toBe(`@media (min-width: ${min}${unit}) and (max-width: ${max}${unit})`);
+    expect(mediaQuery).toBe(
+      `@media (min-width: ${min}${unit}) and (max-width: ${max}${unit})`,
+    );
   });
 });

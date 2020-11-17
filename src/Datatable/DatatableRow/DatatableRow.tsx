@@ -17,7 +17,7 @@ export interface DatatableRowProps<T extends DatatableColumns>
  *
  * TODO: Can we standardise this somehow?
  */
-export const DatatableRow = function DatatableRow<T extends DatatableColumns>(
+export function DatatableRow<T extends DatatableColumns>(
   props: DatatableRowProps<T>,
 ) {
   const { columnOptions, data, innerRef, ...other } = props;
@@ -42,4 +42,4 @@ export const DatatableRow = function DatatableRow<T extends DatatableColumns>(
       {columnCells}
     </TableRow>
   );
-};
+}

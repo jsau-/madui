@@ -2,9 +2,9 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { Card, CardProps } from '.';
 import { Button } from '../Button';
-import { CardActions} from '../CardActions';
-import { CardContent} from '../CardContent';
-import { CardHeader} from '../CardHeader';
+import { CardActions } from '../CardActions';
+import { CardContent } from '../CardContent';
+import { CardHeader } from '../CardHeader';
 import { Text } from '../Text';
 
 export default {
@@ -19,8 +19,12 @@ LowElevation.args = {
   children: (
     <React.Fragment>
       <CardHeader title="Low Elevation" />
-      <CardContent><Text>Hello, world!</Text></CardContent>
-      <CardActions><Button>Ok</Button></CardActions>
+      <CardContent>
+        <Text>Hello, world!</Text>
+      </CardContent>
+      <CardActions>
+        <Button>Ok</Button>
+      </CardActions>
     </React.Fragment>
   ),
   elevation: 'low',
@@ -31,8 +35,12 @@ MediumElevation.args = {
   children: (
     <React.Fragment>
       <CardHeader title="Medium Elevation" />
-      <CardContent><Text>Hello, world!</Text></CardContent>
-      <CardActions><Button>Ok</Button></CardActions>
+      <CardContent>
+        <Text>Hello, world!</Text>
+      </CardContent>
+      <CardActions>
+        <Button>Ok</Button>
+      </CardActions>
     </React.Fragment>
   ),
   elevation: 'medium',
@@ -43,8 +51,12 @@ HighElevation.args = {
   children: (
     <React.Fragment>
       <CardHeader title="High Elevation" />
-      <CardContent><Text>Hello, world!</Text></CardContent>
-      <CardActions><Button>Ok</Button></CardActions>
+      <CardContent>
+        <Text>Hello, world!</Text>
+      </CardContent>
+      <CardActions>
+        <Button>Ok</Button>
+      </CardActions>
     </React.Fragment>
   ),
   elevation: 'high',

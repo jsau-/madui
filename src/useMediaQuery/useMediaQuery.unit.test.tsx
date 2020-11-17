@@ -4,27 +4,31 @@ import { render } from '../utils/testingLibary';
 
 const windowMatchMedia = window.matchMedia;
 
-const createMockMatchMedia = (shouldPass: boolean) => jest.fn().mockImplementation(query => ({
-  matches: shouldPass,
-  media: query,
-  onchange: null,
-  addListener: jest.fn(),
-  removeListener: jest.fn(),
-  addEventListener: jest.fn(),
-  removeEventListener: jest.fn(),
-  dispatchEvent: jest.fn(),
-}));
+const createMockMatchMedia = (shouldPass: boolean) =>
+  jest.fn().mockImplementation(query => ({
+    matches: shouldPass,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  }));
 
 describe('useMediaQuery', () => {
   beforeEach(() => {
-    // NB: Need to explicitly cast window to any to allow overwriting
-    // properties that _should_ be defined
+    /*
+     * NB: Need to explicitly cast window to any to allow overwriting
+     * properties that _should_ be defined
+     */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).matchMedia = undefined;
   });
 
   afterEach(() => {
     window.matchMedia = windowMatchMedia;
-  })
+  });
 
   it('Returns false for no match media function', () => {
     expect(typeof window.matchMedia).toBe('undefined');
@@ -32,7 +36,7 @@ describe('useMediaQuery', () => {
     const Test = () => {
       const matchesMediaQuery = useMediaQuery('@media (min-width: 0px)');
       return <p>{`Matches: ${matchesMediaQuery}`}</p>;
-    }
+    };
 
     const { getByText } = render(<Test />);
 
@@ -45,7 +49,7 @@ describe('useMediaQuery', () => {
     const Test = () => {
       const matchesMediaQuery = useMediaQuery('@media (min-width: 0px)');
       return <p>{`Matches: ${matchesMediaQuery}`}</p>;
-    }
+    };
 
     const { getByText } = render(<Test />);
 
@@ -59,7 +63,7 @@ describe('useMediaQuery', () => {
     const Test = () => {
       const matchesMediaQuery = useMediaQuery('@media (min-width: 0px)');
       return <p>{`Matches: ${matchesMediaQuery}`}</p>;
-    }
+    };
 
     const { getByText } = render(<Test />);
 
@@ -78,7 +82,7 @@ describe('useMediaQuery', () => {
       );
 
       return <p>{`Matches: ${matchesMediaQuery}`}</p>;
-    }
+    };
 
     const { getByText } = render(<Test />);
 
@@ -98,7 +102,7 @@ describe('useMediaQuery', () => {
       );
 
       return <p>{`Matches: ${matchesMediaQuery}`}</p>;
-    }
+    };
 
     const { getByText } = render(<Test />);
 

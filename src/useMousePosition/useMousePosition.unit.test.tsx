@@ -10,8 +10,8 @@ const TestComponent = () => {
       <p data-testid="x">{mousePosition.x}</p>
       <p data-testid="y">{mousePosition.y}</p>
     </div>
-  )
-}
+  );
+};
 
 describe('useMousePosition', () => {
   it('Gets default mouse position', () => {

@@ -4,7 +4,6 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import { Datatable, DatatableProps } from './Datatable';
 import { Card } from '../Card';
 import { Icon } from '../Icon';
-import { DatatableCellData } from '../types/DatatableCellData';
 
 export default {
   title: 'Components/Data/Datatable/Datatable',
@@ -15,7 +14,17 @@ const CardTemplate: Story<DatatableProps<{
   foo: string;
   bar: number;
   baz: boolean;
-}>> = args => <Card><Datatable {...args} /></Card>;
+}>> = args => (
+  <Card>
+    <Datatable {...args} />
+  </Card>
+);
+
+const CheckIcon = (data: boolean) => (
+  <Icon color={data ? 'primary' : 'grey'}>
+    <Check />
+  </Icon>
+);
 
 const Template: Story<DatatableProps<{
   foo: string;
@@ -33,11 +42,7 @@ Default.args = {
     },
     baz: {
       align: 'right',
-      customRenderer: (data: DatatableCellData) => (
-        <Icon color={data ? 'primary' : 'grey'}>
-          <Check />
-        </Icon>
-      ),
+      customRenderer: CheckIcon,
     },
   },
   data: [
@@ -64,11 +69,7 @@ CardDatatable.args = {
     },
     baz: {
       align: 'right',
-      customRenderer: (data: DatatableCellData) => (
-        <Icon color={data ? 'primary' : 'grey'}>
-          <Check />
-        </Icon>
-      ),
+      customRenderer: CheckIcon,
     },
   },
   data: [

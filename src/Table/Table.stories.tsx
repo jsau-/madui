@@ -13,7 +13,11 @@ export default {
   component: Table,
 } as Meta;
 
-const CardTemplate: Story<TableProps> = args => <Card><Table {...args} /></Card>;
+const CardTemplate: Story<TableProps> = args => (
+  <Card>
+    <Table {...args} />
+  </Card>
+);
 const Template: Story<TableProps> = args => <Table {...args} />;
 
 const children = (
@@ -41,7 +45,7 @@ const children = (
         <TableCell align="right">bar three</TableCell>
         <TableCell align="right">baz three</TableCell>
       </TableRow>
-  </TableBody>
+    </TableBody>
   </React.Fragment>
 );
 

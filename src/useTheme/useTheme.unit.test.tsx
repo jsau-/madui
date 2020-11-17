@@ -14,14 +14,14 @@ const exampleTheme: ExampleTheme = createTheme({
 const TestComponent = () => {
   const theme = useTheme();
   return <p>{theme.foo}</p>;
-}
+};
 
 describe('useTheme', () => {
   it('Gets theme from ThemeProvider context', () => {
     const { getByText } = render(
       <ThemeProvider theme={exampleTheme}>
         <TestComponent />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(getByText(exampleTheme.foo)).toBeTruthy();

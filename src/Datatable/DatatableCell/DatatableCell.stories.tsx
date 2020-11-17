@@ -9,9 +9,15 @@ export default {
   component: DatatableCell,
 } as Meta;
 
-const StringTemplate: Story<DatatableCellProps<string>> = args => <DatatableCell {...args} />;
-const NumberTemplate: Story<DatatableCellProps<number>> = args => <DatatableCell {...args} />;
-const BooleanTemplate: Story<DatatableCellProps<boolean>> = args => <DatatableCell {...args} />;
+const StringTemplate: Story<DatatableCellProps<string>> = args => (
+  <DatatableCell {...args} />
+);
+const NumberTemplate: Story<DatatableCellProps<number>> = args => (
+  <DatatableCell {...args} />
+);
+const BooleanTemplate: Story<DatatableCellProps<boolean>> = args => (
+  <DatatableCell {...args} />
+);
 
 export const String = StringTemplate.bind({});
 String.args = {
@@ -19,7 +25,7 @@ String.args = {
 };
 export const StringWithCustomRenderer = StringTemplate.bind({});
 StringWithCustomRenderer.args = {
-  customRenderer: (data) => `Custom: ${data}`,
+  customRenderer: data => `Custom: ${data}`,
   data: 'Hello, world!',
 };
 
@@ -36,12 +42,20 @@ Boolean.args = {
 export const BooleanWithDefaults = BooleanTemplate.bind({});
 BooleanWithDefaults.args = {
   data: false,
-  false: <Icon><Check /></Icon>,
-  true: <Icon color="primary"><Check /></Icon>,
+  false: (
+    <Icon>
+      <Check />
+    </Icon>
+  ),
+  true: (
+    <Icon color="primary">
+      <Check />
+    </Icon>
+  ),
 };
 
 export const BooleanWithCustomRender = BooleanTemplate.bind({});
 BooleanWithCustomRender.args = {
-  customRenderer: (data) => data ? 'Wow, true!' : 'Shucks, false...',
+  customRenderer: data => (data ? 'Wow, true!' : 'Shucks, false...'),
   data: true,
 };
