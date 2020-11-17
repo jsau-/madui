@@ -18,6 +18,7 @@ export * from './Page';
 export * from './PageProvider';
 export * from './Pagination';
 export * from './Paper';
+export * from './Portal';
 export * from './Switch';
 export * from './Table';
 export * from './TableBody';
