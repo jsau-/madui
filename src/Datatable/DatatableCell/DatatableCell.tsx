@@ -7,20 +7,24 @@ export interface DatatableCellProps<T extends DatatableCellData>
   customRenderer?: (data: T) => React.ReactNode;
   data: T;
   false?: React.ReactNode;
+  innerRef?: React.Ref<HTMLTableCellElement>;
   true?: React.ReactNode;
 }
 
-export const DatatableCell = React.forwardRef<
-  HTMLTableDataCellElement,
-  DatatableCellProps<DatatableCellData>
->(function DatatableCell<T extends DatatableCellData>(
-  props: DatatableCellProps<T>,
-  forwardedRef: React.Ref<HTMLTableDataCellElement>,
-) {
+/*
+ * NB: To workaround Typescript not forwarding generics in higher order
+ * functions, we've had to resort to using normal FCs here...
+ *
+ * TODO: Can we standardise this somehow?
+ */
+export const DatatableCell = function DatatableCell<
+  T extends DatatableCellData
+>(props: DatatableCellProps<T>) {
   const {
     customRenderer,
     data,
     false: defaultFalse,
+    innerRef,
     true: defaultTrue,
     ...other
   } = props;
@@ -45,8 +49,8 @@ export const DatatableCell = React.forwardRef<
   }
 
   return (
-    <TableCell {...other} ref={forwardedRef}>
+    <TableCell {...other} ref={innerRef}>
       {children}
     </TableCell>
   );
-});
+};

@@ -23,43 +23,64 @@ const Template: Story<DatatableProps<{
   baz: boolean;
 }>> = args => <Datatable {...args} />;
 
-const columnOptions = {
-  foo: {},
-  bar: {
-    align: 'right',
-    hide: true,
-  },
-  baz: {
-    align: 'right',
-    customRenderer: (data: DatatableCellData) => (
-      <Icon color={data ? 'primary' : 'grey'}>
-        <Check />
-      </Icon>
-    ),
-  },
-};
-
-const data = [
-  {
-    foo: 'one',
-    bar: 2,
-    baz: true,
-  },
-  {
-    foo: 'three',
-    bar: 4,
-    baz: true,
-  },
-];
-
 export const Default = Template.bind({});
 Default.args = {
-  columnOptions,
-  data,
+  columnOptions: {
+    foo: {},
+    bar: {
+      align: 'right',
+      hide: true,
+    },
+    baz: {
+      align: 'right',
+      customRenderer: (data: DatatableCellData) => (
+        <Icon color={data ? 'primary' : 'grey'}>
+          <Check />
+        </Icon>
+      ),
+    },
+  },
+  data: [
+    {
+      foo: 'one',
+      bar: 2,
+      baz: true,
+    },
+    {
+      foo: 'three',
+      bar: 4,
+      baz: true,
+    },
+  ],
 };
 
 export const CardDatatable = CardTemplate.bind({});
 CardDatatable.args = {
-  columnOptions,
-  data,
+  columnOptions: {
+    foo: {},
+    bar: {
+      align: 'right',
+      hide: true,
+    },
+    baz: {
+      align: 'right',
+      customRenderer: (data: DatatableCellData) => (
+        <Icon color={data ? 'primary' : 'grey'}>
+          <Check />
+        </Icon>
+      ),
+    },
+  },
+  data: [
+    {
+      foo: 'one',
+      bar: 2,
+      baz: true,
+    },
+    {
+      foo: 'three',
+      bar: 4,
+      baz: true,
+    },
+  ],
 };

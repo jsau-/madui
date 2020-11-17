@@ -11,19 +11,22 @@ import { DatatableColumnOptions } from '../types/DatatableColumnOptions';
 export interface DatatableProps<T extends DatatableColumns> extends TableProps {
   columnOptions: DatatableColumnOptions<T>;
   data: T[];
+  innerRef?: React.Ref<HTMLTableElement>;
 }
 
-export const Datatable = React.forwardRef<
-  HTMLTableElement,
-  DatatableProps<DatatableColumns>
->(function Datatable<T extends DatatableColumns>(
+/*
+ * NB: To workaround Typescript not forwarding generics in higher order
+ * functions, we've had to resort to using normal FCs here...
+ *
+ * TODO: Can we standardise this somehow?
+ */
+export const Datatable = function Datatable<T extends DatatableColumns>(
   props: DatatableProps<T>,
-  forwardedRef: React.Ref<HTMLTableElement>,
 ) {
-  const { columnOptions, data, ...other } = props;
+  const { columnOptions, data, innerRef, ...other } = props;
 
   return (
-    <Table {...other} ref={forwardedRef}>
+    <Table {...other} ref={innerRef}>
       <TableHead>
         <TableRow>
           {Object.keys(columnOptions)
@@ -49,4 +52,4 @@ export const Datatable = React.forwardRef<
       </TableBody>
     </Table>
   );
-});
+};
