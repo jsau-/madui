@@ -49,6 +49,9 @@ const makePaletteStyles = (palette: Palette) => ({
 export const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
+      '&:active': {
+        transform: 'scale(1.02)',
+      },
       alignItems: 'center',
       backgroundColor: 'transparent',
       borderColor: 'transparent',
@@ -64,7 +67,8 @@ export const useStyles = makeStyles(
       padding: theme.spacing.unit,
       textTransform: 'uppercase',
       transition: `background-color ${theme.transitions.durations.short}s ease, \
-color ${theme.transitions.durations.short}s ease`,
+      color ${theme.transitions.durations.short}s ease, \
+      scale ${theme.transitions.durations.short}s ease`,
     },
     disabled: {
       opacity: theme.disabled.opacity,
