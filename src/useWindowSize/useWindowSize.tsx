@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Point2 } from '../types/Point2';
+import { isSSR } from '../utils/isSSR';
 
 /**
  * Gets the current window size.
@@ -10,17 +11,17 @@ export const useWindowSize = () => {
     y: 0,
   });
 
-  const hasWindow = 'undefined' !== typeof window;
+  const ssr = isSSR();
 
   const handleWindowResize = (): void => {
     setWindowSize({
-      x: hasWindow ? window.innerWidth : 0,
-      y: hasWindow ? window.innerHeight : 0,
+      x: ssr ? 0 : window.innerWidth,
+      y: ssr ? 0 : window.innerHeight,
     });
   };
 
   useEffect(() => {
-    if (hasWindow) {
+    if (!ssr) {
       window.addEventListener('resize', handleWindowResize);
 
       // Set initial size
@@ -28,11 +29,11 @@ export const useWindowSize = () => {
     }
 
     return (): void => {
-      if (hasWindow) {
+      if (!ssr) {
         window.removeEventListener('resize', handleWindowResize);
       }
     };
-  }, [hasWindow]);
+  }, [ssr]);
 
   return windowSize;
 };
