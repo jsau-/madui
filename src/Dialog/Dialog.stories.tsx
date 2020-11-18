@@ -1,5 +1,5 @@
 import faker from 'faker';
-import React from 'react';
+import React, { useRef } from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { Dialog, DialogProps } from '.';
 import { Button } from '../Button';
@@ -43,6 +43,37 @@ export default {
 
 const Template: Story<DialogProps> = args => <Dialog {...args} />;
 
+const CustomContainerTemplate: Story<DialogProps> = args => {
+  const container = useRef(null);
+
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'red',
+      }}
+    >
+      <div
+        ref={container}
+        style={{
+          position: 'absolute',
+          top: '10%',
+          left: '10%',
+          right: '10%',
+          bottom: '10%',
+          background: 'green',
+        }}
+      >
+        <Dialog {...args} container={container} />
+      </div>
+    </div>
+  );
+};
+
 export const Default = Template.bind({});
 Default.args = {};
 
@@ -53,8 +84,22 @@ Open.args = {
   open: true,
 };
 
+export const OpenCustomContainer = CustomContainerTemplate.bind({});
+OpenCustomContainer.args = {
+  children,
+  onClose: () => console.log('Close!'),
+  open: true,
+};
+
 export const Overflowing = Template.bind({});
 Overflowing.args = {
+  children: veryLongChildren,
+  onClose: () => console.log('Close!'),
+  open: true,
+};
+
+export const OverflowingCustomContainer = CustomContainerTemplate.bind({});
+OverflowingCustomContainer.args = {
   children: veryLongChildren,
   onClose: () => console.log('Close!'),
   open: true,

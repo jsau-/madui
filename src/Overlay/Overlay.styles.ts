@@ -10,7 +10,7 @@ export const useStyles = makeStyles(
       display: 'flex',
       justifyContent: 'center',
       left: 0,
-      position: 'fixed',
+      position: 'absolute',
       right: 0,
       top: 0,
     },

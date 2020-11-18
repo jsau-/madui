@@ -4,7 +4,7 @@ import { Theme } from '../types/Theme';
 export const useStyles = makeStyles(
   (theme: Theme) => ({
     backdrop: {
-      position: 'fixed',
+      position: 'absolute',
       top: 0,
       bottom: 0,
       left: 0,
@@ -13,7 +13,7 @@ export const useStyles = makeStyles(
       zIndex: -1,
     },
     root: {
-      position: 'fixed',
+      position: 'absolute',
       top: 0,
       bottom: 0,
       left: 0,
