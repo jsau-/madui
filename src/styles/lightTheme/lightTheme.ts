@@ -180,4 +180,7 @@ export const lightTheme: Theme = {
       long: 0.8,
     },
   },
+  zIndex: {
+    modal: 1000,
+  },
 };

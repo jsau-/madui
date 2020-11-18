@@ -55,4 +55,7 @@ export interface Theme extends ThemeRecord {
       long: number;
     };
   };
+  zIndex: {
+    modal: number;
+  };
 }
