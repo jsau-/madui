@@ -30,7 +30,7 @@ export const useStyles = makeStyles(
       body: {
         backgroundColor: theme.background,
         color: theme.palette.grey.contrastDark,
-        lineHeight: 1,
+        lineHeight: 1.4,
         height: '100%',
         width: '100%',
       },
