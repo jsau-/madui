@@ -4,12 +4,13 @@ A collection of React components to build simple or prototype sites.
 
 ### Theming
 
-To use the library, you must use `src/ThemeProvider` at the root of
-your application. eg.
+To use the library, you must use `src/ThemeProvider` and `src/CssReset` at the
+root of your application. eg.
 
 ```javascript
 const App = () => (
   <ThemeProvider theme={createTheme()}>
+    <CssReset />
     <MyContent />
   </ThemeProvider>
 );
