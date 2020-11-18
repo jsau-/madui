@@ -58,6 +58,7 @@ export const useStyles = makeStyles(
       borderRadius: theme.border.radius,
       borderWidth: 1,
       borderStyle: 'solid',
+      cursor: 'pointer',
       display: 'inline-flex',
       fontFamily: theme.text.fontFamily,
       fontSize: theme.text.sizes.body1,

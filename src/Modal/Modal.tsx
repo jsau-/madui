@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { useRef } from 'react';
+import React from 'react';
 import { useStyles } from './Modal.styles';
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
@@ -18,8 +18,6 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
 export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
   function Modal(props: ModalProps, forwardedRef: React.Ref<HTMLDivElement>) {
     const { backdrop, classes, container, onClose, open, ...other } = props;
-
-    const content = useRef(null);
 
     const styles = useStyles();
 
@@ -52,9 +50,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
             >
               {backdrop ? backdrop : <Overlay open />}
             </div>
-            <div className={styles.content} ref={content}>
-              {props.children}
-            </div>
+            {props.children}
           </div>
         )}
       </Portal>

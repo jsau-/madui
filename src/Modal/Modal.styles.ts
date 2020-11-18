@@ -12,15 +12,15 @@ export const useStyles = makeStyles(
       visibility: 'hidden',
       zIndex: -1,
     },
-    content: {
-      '&:focus': {
-        background: 'red',
-      },
-    },
     root: {
-      height: '100vh',
+      alignItems: 'center',
+      display: 'flex',
+      justifyContent: 'center',
       position: 'fixed',
-      width: '100vw',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
       visibility: 'hidden',
       zIndex: theme.zIndex.modal,
     },
