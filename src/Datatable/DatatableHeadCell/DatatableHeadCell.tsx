@@ -18,9 +18,7 @@ const getAlternatedSort = (
   return 'ascending';
 };
 
-interface DatatableHeadCellProps extends TableHeadCellProps {
-  allowSort?: boolean;
-  column: string;
+export interface DatatableHeadCellProps extends TableHeadCellProps {
   onChangeSort?: (sort: 'ascending' | 'descending') => void;
   sort?: 'ascending' | 'descending';
 }
@@ -32,7 +30,7 @@ export const DatatableHeadCell = React.forwardRef<
   props: DatatableHeadCellProps,
   forwardedRef: React.Ref<HTMLTableHeaderCellElement>,
 ) {
-  const { allowSort, column, onChangeSort, sort, ...other } = props;
+  const { onChangeSort, sort, ...other } = props;
 
   const styles = useStyles();
 
@@ -40,11 +38,11 @@ export const DatatableHeadCell = React.forwardRef<
     <TableHeadCell
       {...other}
       onClick={
-        allowSort ? () => onChangeSort?.(getAlternatedSort(sort)) : undefined
+        onChangeSort ? () => onChangeSort?.(getAlternatedSort(sort)) : undefined
       }
       ref={forwardedRef}
     >
-      {column}
+      {props.children}
       {'ascending' === sort && (
         <Icon className={styles.sorticon} height={16} width={16}>
           <ArrowDown />

@@ -30,6 +30,15 @@ export function Datatable<T extends DatatableColumns>(
 ) {
   const { columnOptions, data, innerRef, onChangeSort, sort, ...other } = props;
 
+  const makeColumnSortHandler = (columnName: string) => {
+    if (!columnOptions[columnName]?.sort) {
+      return undefined;
+    }
+
+    return (sort: 'ascending' | 'descending') =>
+      onChangeSort?.(columnName, sort);
+  };
+
   return (
     <Table {...other} ref={innerRef}>
       <TableHead>
@@ -39,12 +48,12 @@ export function Datatable<T extends DatatableColumns>(
             .map(columnName => (
               <DatatableHeadCell
                 align={columnOptions[columnName]?.align}
-                allowSort={columnOptions[columnName]?.sort}
-                column={columnName}
                 key={columnName}
-                onChangeSort={sort => onChangeSort?.(columnName, sort)}
+                onChangeSort={makeColumnSortHandler(columnName)}
                 sort={sort?.column === columnName ? sort?.direction : undefined}
-              />
+              >
+                {columnName}
+              </DatatableHeadCell>
             ))}
         </TableRow>
       </TableHead>
