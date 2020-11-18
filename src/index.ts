@@ -7,6 +7,7 @@ export * from './CardHeader';
 export * from './Chip';
 export * from './Column';
 export * from './Columns';
+export * from './CssReset';
 export * from './Datatable';
 export * from './Fade';
 export * from './Hide';

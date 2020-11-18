@@ -2,6 +2,7 @@ import '@storybook/addon-console';
 import React from 'react';
 import { createTheme } from '../src/styles/createTheme';
 import { lightTheme } from '../src/styles/lightTheme';
+import { CssReset } from '../src/CssReset';
 import { PageProvider } from '../src/PageProvider';
 import { ThemeProvider } from '../src/ThemeProvider';
 
@@ -29,6 +30,7 @@ const withThemeProvider = (Story, context) => {
   return (
     <ThemeProvider theme={theme}>
       <PageProvider>
+        <CssReset />
         <Story {...context} />
       </PageProvider>
     </ThemeProvider>
