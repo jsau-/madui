@@ -1,9 +1,9 @@
 import React from 'react';
+import { DatatableHeadCell } from './DatatableHeadCell';
 import { DatatableRow } from './DatatableRow';
 import { Table, TableProps } from '../Table';
 import { TableBody } from '../TableBody';
 import { TableHead } from '../TableHead';
-import { TableHeadCell } from '../TableHeadCell';
 import { TableRow } from '../TableRow';
 import { DatatableColumns } from '../types/DatatableColumns';
 import { DatatableColumnOptions } from '../types/DatatableColumnOptions';
@@ -12,6 +12,11 @@ export interface DatatableProps<T extends DatatableColumns> extends TableProps {
   columnOptions: DatatableColumnOptions<T>;
   data: T[];
   innerRef?: React.Ref<HTMLTableElement>;
+  onChangeSort?: (column: keyof T, sort: 'ascending' | 'descending') => void;
+  sort?: {
+    column: keyof T;
+    direction: 'ascending' | 'descending';
+  };
 }
 
 /*
@@ -23,7 +28,7 @@ export interface DatatableProps<T extends DatatableColumns> extends TableProps {
 export function Datatable<T extends DatatableColumns>(
   props: DatatableProps<T>,
 ) {
-  const { columnOptions, data, innerRef, ...other } = props;
+  const { columnOptions, data, innerRef, onChangeSort, sort, ...other } = props;
 
   return (
     <Table {...other} ref={innerRef}>
@@ -32,12 +37,14 @@ export function Datatable<T extends DatatableColumns>(
           {Object.keys(columnOptions)
             .filter(columnName => !columnOptions[columnName]?.hide)
             .map(columnName => (
-              <TableHeadCell
+              <DatatableHeadCell
                 align={columnOptions[columnName]?.align}
+                allowSort={columnOptions[columnName]?.sort}
+                column={columnName}
                 key={columnName}
-              >
-                {columnName}
-              </TableHeadCell>
+                onChangeSort={sort => onChangeSort?.(columnName, sort)}
+                sort={sort?.column === columnName ? sort?.direction : undefined}
+              />
             ))}
         </TableRow>
       </TableHead>

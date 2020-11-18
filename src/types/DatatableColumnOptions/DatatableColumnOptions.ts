@@ -5,5 +5,6 @@ export type DatatableColumnOptions<T extends DatatableColumns> = {
     align?: 'left' | 'center' | 'right';
     customRenderer?: (data: T[P]) => React.ReactNode;
     hide?: boolean;
+    sort?: boolean;
   };
 };

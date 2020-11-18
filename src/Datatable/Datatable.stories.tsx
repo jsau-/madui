@@ -35,7 +35,9 @@ const Template: Story<DatatableProps<{
 export const Default = Template.bind({});
 Default.args = {
   columnOptions: {
-    foo: {},
+    foo: {
+      sort: true,
+    },
     bar: {
       align: 'right',
       hide: true,
@@ -57,6 +59,11 @@ Default.args = {
       baz: true,
     },
   ],
+  onChangeSort: (column, sort) => console.log('Sorting by', column, sort),
+  sort: {
+    column: 'foo',
+    direction: 'ascending',
+  },
 };
 
 export const CardDatatable = CardTemplate.bind({});
