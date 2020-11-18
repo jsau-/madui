@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { PageContext } from '../PageContext';
+import { PageContext } from './PageContext';
 
 interface PageProviderProps {
   children?: React.ReactNode;
