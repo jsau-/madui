@@ -13,9 +13,6 @@ export const useStyles = makeStyles(
       zIndex: -1,
     },
     root: {
-      alignItems: 'center',
-      display: 'flex',
-      justifyContent: 'center',
       position: 'fixed',
       top: 0,
       bottom: 0,

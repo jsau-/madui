@@ -3,9 +3,17 @@ import { Theme } from '../types/Theme';
 
 export const useStyles = makeStyles(
   (theme: Theme) => ({
+    card: {
+      margin: theme.spacing.unit,
+    },
     root: {
-      boxSizing: 'border-box',
-      padding: theme.spacing.unit,
+      maxHeight: '100%',
+      overflowX: 'hidden',
+      overflowY: 'auto',
+      position: 'fixed',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
     },
     fullWidth: {
       maxWidth: '100%',

@@ -1,3 +1,4 @@
+import faker from 'faker';
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { Dialog, DialogProps } from '.';
@@ -23,6 +24,18 @@ const children = (
   </React.Fragment>
 );
 
+const veryLongChildren = (
+  <React.Fragment>
+    <CardHeader title="My title!" />
+    <CardContent>
+      <Text>{faker.lorem.paragraphs(50)}</Text>
+    </CardContent>
+    <CardActions>
+      <Button>Ok</Button>
+    </CardActions>
+  </React.Fragment>
+);
+
 export default {
   title: 'Components/Layout/Dialog',
   component: Dialog,
@@ -36,6 +49,13 @@ Default.args = {};
 export const Open = Template.bind({});
 Open.args = {
   children,
+  onClose: () => console.log('Close!'),
+  open: true,
+};
+
+export const Overflowing = Template.bind({});
+Overflowing.args = {
+  children: veryLongChildren,
   onClose: () => console.log('Close!'),
   open: true,
 };

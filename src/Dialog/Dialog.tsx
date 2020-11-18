@@ -41,7 +41,14 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>(
           className={clsx(styles.root, classes?.root)}
           ref={forwardedRef}
         >
-          <Card className={clsx(styles[maxWidth], classes?.[`${maxWidth}`])}>
+          <Card
+            className={clsx(
+              styles.card,
+              styles[maxWidth],
+              classes?.card,
+              classes?.[`${maxWidth}`],
+            )}
+          >
             {props.children}
           </Card>
         </div>
