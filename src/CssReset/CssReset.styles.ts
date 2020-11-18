@@ -1,6 +1,9 @@
 import { makeStyles } from '../styles/makeStyles';
 import { Theme } from '../types/Theme';
 
+/**
+ * @see https://meyerweb.com/eric/tools/css/reset/
+ */
 export const useStyles = makeStyles(
   (theme: Theme) => ({
     '@global': {
