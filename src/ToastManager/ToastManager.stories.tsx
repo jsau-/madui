@@ -3,15 +3,31 @@ import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { ToastManager, ToastManagerProps } from '.';
 import { Button } from '../Button';
+import { Toast } from '../Toast';
 import { ToastProvider } from '../ToastProvider';
 import { Switch } from '../Switch';
 import { useToast } from '../useToast';
 import { Color } from '../types/Color';
+import { Toast as ToastType } from '../types/Toast';
 
 export default {
   title: 'Components/Notifications/ToastManager',
   component: ToastManager,
 } as Meta;
+
+const createCustomToastComponent = (toast: ToastType): React.ReactNode => (
+  <Toast
+    color={toast.color}
+    disableDismissal={toast.disableDismissal}
+    disableProgress={toast.disableProgress}
+    icon={toast.icon}
+    lifetimeMs={toast.lifetimeMs}
+    key={toast.key}
+    onDismiss={() => {}}
+    title={`My custom ${toast.title}`}
+    subtitle={`My custom ${toast.subtitle}`}
+  />
+);
 
 const Children = () => {
   const toastContext = useToast();
@@ -49,7 +65,7 @@ const Children = () => {
   );
 };
 
-export const Template: Story<ToastManagerProps> = args => (
+const Template: Story<ToastManagerProps> = args => (
   <ToastProvider>
     <ToastManager {...args} />
     <Children />
@@ -57,6 +73,11 @@ export const Template: Story<ToastManagerProps> = args => (
 );
 
 export const Default = Template.bind({});
+
+export const CustomRender = Template.bind({});
+CustomRender.args = {
+  customRender: createCustomToastComponent,
+};
 
 export const BottomLeft = Template.bind({});
 BottomLeft.args = {
