@@ -31,6 +31,7 @@ export * from './Text';
 export * from './ThemeProvider';
 export * from './Toast';
 export * from './ToastManager';
+export * from './ToastProvider';
 export * from './useAboveBreakpoint';
 export * from './useBelowBreakpoint';
 export * from './useHoverWithAim';
