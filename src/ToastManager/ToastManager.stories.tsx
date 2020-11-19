@@ -13,7 +13,7 @@ const children = (
   <React.Fragment>
     <Toast title="One" subtitle="One" />
     <Toast title="Two" subtitle="Two" />
-    <Toast title={faker.lorem.paragraphs(10)} subtitle="Three" />
+    <Toast title={faker.lorem.paragraphs(3)} subtitle="Three" />
   </React.Fragment>
 );
 
