@@ -5,10 +5,13 @@ import { Toast } from '../Toast';
 import { useToast } from '../useToast';
 import { AnchorPoint } from '../types/AnchorPoint';
 
+const DEFAULT_MAX_TOASTS = 5;
+
 export interface ToastManagerProps
   extends React.HTMLAttributes<HTMLDivElement> {
   anchorPoint?: AnchorPoint;
   classes?: Record<string, string>;
+  max?: number;
 }
 
 export const ToastManager = React.forwardRef<HTMLDivElement, ToastManagerProps>(
@@ -16,12 +19,18 @@ export const ToastManager = React.forwardRef<HTMLDivElement, ToastManagerProps>(
     props: ToastManagerProps,
     forwardedRef: React.Ref<HTMLDivElement>,
   ) {
-    const { anchorPoint: defaultAnchorPoint, classes, ...other } = props;
+    const {
+      anchorPoint: defaultAnchorPoint,
+      classes,
+      max: defaultMax,
+      ...other
+    } = props;
 
     const styles = useStyles();
     const { remove, toasts } = useToast();
 
     const anchorPoint = defaultAnchorPoint || { x: 'right', y: 'top' };
+    const max = defaultMax || DEFAULT_MAX_TOASTS;
 
     return (
       <div
@@ -36,15 +45,15 @@ export const ToastManager = React.forwardRef<HTMLDivElement, ToastManagerProps>(
         )}
         ref={forwardedRef}
       >
-        {toasts.map(toast => (
+        {toasts.slice(0, max).map(toast => (
           <Toast
             color={toast.color}
+            disableDismissal={toast.disableDismissal}
+            disableProgress={toast.disableProgress}
             icon={toast.icon}
             lifetimeMs={toast.lifetimeMs}
             key={toast.key}
-            onDismiss={
-              toast.disableDismissal ? undefined : () => remove(toast.key)
-            }
+            onDismiss={() => remove(toast.key)}
             title={toast.title}
             subtitle={toast.subtitle}
           />

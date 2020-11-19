@@ -7,6 +7,10 @@ export type Toast = {
    */
   disableDismissal?: boolean;
   /**
+   * Don't show progress indicators.
+   */
+  disableProgress?: boolean;
+  /**
    * Custom icon to display for the toast.
    */
   icon?: React.ReactNode;

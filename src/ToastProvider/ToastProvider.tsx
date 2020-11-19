@@ -28,32 +28,6 @@ export function ToastProvider(props: ToastProviderProps) {
         key,
       },
     ]);
-
-    /*
-     * Hack: Because we're not actually using the state of the
-     * progress bar to tell us when it's reached the end of its
-     * animation, we're removing toasts before they've visibly
-     * finished.
-     *
-     * By fudging it here, we give ourselves enough time for the
-     * animation to finish.
-     *
-     * TODO: Progress bars should just accept a fixed time length,
-     * and tell us when they've finished. That way we'll be able to
-     * callback up to here and remove the toast once the presented
-     * animation actually finishes.
-     *
-     * @see `src/Toast/Toast.tsx`
-     */
-    let lifetimeMs = toast.lifetimeMs;
-
-    if (lifetimeMs !== undefined) {
-      lifetimeMs += 250;
-    }
-
-    if (toast.lifetimeMs) {
-      setTimeout(() => remove(key), lifetimeMs);
-    }
   };
 
   const success = (toast: Toast) => add({ ...toast, color: 'success' });

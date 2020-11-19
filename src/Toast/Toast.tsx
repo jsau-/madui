@@ -52,9 +52,11 @@ const getDefaultIconForColor = (color: Color) => {
 export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
   classes?: Record<string, string>;
   color?: Color;
+  disableDismissal?: boolean;
+  disableProgress?: boolean;
   icon?: React.ReactNode;
   lifetimeMs?: number;
-  onDismiss?: () => void;
+  onDismiss: () => void;
   title: string;
   subtitle?: string;
 }
@@ -64,6 +66,8 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
     const {
       classes,
       color: defaultColor,
+      disableDismissal,
+      disableProgress,
       icon: defaultIcon,
       lifetimeMs,
       onDismiss,
@@ -78,13 +82,21 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
      * callback up to here and remove the toast once the presented
      * animation actually finishes.
      *
-     * @see `src/ToastProvider/ToastProvider.tsx`
+     * Because of the delay for the animation, added a little leeway.
      */
-    const [lifetimeRemainingMs, setLifetimeRemainingMs] = useState(
-      () => lifetimeMs || null,
-    );
+    const [lifetimeRemainingMs, setLifetimeRemainingMs] = useState(() => {
+      if (!lifetimeMs) {
+        return null;
+      }
+
+      return lifetimeMs + 250;
+    });
 
     useEffect(() => {
+      if (null !== lifetimeRemainingMs && 0 > lifetimeRemainingMs) {
+        onDismiss();
+      }
+
       if (0 < (lifetimeRemainingMs || 0)) {
         setTimeout(() => {
           setLifetimeRemainingMs(
@@ -129,7 +141,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
               </Text>
             )}
           </div>
-          {onDismiss && (
+          {!disableDismissal && (
             <div className={clsx(styles.actions, classes?.actions)}>
               <Button aria-label="Dismiss notification" onClick={onDismiss}>
                 <Icon>
@@ -139,7 +151,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
             </div>
           )}
         </div>
-        {null !== lifetimeRemainingMs && (
+        {null !== lifetimeRemainingMs && !disableProgress && (
           <LinearProgress
             className={clsx(styles.progress, classes?.progress)}
             color={color}

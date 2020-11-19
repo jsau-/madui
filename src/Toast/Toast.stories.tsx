@@ -13,14 +13,20 @@ Default.args = {
   onDismiss: undefined,
 };
 
+export const DisabledDismissal: Story<ToastProps> = args => <Toast {...args} />;
+DisabledDismissal.args = {
+  disableDismissal: true,
+  title: 'My toast!',
+};
+
 export const WithSubtitle: Story<ToastProps> = args => <Toast {...args} />;
 WithSubtitle.args = {
   title: 'My toast!',
   subtitle: 'My subtitle.',
 };
 
-export const WithProgress: Story<ToastProps> = args => <Toast {...args} />;
-WithProgress.args = {
+export const WithLifetime: Story<ToastProps> = args => <Toast {...args} />;
+WithLifetime.args = {
   lifetimeMs: 2000,
   title: 'My toast!',
   subtitle: 'My subtitle.',
