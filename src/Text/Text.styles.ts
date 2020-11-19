@@ -72,6 +72,9 @@ export const useStyles = makeStyles(
     root: {
       fontFamily: theme.text.fontFamily,
     },
+    inheritColor: {
+      color: 'inherit',
+    },
   }),
   'Text',
 );

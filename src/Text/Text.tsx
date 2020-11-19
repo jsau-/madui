@@ -25,6 +25,7 @@ export interface TextProps
   > {
   bold?: boolean;
   classes?: Record<string, string>;
+  inheritColor?: boolean;
   inline?: boolean;
   italic?: boolean;
   variant?: TextVariant;
@@ -37,7 +38,16 @@ export const Text = React.forwardRef(function Text(
     HTMLParagraphElement & HTMLSpanElement & HTMLHeadingElement
   >,
 ) {
-  const { bold, classes, inline, italic, variant, wrapper, ...other } = props;
+  const {
+    bold,
+    classes,
+    inline,
+    inheritColor,
+    italic,
+    variant,
+    wrapper,
+    ...other
+  } = props;
 
   const styles = useStyles();
 
@@ -61,11 +71,13 @@ export const Text = React.forwardRef(function Text(
         styles[variant || 'body1'],
         {
           [styles.inline]: inline,
+          [styles.inheritColor]: inheritColor,
         },
         classes?.root,
         classes?.[variant || 'body1'],
         {
           [`${classes?.inline}`]: inline,
+          [`${classes?.inheritColor}`]: inheritColor,
         },
         props?.className,
       )}
