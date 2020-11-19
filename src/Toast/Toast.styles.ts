@@ -6,7 +6,6 @@ export const useStyles = makeStyles(
     root: {
       display: 'inline-flex',
       flexDirection: 'column',
-      maxWidth: 400,
     },
     actions: {
       flexGrow: 0,

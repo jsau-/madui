@@ -1,3 +1,4 @@
+import { belowWidth } from '../styles/breakpoint/belowWidth';
 import { makeStyles } from '../styles/makeStyles';
 import { Theme } from '../types/Theme';
 
@@ -5,8 +6,12 @@ export const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
       display: 'flex',
+      maxWidth: 400,
       position: 'fixed',
       zIndex: theme.zIndex.toast,
+      [belowWidth(theme.breakpoints.sm)]: {
+        maxWidth: 'unset',
+      },
     },
     top: {
       /*
@@ -31,10 +36,20 @@ export const useStyles = makeStyles(
       flexDirection: 'column-reverse',
     },
     left: {
+      alignItems: 'flex-start',
       left: 2 * theme.spacing.unit,
+      [belowWidth(theme.breakpoints.sm)]: {
+        alignItems: 'unset',
+        right: 2 * theme.spacing.unit,
+      },
     },
     right: {
+      alignItems: 'flex-end',
       right: 2 * theme.spacing.unit,
+      [belowWidth(theme.breakpoints.sm)]: {
+        alignItems: 'unset',
+        left: 2 * theme.spacing.unit,
+      },
     },
   }),
   'ToastManager',

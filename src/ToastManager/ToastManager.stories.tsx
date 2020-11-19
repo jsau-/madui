@@ -1,3 +1,4 @@
+import faker from 'faker';
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { ToastManager, ToastManagerProps } from '.';
@@ -12,7 +13,7 @@ const children = (
   <React.Fragment>
     <Toast title="One" subtitle="One" />
     <Toast title="Two" subtitle="Two" />
-    <Toast title="Three" subtitle="Three" />
+    <Toast title={faker.lorem.paragraphs(10)} subtitle="Three" />
   </React.Fragment>
 );
 
