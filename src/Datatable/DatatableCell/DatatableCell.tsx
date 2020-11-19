@@ -40,7 +40,7 @@ export function DatatableCell<T extends DatatableCellData>(
    * fallback to some sensible default. NB: We'll probably end up getting
    * these values from context going forward.
    */
-  if ('boolean' === typeof children) {
+  if (typeof children === 'boolean') {
     if (!children) {
       children = defaultFalse || 'False';
     } else {

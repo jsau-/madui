@@ -11,7 +11,7 @@ const getAlternatedSort = (
     return 'ascending';
   }
 
-  if ('ascending' === sort) {
+  if (sort === 'ascending') {
     return 'descending';
   }
 
@@ -43,12 +43,12 @@ export const DatatableHeadCell = React.forwardRef<
       ref={forwardedRef}
     >
       {props.children}
-      {'ascending' === sort && (
+      {sort === 'ascending' && (
         <Icon className={styles.sorticon}>
           <ArrowDown />
         </Icon>
       )}
-      {'descending' === sort && (
+      {sort === 'descending' && (
         <Icon className={styles.sorticon}>
           <ArrowUp />
         </Icon>

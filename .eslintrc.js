@@ -76,7 +76,7 @@ module.exports = {
       'single',
       { avoidEscape: true, allowTemplateLiterals: true },
     ],
-    yoda: ['error', 'always'],
+    yoda: ['error', 'never'],
   },
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],

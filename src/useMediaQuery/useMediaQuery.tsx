@@ -23,7 +23,7 @@ export const useMediaQuery = (
 
   let mediaQuery: string;
 
-  if ('function' === typeof query) {
+  if (typeof query === 'function') {
     const theme = useTheme();
     mediaQuery = query(theme);
   } else {

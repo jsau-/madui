@@ -15,7 +15,7 @@ export const belowWidth = (
 ) => {
   let queryWidth = width - 1;
 
-  if (!allowNegative && 0 > queryWidth) {
+  if (!allowNegative && queryWidth < 0) {
     queryWidth = 0;
   }
 

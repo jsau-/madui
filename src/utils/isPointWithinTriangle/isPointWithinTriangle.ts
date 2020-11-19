@@ -33,5 +33,5 @@ export const isPointWithinTriangle = (
 
   const gamma = 1.0 - alpha - beta;
 
-  return 0 < alpha && 0 < beta && 0 < gamma;
+  return alpha > 0 && beta > 0 && gamma > 0;
 };

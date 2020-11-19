@@ -82,7 +82,7 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
         <Button
           aria-label="Go to previous page"
           className={clsx(styles.button, classes?.button)}
-          disabled={0 === page}
+          disabled={page === 0}
           onClick={() => onChangePage(page - 1)}
         >
           {previous}

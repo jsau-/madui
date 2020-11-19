@@ -18,7 +18,7 @@ import { Color } from '../types/Color';
 const INTERVAL_UPDATE_PROGRESS_MS = 100;
 
 const getDefaultIconForColor = (color: Color) => {
-  if ('error' === color) {
+  if (color === 'error') {
     return (
       <Icon color="error">
         <AlertCircle />
@@ -26,7 +26,7 @@ const getDefaultIconForColor = (color: Color) => {
     );
   }
 
-  if ('warning' === color) {
+  if (color === 'warning') {
     return (
       <Icon color="warning">
         <AlertTriangle />
@@ -34,7 +34,7 @@ const getDefaultIconForColor = (color: Color) => {
     );
   }
 
-  if ('success' === color) {
+  if (color === 'success') {
     return (
       <Icon color="success">
         <CheckCircle />
@@ -93,11 +93,11 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
     });
 
     useEffect(() => {
-      if (null !== lifetimeRemainingMs && 0 > lifetimeRemainingMs) {
+      if (lifetimeRemainingMs !== null && lifetimeRemainingMs < 0) {
         onDismiss();
       }
 
-      if (0 < (lifetimeRemainingMs || 0)) {
+      if ((lifetimeRemainingMs || 0) > 0) {
         setTimeout(() => {
           setLifetimeRemainingMs(
             currentLifetimeRemainingMs =>
@@ -151,7 +151,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
             </div>
           )}
         </div>
-        {null !== lifetimeRemainingMs && !disableProgress && (
+        {lifetimeRemainingMs !== null && !disableProgress && (
           <LinearProgress
             className={clsx(styles.progress, classes?.progress)}
             color={color}

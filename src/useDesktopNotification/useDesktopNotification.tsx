@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 export const useDesktopNotification = () => {
   const [supported, setSupported] = useState('Notification' in window);
   const [permissionGranted, setPermissionGranted] = useState(
-    supported && 'granted' === Notification.permission,
+    supported && Notification.permission === 'granted',
   );
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export const useDesktopNotification = () => {
     const interval = setInterval(() => {
       const supported = 'Notification' in window;
       setSupported(supported);
-      setPermissionGranted(supported && 'granted' === Notification.permission);
+      setPermissionGranted(supported && Notification.permission === 'granted');
     }, 1000);
 
     return () => {
@@ -40,7 +40,7 @@ export const useDesktopNotification = () => {
     if (!permissionGranted) {
       Notification.requestPermission().then(newPermission => {
         // NB: Not using state here since it might not have updated!
-        if ('granted' === newPermission) {
+        if (newPermission === 'granted') {
           return new Notification(title, options);
         }
 
