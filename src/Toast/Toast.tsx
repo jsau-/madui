@@ -82,6 +82,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
         className={clsx(styles.root, classes?.root)}
         elevation="medium"
         ref={forwardedRef}
+        role="alert"
       >
         <div className={clsx(styles.content, classes?.content)}>
           {icon && (
@@ -105,7 +106,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
           </div>
           {onDismiss && (
             <div className={clsx(styles.actions, classes?.actions)}>
-              <Button onClick={onDismiss}>
+              <Button aria-label="Dismiss notification" onClick={onDismiss}>
                 <Icon>
                   <X />
                 </Icon>

@@ -4,7 +4,9 @@ import { Theme } from '../types/Theme';
 export const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
-      maxWidth: 200,
+      display: 'inline-flex',
+      flexDirection: 'column',
+      maxWidth: 400,
     },
     actions: {
       flexGrow: 0,
@@ -13,15 +15,16 @@ export const useStyles = makeStyles(
     },
     content: {
       alignItems: 'center',
-      display: 'flex',
-      padding: theme.spacing.unit,
+      display: 'inline-flex',
+      marginLeft: theme.spacing.unit,
+      marginRight: theme.spacing.unit,
     },
     icon: {
       alignItems: 'center',
       display: 'flex',
       flexGrow: 0,
       flexShrink: 0,
-      marginRight: 2 * theme.spacing.unit,
+      marginRight: theme.spacing.unit,
     },
     text: {
       display: 'flex',
@@ -29,6 +32,7 @@ export const useStyles = makeStyles(
       flexGrow: 1,
       flexShrink: 1,
       justifyContent: 'center',
+      padding: theme.spacing.unit,
     },
     title: {
       marginTop: theme.spacing.unit,
