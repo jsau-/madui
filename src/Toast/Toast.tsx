@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   AlertCircle,
   AlertTriangle,
@@ -14,6 +14,8 @@ import { Paper } from '../Paper';
 import { LinearProgress } from '../LinearProgress';
 import { Text } from '../Text';
 import { Color } from '../types/Color';
+
+const INTERVAL_UPDATE_PROGRESS_MS = 100;
 
 const getDefaultIconForColor = (color: Color) => {
   if ('error' === color) {
@@ -50,13 +52,8 @@ const getDefaultIconForColor = (color: Color) => {
 export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
   classes?: Record<string, string>;
   color?: Color;
-  /**
-   * Value between 0.0f and 1.0f representing how close the toast is to
-   * automatic dismissal, with 0.0f being the start of its lifetime, and 1.0f
-   * being the end.
-   */
-  expirationProgress?: number;
   icon?: React.ReactNode;
+  lifetimeMs?: number;
   onDismiss?: () => void;
   title: string;
   subtitle?: string;
@@ -67,13 +64,36 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
     const {
       classes,
       color: defaultColor,
-      expirationProgress,
       icon: defaultIcon,
+      lifetimeMs,
       onDismiss,
       title,
       subtitle,
       ...other
     } = props;
+
+    /*
+     * TODO: Progress bars should just accept a fixed time length,
+     * and tell us when they've finished. That way we'll be able to
+     * callback up to here and remove the toast once the presented
+     * animation actually finishes.
+     *
+     * @see `src/ToastProvider/ToastProvider.tsx`
+     */
+    const [lifetimeRemainingMs, setLifetimeRemainingMs] = useState(
+      () => lifetimeMs || null,
+    );
+
+    useEffect(() => {
+      if (0 < (lifetimeRemainingMs || 0)) {
+        setTimeout(() => {
+          setLifetimeRemainingMs(
+            currentLifetimeRemainingMs =>
+              (currentLifetimeRemainingMs || 0) - INTERVAL_UPDATE_PROGRESS_MS,
+          );
+        }, INTERVAL_UPDATE_PROGRESS_MS);
+      }
+    }, [lifetimeRemainingMs]);
 
     const styles = useStyles();
 
@@ -119,12 +139,12 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
             </div>
           )}
         </div>
-        {expirationProgress && (
+        {null !== lifetimeRemainingMs && (
           <LinearProgress
             className={clsx(styles.progress, classes?.progress)}
             color={color}
-            max={1.0}
-            value={1.0 - expirationProgress}
+            max={lifetimeMs}
+            value={lifetimeRemainingMs}
           />
         )}
       </Paper>

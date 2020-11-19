@@ -21,7 +21,7 @@ WithSubtitle.args = {
 
 export const WithProgress: Story<ToastProps> = args => <Toast {...args} />;
 WithProgress.args = {
-  expirationProgress: 0.5,
+  lifetimeMs: 2000,
   title: 'My toast!',
   subtitle: 'My subtitle.',
 };
@@ -29,7 +29,7 @@ WithProgress.args = {
 export const Error: Story<ToastProps> = args => <Toast {...args} />;
 Error.args = {
   color: 'error',
-  expirationProgress: 0.5,
+  lifetimeMs: 2000,
   title: 'My toast!',
   subtitle: 'My subtitle.',
 };
@@ -37,7 +37,7 @@ Error.args = {
 export const Warning: Story<ToastProps> = args => <Toast {...args} />;
 Warning.args = {
   color: 'warning',
-  expirationProgress: 0.5,
+  lifetimeMs: 2000,
   title: 'My toast!',
   subtitle: 'My subtitle.',
 };
@@ -45,7 +45,7 @@ Warning.args = {
 export const Success: Story<ToastProps> = args => <Toast {...args} />;
 Success.args = {
   color: 'success',
-  expirationProgress: 0.5,
+  lifetimeMs: 2000,
   title: 'My toast!',
   subtitle: 'My subtitle.',
 };
