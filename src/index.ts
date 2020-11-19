@@ -29,6 +29,7 @@ export * from './TableHeadCell';
 export * from './TableRow';
 export * from './Text';
 export * from './ThemeProvider';
+export * from './Toast';
 export * from './useAboveBreakpoint';
 export * from './useBelowBreakpoint';
 export * from './useHoverWithAim';
