@@ -50,6 +50,11 @@ const getDefaultIconForColor = (color: Color) => {
 export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
   classes?: Record<string, string>;
   color?: Color;
+  /**
+   * Value between 0.0f and 1.0f representing how close the toast is to
+   * automatic dismissal, with 0.0f being the start of its lifetime, and 1.0f
+   * being the end.
+   */
   expirationProgress?: number;
   icon?: React.ReactNode;
   onDismiss?: () => void;
@@ -119,7 +124,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
             className={clsx(styles.progress, classes?.progress)}
             color={color}
             max={1.0}
-            value={expirationProgress}
+            value={1.0 - expirationProgress}
           />
         )}
       </Paper>

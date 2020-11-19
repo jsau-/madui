@@ -182,5 +182,6 @@ export const lightTheme: Theme = {
   },
   zIndex: {
     modal: 1000,
+    toast: 1100,
   },
 };
