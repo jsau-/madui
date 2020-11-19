@@ -44,12 +44,12 @@ export const DatatableHeadCell = React.forwardRef<
     >
       {props.children}
       {'ascending' === sort && (
-        <Icon className={styles.sorticon} height={16} width={16}>
+        <Icon className={styles.sorticon}>
           <ArrowDown />
         </Icon>
       )}
       {'descending' === sort && (
-        <Icon className={styles.sorticon} height={16} width={16}>
+        <Icon className={styles.sorticon}>
           <ArrowUp />
         </Icon>
       )}

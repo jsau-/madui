@@ -16,6 +16,7 @@ export const useStyles = makeStyles(
     root: {
       backgroundColor: theme.background,
       borderRadius: theme.border.radius,
+      overflow: 'hidden',
     },
     square: {
       borderRadius: 0,

@@ -25,6 +25,7 @@ export interface TextProps
   > {
   bold?: boolean;
   classes?: Record<string, string>;
+  inline?: boolean;
   italic?: boolean;
   variant?: TextVariant;
   wrapper?: TextWrappers;
@@ -36,7 +37,7 @@ export const Text = React.forwardRef(function Text(
     HTMLParagraphElement & HTMLSpanElement & HTMLHeadingElement
   >,
 ) {
-  const { bold, classes, italic, variant, wrapper, ...other } = props;
+  const { bold, classes, inline, italic, variant, wrapper, ...other } = props;
 
   const styles = useStyles();
 
@@ -58,8 +59,14 @@ export const Text = React.forwardRef(function Text(
       className={clsx(
         styles.root,
         styles[variant || 'body1'],
+        {
+          [styles.inline]: inline,
+        },
         classes?.root,
         classes?.[variant || 'body1'],
+        {
+          [`${classes?.inline}`]: inline,
+        },
         props?.className,
       )}
       ref={forwardedRef}

@@ -21,14 +21,6 @@ Primary.args = {
   color: 'primary',
 };
 
-export const CustomSize = Template.bind({});
-CustomSize.args = {
-  children: <Calendar />,
-  color: 'primary',
-  height: 128,
-  width: 128,
-};
-
 export const Grey = Template.bind({});
 Grey.args = {
   children: <Calendar />,

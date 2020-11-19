@@ -9,11 +9,7 @@ const makePaletteStyles = (palette: Palette) => ({
 export const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
-      '& > *': {
-        height: '100%',
-        width: '100%',
-      },
-      display: 'inline-block',
+      display: 'inline-flex',
     },
     inherit: {
       color: 'inherit',

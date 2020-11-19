@@ -66,6 +66,9 @@ export const useStyles = makeStyles(
       marginBottom: 2 * theme.spacing.unit,
       marginTop: 2 * theme.spacing.unit,
     },
+    inline: {
+      display: 'inline',
+    },
     root: {
       fontFamily: theme.text.fontFamily,
     },

@@ -17,6 +17,7 @@ export const useStyles = makeStyles(
       fontSize: theme.text.sizes.body1,
       outline: 'none',
       padding: 2 * theme.spacing.unit,
+      verticalAlign: 'middle',
     },
   }),
   'TableHeadCell',

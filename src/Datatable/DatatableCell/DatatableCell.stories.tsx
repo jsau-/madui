@@ -43,12 +43,12 @@ export const BooleanWithDefaults = BooleanTemplate.bind({});
 BooleanWithDefaults.args = {
   data: false,
   false: (
-    <Icon>
+    <Icon height={24} width={24}>
       <Check />
     </Icon>
   ),
   true: (
-    <Icon color="primary">
+    <Icon color="primary" height={24} width={24}>
       <Check />
     </Icon>
   ),

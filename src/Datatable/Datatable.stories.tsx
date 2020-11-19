@@ -21,7 +21,7 @@ const CardTemplate: Story<DatatableProps<{
 );
 
 const CheckIcon = (data: boolean) => (
-  <Icon color={data ? 'primary' : 'grey'}>
+  <Icon color={data ? 'primary' : 'grey'} height={24} width={24}>
     <Check />
   </Icon>
 );

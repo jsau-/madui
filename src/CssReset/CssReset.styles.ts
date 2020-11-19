@@ -2,6 +2,9 @@ import { makeStyles } from '../styles/makeStyles';
 import { Theme } from '../types/Theme';
 
 /**
+ * NB: It doesn't seem like Storybook enjoys hot-reloading when these styles
+ * change, likely due to it being used in `.storybook/preview.js`.
+ *
  * @see https://meyerweb.com/eric/tools/css/reset/
  */
 export const useStyles = makeStyles(
@@ -46,6 +49,9 @@ export const useStyles = makeStyles(
       table: {
         borderCollapse: 'collapse',
         borderSpacing: 0,
+      },
+      svg: {
+        fontSize: '1em',
       },
     },
   }),
