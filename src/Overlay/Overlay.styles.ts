@@ -5,7 +5,7 @@ export const useStyles = makeStyles(
     root: {
       alignItems: 'center',
       animation: 'fadein 0.5s',
-      background: 'rgba(0,0,0,0.7)',
+      background: 'rgba(0,0,0,0.4)',
       bottom: 0,
       display: 'flex',
       justifyContent: 'center',

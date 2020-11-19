@@ -56,6 +56,7 @@ export interface Theme extends ThemeRecord {
     };
   };
   zIndex: {
+    drawer: number;
     modal: number;
     toast: number;
   };
