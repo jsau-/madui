@@ -46,7 +46,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           },
           props?.className,
         )}
-        disabled={disabled}
+        disabled={disabled || false}
         ref={forwardedRef}
       >
         {props.children}
