@@ -1,5 +1,9 @@
 # madui
 
+**NOTE: This project is by no means currently stable. Use
+parts of it at your own peril. Open-sourcing during
+prototyping for reference.**
+
 A collection of React components to build simple or prototype sites.
 
 ### Theming
